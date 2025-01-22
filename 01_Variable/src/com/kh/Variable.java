@@ -36,7 +36,7 @@ public class Variable {
 		int num = 10;
 		int num2 = 20;
 		
-		// 논리형 (boolean) : 논리값. 참, 거짓. true, false
+		// 논리형 (boolean) (1B) : 논리값. 참, 거짓. true, false
 		boolean isTrue = true;
 		boolean isFalse = false;
 		
@@ -66,7 +66,7 @@ public class Variable {
 		double dNum = 0; 
 		
 		// 문자형
-		// 3-1 문자형 : char
+		// 3-1 문자형 : char (2B)
 		char A = 'A';
 		char B = 'B';
 		System.out.println(A + B); // 131. 65 + 66
