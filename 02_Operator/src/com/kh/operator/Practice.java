@@ -121,7 +121,9 @@ public class Practice {
 		System.out.print("몸무게 입력(kg) : ");
 		double weight = Double.parseDouble(br.readLine());
 		
-		double BMI = weight / (height * height);
+		// 뭐가 효율이 더 좋을까?
+		double BMI = weight / Math.pow(height, 2);
+//		double BMI = weight / (height * height);
 		
 		System.out.println("BMI : " + BMI);
 		
