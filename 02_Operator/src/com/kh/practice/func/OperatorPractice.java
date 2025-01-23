@@ -14,6 +14,8 @@ public class OperatorPractice {
 
 		String result = n > 0 ? "양수다" : "양수가 아니다";
 		System.out.println(result);
+
+		br.close();
 	}
 	
 	public void practice2() throws NumberFormatException, IOException {
@@ -26,6 +28,8 @@ public class OperatorPractice {
 		
 		String result = n > 0 ? "양수다" : (n == 0 ? "0이다" : "음수다");
 		System.out.println(result);
+
+		br.close();
 	}
 	
 	public void practice3() throws NumberFormatException, IOException {
@@ -37,6 +41,9 @@ public class OperatorPractice {
 
 		String result = n % 2 == 0 ? "짝수다" : "홀수다";
 		System.out.println(result);
+		
+
+		br.close();
 	}
 	
 	public void practice4() throws NumberFormatException, IOException {
@@ -53,6 +60,9 @@ public class OperatorPractice {
 
 		System.out.println("1인당 사탕 개수 : " + numberOfCandy / numberOfPeople);
 		System.out.println("1인당 사탕 개수 : " + numberOfCandy % numberOfPeople);
+		
+
+		br.close();
 	}
 	
 	public void practice5() throws IOException {
@@ -83,6 +93,9 @@ public class OperatorPractice {
 							: (genderChar == 'F' || genderChar == 'f' ? "여학생" : "성별없음");
 		
 		System.out.printf("%d학년 %d반 %d번 %s %s의 성적은 %.2f이다.\n", grade, classNum, num, name, gender, score);
+		
+
+		br.close();
 	}
 	
 	public void practice6() throws NumberFormatException, IOException {
@@ -97,6 +110,9 @@ public class OperatorPractice {
 		String result = age <= 13 ? "어린이" : (age > 13 && age <= 19 ? "청소년" : "성인");
 		
 		System.out.println(result);
+		
+
+		br.close();
 		
 	}
 	
@@ -125,6 +141,8 @@ public class OperatorPractice {
 		System.out.println("합계 : " + totalScore);
 		System.out.println("평군 : " + average);
 		System.out.println(result);
+
+		br.close();
 	}
 	
 	public void practice8() throws IOException {
@@ -138,6 +156,8 @@ public class OperatorPractice {
 		
 		System.out.println(numArr[1].charAt(0) == '1' || numArr[1].charAt(0) == '3' ? "남자"
 								: (numArr[1].charAt(0) == '2' || numArr[1].charAt(0) == '4' ? "여자" : "알수없음"));
+
+		br.close();
 	}
 	
 	public void practice9() throws NumberFormatException, IOException {
@@ -159,6 +179,8 @@ public class OperatorPractice {
 			
 			System.out.println(num1 >= checkValue || num2 < checkValue);
 		}
+
+		br.close();
 	}
 	
 	public void practice10() throws NumberFormatException, IOException {
@@ -175,6 +197,8 @@ public class OperatorPractice {
 		int n3 = Integer.parseInt(br.readLine());
 		
 		System.out.println(n1 == n2 ? (n1 == n3 ? true : false) : false);
+
+		br.close();
 	}
 	
 	public void practice11() throws NumberFormatException, IOException {
@@ -202,5 +226,7 @@ public class OperatorPractice {
 
 		System.out.printf("C사원의 연봉/연봉+a : %d/%.13f\n", salaryC, totalSalaryC);
 		System.out.println(totalSalaryC >= 3000 ? "3000이상" : "3000미만");
+		
+		br.close();
 	}
 }
