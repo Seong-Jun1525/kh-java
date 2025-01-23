@@ -55,15 +55,25 @@ public class Triple {
 		System.out.println("아래와 같이 입력 시 연산 결과를 확인할 수 있습니다.");
 		System.out.println(("10 20 +"));
 		
+		// nextLine() 이외에는 공백을 기준으로 한다
+		// nextLine()은 '\n'을 기준으로 한다
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		char o = sc.next().charAt(0);
+//		char o = (char)System.in.read(); // <= 이 방법도 문자를 입력받을 수 있음 하지만 여기서는 사용 불가
+		
+		sc.nextLine();
 		
 		if(o == '+') {
 			System.out.println(a + b);
 		} else if(o == '-') {
 			System.out.println(a - b);
+		} else {
+			System.out.println("잘못입력했습니다.");
 		}
+		
+//		String result = ((o == '+') ? a + b : (o == '-' ? a - b : "잘못입력하였습니다.")) + "";
+//		System.out.printf("%d %c %d = %s\n", a, o, b, result);
 	}
 
 }

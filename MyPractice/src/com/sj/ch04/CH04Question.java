@@ -5,7 +5,9 @@ public class CH04Question {
 	public static void main(String[] args) {
 		// 연습문제 p.123
 //		q1();
-		q2();
+//		q2();
+//		q3();
+		q4();
 	}
 	
 	public static void q1() {
@@ -39,7 +41,41 @@ public class CH04Question {
 	
 	public static void q3() {
 		// 피라미드 찍기
-		
+		for(int i = 1; i <= 4; i++) {
+			// 공백
+			for(int j = 3; j >= i; j--) {
+				System.out.print(" ");
+			}
+			// 별 찍기
+			for(int j = 1; j < i * 2; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 	}
 
+	public static void q4() {
+		for(int i = 1; i <= 4; i++) {
+			// 공백
+			for(int j = 3; j >= i; j--) {
+				System.out.print(" ");
+			}
+			// 별 찍기
+			for(int j = 1; j < i * 2; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i = 3; i > 0; i--) {
+			// 공백
+			for(int j = 3; j >= i; j--) {
+				System.out.print(" ");
+			}
+			// 별 찍기
+			for(int j = 1; j < i * 2; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
 }
