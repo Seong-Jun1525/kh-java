@@ -1,0 +1,36 @@
+// 다음 코드에서 잘못된 부분을 찾아 수정
+import java.util.Scanner;
+public class Study01 {
+
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in); // out -> in
+	    // java.util.Scanner sc = new java.util.Scanner(System.in); // import를 안했을 경우 풀네임을 붙이면 됨	    
+
+	    System.out.print("이름을 입력하세요 : "); // System.out. 추가
+	    String name = sc.nextLine(); // 변수에 저장하기 위해 String name = 추가
+			
+	    System.out.println("반갑습니다 ^^" + name + "님!");
+	}
+	
+}
+
+// 다음 코드의 실행 결과를 예상
+public class Study02 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("==== 입력한 값의 제곱한 결과를 표시 ====");
+		System.out.print(" : ");
+		int num = sc.nextInt();
+		
+		System.out.println("결과 => " + num*num);
+	}
+}
+/*
+	* Study02 클래스 실행 결과 작성 *
+	==== 입력한 값의 제곱한 결과를 표시 ====
+	 : 3
+	결과 => 9
+	
+	********************************
+*/
