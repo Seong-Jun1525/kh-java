@@ -3,6 +3,7 @@ package com.kh.chap01;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class ControlPractice {
 	public void practice1() throws NumberFormatException, IOException {
@@ -69,6 +70,7 @@ public class ControlPractice {
 			default:
 				System.out.println("양수만 입력해주세요.");
 		}
+		br.close();
 	}
 	
 	public void practice3() throws IOException {
@@ -102,6 +104,7 @@ public class ControlPractice {
 		} else {
 			System.out.println("불합격입니다.");
 		}
+		br.close();
 	}
 	
 	public void practice4() throws IOException {
@@ -144,6 +147,7 @@ public class ControlPractice {
 			default:
 				System.out.println(month + "월은 잘못 입력된 달입니다.");
 		}
+		br.close();
 	}
 
 	public void practice5() throws IOException {
@@ -169,6 +173,7 @@ public class ControlPractice {
 		else if(!userIdCheck && userPwCheck) System.out.println("아이디가 틀렸습니다.");
 		else if(userIdCheck && !userPwCheck) System.out.println("비밀번호가 틀렸습니다.");
 		else System.out.println("둘 다 틀렸습니다.");
+		br.close();
 	}
 
 	public void practice6() throws IOException {
@@ -195,6 +200,7 @@ public class ControlPractice {
 			default:
 				System.out.println("권한이 없습니다.");
 		}
+		br.close();
 		
 	}
 
@@ -232,6 +238,7 @@ public class ControlPractice {
 
 		System.out.printf("BMI 지수 : %.14f\n", BMI);
 		System.out.println(result);
+		br.close();
 	}
 
 	public void practice8() throws NumberFormatException, IOException {
@@ -279,6 +286,7 @@ public class ControlPractice {
 		}
 		
 		if(flag) System.out.printf("%d %c %d = %.6f\n", num1, operactor, num2, result);
+		br.close();
 	}
 
 	public void practice9() throws NumberFormatException, IOException {
@@ -315,6 +323,7 @@ public class ControlPractice {
 			System.out.println("총점 : " + totalScore);
 			System.out.println(totalScore >= 70 ? "Pass" : "Fail [점수미달]");
 		}
+		br.close();
 	}
 
 	public void practice10() throws NumberFormatException, IOException {
@@ -377,6 +386,34 @@ public class ControlPractice {
 			default:
 				System.out.println("종료합니다.");
 				break;
+		}
+		br.close();
+	}
+
+	public void practice11() {
+		// 정수를 이용해서 4자리 비밀번호를 만들려고 하는데
+		// 이 때 4자리 정수를 입력 받아 각 자리 수에 중복되는 값이 없을 경우 ‘생성 성공’
+		// 중복 값이 있으면 ‘중복 값 있음‘
+		// 자리수가 안 맞으면 ‘자리 수 안 맞음‘ 출력
+		// 단, 제일 앞자리 수의 값은 1~9 사이 정수
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("비밀번호 입력(1000~9999) : ");
+		String password = sc.nextLine();
+		
+		if(password.length() > 4) {
+			System.out.println("자리수 안맞음");
+		} else if(password.charAt(0) == '0') {
+			System.out.println("실패");
+		} else {
+			if(password.charAt(0) == password.charAt(1)) System.out.println("실패");
+			else if(password.charAt(0) == password.charAt(2)) System.out.println("실패");
+			else if(password.charAt(0) == password.charAt(3)) System.out.println("실패");
+			else if(password.charAt(1) == password.charAt(2)) System.out.println("실패");
+			else if(password.charAt(1) == password.charAt(3)) System.out.println("실패");
+			else if(password.charAt(2) == password.charAt(3)) System.out.println("실패");
+			else System.out.println("성공");
 		}
 	}
 }
