@@ -24,7 +24,31 @@ public class Switch {
 		 * }
 		 */
 //		method1();
-		method2();
+//		method2();
+		method3();
+	}
+
+	private static void method3() {
+		// 월을 입력받아서 해당 월의 말일이 며칠까지인지 출력
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("월을 입력 : ");
+		int month = sc.nextInt();
+		
+		switch(month) {
+			// case 1, 3, 5 ..: 는 JDK 14버전부터 가능
+			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+				System.out.printf("%d월은 31일까지입니다.", month);
+				break;
+			case 4: case 6: case 9: case 11:
+				System.out.printf("%d월은 30일까지입니다.", month);
+				break;
+			case 2:
+				System.out.printf("%d월은 28일까지입니다.", month);
+				break;
+			default:
+				System.out.println("잘못입력했습니다.");
+		}
 	}
 
 	private static void method2() {
@@ -39,6 +63,20 @@ public class Switch {
 		
 		System.out.print("원하는 과일을 입력하세요 : ");
 		String fruit = sc.nextLine();
+		
+		switch(fruit) {
+			case "사과":
+				System.out.printf("%s의 가격은 %d원입니다.\n", fruit, 15000);
+				break;
+			case "포도":
+				System.out.printf("%s의 가격은 %d원입니다.\n", fruit, 30000);
+				break;
+			case "귤":
+				System.out.printf("%s의 가격은 %d원입니다.\n", fruit, 8000);
+				break;
+			default:
+				System.out.println("없는 과일입니다.");
+		}
 		
 		if(fruit.equals("사과")) {
 			System.out.printf("%s의 가격은 %d원입니다.\n", fruit, 15000);
