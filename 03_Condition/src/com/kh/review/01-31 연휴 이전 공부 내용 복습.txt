@@ -1,0 +1,48 @@
+/*
+ **	아래 정보에 대하여 각각 데이터를 변수에 저장 **
+ - 이름 : 아이유
+ - 나이 : 31
+ - 키 : 162.3
+ - 혈액형 : O
+ - 데뷔일 : 2008년 9월 18일
+ - 결혼 여부 : false;
+
+String name = "아이유";
+int age = 31;
+double height = 162.3;
+char bloodType = 'O';
+String debutDate = "2008년 9월 18일";
+boolean isMarried = false;
+*/
+
+// *** 다음 코드에서 오류가 발생되는 부분을 수정 ***
+double d = 173.6;
+
+int i = d;			// d는 double형으로 int형보다 크다.
+					// 그래서 int형에 그냥 대입할 수 없으므로 (int) d;를 하거나 i의 자료형을 double로 바꿔야한다.
+					
+float f = 3.14f;	// 실수형은 기본적으로 double형이기 때문에 float형을 사용하려면 f를 붙여야한다.
+a
+long l = 10000L;	// 정수형은 기본적으로 int형이기 때문에 long형을 사용하려면 L을 붙여야한다.
+
+// 각 변수의 자료형은?
+=> double은 실수형 8바이트이다.
+=> int는 정수형 4바이트이다.
+=> float은 실수형 4바이트이다.
+=> long은 정수형 8바이트이다.
+
+// *** 다음 코드의 실행 결과와 else 문이 실행될 조건 작성 ***
+int score = 75;
+
+if (score >= 90) {
+    System.out.println("A");
+} else if (score >= 80) {
+    System.out.println("B");
+} else if (score >= 70) {
+    System.out.println("C");
+} else {
+    System.out.println("D");
+}
+// 출력 결과 : C
+// else문이 실행될 조건 ?
+score가 69이하일때 실행된다
