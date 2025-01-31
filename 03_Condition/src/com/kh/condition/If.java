@@ -39,7 +39,7 @@ public class If {
 	}
 
 	private static void method3() {
-		// 주민번호 입력받아서 남자인지, 여자인지 출력
+		// TODO 주민번호 입력받아서 남자인지, 여자인지 출력
 		// (단, - 포함해서 입력받은 값의 길이가 14가 아닌 경우 "잘못 입력되었습니다" 출력)
 		
 		Scanner sc = new Scanner(System.in);
@@ -73,7 +73,7 @@ public class If {
 	}
 
 	private static void method2() {
-		// 문자를 입력받아서 소문자인 경우 "{입력받은값}는 소문자입니다." 출력
+		// TODO 문자를 입력받아서 소문자인 경우 "{입력받은값}는 소문자입니다." 출력
 		// 대문자인 경우 "{입력받은값}는 대문자입니다." 출력
 		// 그렇지 않으면 "알파벳이 아닙니다." 출력
 		
@@ -91,7 +91,7 @@ public class If {
 	}
 
 	private static void method1() {
-		// 사용자의 입력 값이 1 ~ 10 사이의 값인지 확인하여
+		// TODO 사용자의 입력 값이 1 ~ 10 사이의 값인지 확인하여
 		// 범위를 벗어난 경우 "범위를 벗어났습니다." 출력
 		// 범위 내에 있는 경우 입력 값을 출력
 		Scanner sc = new Scanner(System.in);

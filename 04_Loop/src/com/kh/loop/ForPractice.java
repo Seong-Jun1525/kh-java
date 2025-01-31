@@ -33,7 +33,48 @@ public class ForPractice {
 //		method3();
 //		method4();
 //		method5();
-		method6();
+//		method6();
+//		method7();
+//		method8();
+	}
+
+	private static void method8() {
+		// TODO 가로세로 구구단
+		
+		// 세로 출력
+		for(int i = 2; i <= 9; i++) {
+			for(int j = 1; j <= 9; j++) {
+				System.out.printf("%d x %d = %d\n", i, j, i*j);
+			}
+			System.out.println();
+		}
+		System.out.println("========================================");
+		// 가로 출력
+		for(int i = 1; i <= 9; i++) {
+			for(int j = 2; j <= 9; j++) {
+				System.out.printf("%d x %d = %s\t", j, i, 
+						(i * j < 10) ? (" " + i * j) 
+								: (i * j + ""));
+			}
+			System.out.println();
+		}
+	}
+
+	private static void method7() {
+		// TODO 사용자에게 2 ~ 9 사이의 정수를 입력받아 해당 구구단을 출력
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("2 ~ 9 사이의 정수 입력 : ");
+		int n = sc.nextInt();
+		
+		if(n >= 2 && n <= 9) {
+			for(int i = 1; i <= 9; i++) {
+				System.out.printf("%d x %d = %d\n", n, i, n * i);
+			}
+		} else {
+			System.out.println("2 ~ 9 사이의 정수를 입력하세요");
+			method7();
+		}
 	}
 
 	private static void method6() {
@@ -42,8 +83,7 @@ public class ForPractice {
 		
 		// charAt() 사용
 		for(int i = 0; i < STR.length(); i++) {
-			char c = STR.charAt(i);
-			System.out.println(c);
+			System.out.println(STR.charAt(i));
 		}
 		
 		System.out.println("===========");
@@ -57,7 +97,7 @@ public class ForPractice {
 	private static void method5() {
 		// TODO 랜덤값을 생성하여 1부터 랜덤값까지의 총 합
 		int sum = 0;
-		int randomNum = (int) Math.random() * 10 + 1;
+		int randomNum = (int)(Math.random() * 10) + 1;
 		/** Math.floor()
 		 * 소수점을 내리고 정수.0 형태로 반환함
 		 * 1.0, 10.0, 13.0 등

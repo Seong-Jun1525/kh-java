@@ -29,7 +29,7 @@ public class Switch {
 	}
 
 	private static void method3() {
-		// 월을 입력받아서 해당 월의 말일이 며칠까지인지 출력
+		// TODO 월을 입력받아서 해당 월의 말일이 며칠까지인지 출력
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("월을 입력 : ");
@@ -52,7 +52,7 @@ public class Switch {
 	}
 
 	private static void method2() {
-		// 과일을 구매하는 프로그램
+		// TODO 과일을 구매하는 프로그램
 		// 사용자가 구매하고자 하는 과일을 입력하면 해당 가격 출력
 		// {과일이름}의 가격은 {과일가격}원입니다.
 		// 사과 : 15000
@@ -90,7 +90,7 @@ public class Switch {
 	}
 
 	private static void method1() {
-		// 정수를 입력 받아, 아래 조건에 따라 출력
+		// TODO 정수를 입력 받아, 아래 조건에 따라 출력
 		// 1 : 빨간색
 		// 2 : 파란색
 		// 3 : 초록색
