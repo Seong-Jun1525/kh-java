@@ -1,0 +1,71 @@
+/* (1) 리터럴에 맞는 변수의 자료형을 작성 */
+    String productName = "무선 마우스";
+    int price = 35000;
+    double rating = 4.8;
+    boolean stock = true;
+
+    System.out.println("제품명 : " + productName);
+    System.out.println("가격 : " + price + "원");
+    System.out.println("평균 별점 : " + rating);
+    System.out.println("재고 여부 : " + stock);
+
+/* (2) 언더바(_)로 표시된 부분을 올바르게 수정 */
+    final String ADMIN_ID = "admin";
+    final String ADMIN_PASSWD = "1q2w3e4r";
+    
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.print("아이디를 입력하세요: ");
+    String username = sc.nextLine();
+    
+    System.out.print("비밀번호를 입력하세요: ");
+    String password = sc.nextLine();
+    
+    if (username.equals(ADMIN_ID) && password.equals(ADMIN_PASSWD)) {
+        System.out.println("로그인 성공!");
+    } else {
+        System.out.println("로그인 실패!");
+    }
+
+/* (3) 입력받은 숫자를 거꾸로 출력 */
+    Scanner sc = new Scanner(System.in);
+	    
+    System.out.print("10 이상의 숫자를 입력 : ");
+    int num = sc.nextInt();
+	    
+    // 입력받은 값을 거꾸로 출력 : ex) 123 -> 321
+    // 123 / 10 = 12
+    // 123 % 10 = 3
+
+    // 12 / 10 = 1
+    // 12 % 10 = 2
+
+    while(num / 10 >= 1) {
+    	System.out.print(num % 10);
+    	num /= 10;
+   }
+   System.out.println(num);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
