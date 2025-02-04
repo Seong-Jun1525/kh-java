@@ -490,22 +490,14 @@ public class DimensionPractice {
 		System.out.print("열 인덱스 입력 : ");
 		int c = sc.nextInt();
 		
+		strArr[r+1][c+1] = "X";
+		
 		for(int i = 0; i < strArr.length; i++) {
 			for(int j = 0; j < strArr.length; j++) {
-				if(i == 0 && j == 0) {
-					System.out.print(strArr[i][j] + " ");
-				} else if(i == 0) {
-					System.out.print(strArr[i][j] + " ");
-				} else if(j == 0) {
+				if((i == 0 && j == 0) || i == 0 || j == 0) {
 					System.out.print(strArr[i][j] + " ");
 				} else {
-					if(i-1 == r && j-1 == c) {
-						strArr[i][j] = "X";
-						System.out.print(strArr[i][j] + " ");
-					}
-					else {
-						System.out.print(strArr[i][j]);
-					}
+					System.out.print(strArr[i][j]);
 				}
 			}
 			System.out.println();
@@ -544,22 +536,14 @@ public class DimensionPractice {
 			System.out.print("열 인덱스 입력 : ");
 			int c = sc.nextInt();
 			
+			strArr[r+1][c+1] = "X";
+			
 			for(int i = 0; i < strArr.length; i++) {
 				for(int j = 0; j < strArr.length; j++) {
-					if(i == 0 && j == 0) {
-						System.out.print(strArr[i][j] + " ");
-					} else if(i == 0) {
-						System.out.print(strArr[i][j] + " ");
-					} else if(j == 0) {
+					if((i == 0 && j == 0) || i == 0 || j == 0) {
 						System.out.print(strArr[i][j] + " ");
 					} else {
-						if(i-1 == r && j-1 == c) {
-							strArr[i][j] = "X";
-							System.out.print(strArr[i][j] + " ");
-						}
-						else {
-							System.out.print(strArr[i][j]);
-						}
+						System.out.print(strArr[i][j]);
 					}
 				}
 				System.out.println();
