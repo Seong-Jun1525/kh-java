@@ -1,6 +1,7 @@
 package com.kh.practice.array;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -321,26 +322,46 @@ public class ArrayPractice {
 	
 	public void practice14() {
 		// 로또 번호 자동 생성기 프로그램을 작성하는데 중복 값 없이 오름차순으로 정렬하여 출력하세요.
-		int[] arr = new int[6];
-		int i = 0;
-		boolean flag = false;
 		
-		while(i < arr.length) {
-			int n = ((int)(Math.random() * 45) + 1);
-			for(int j = 0; j <= i; j++) {
-				
-				if(n == arr[j]) {
-					flag = true;
+//		long startTimeM = System.currentTimeMillis(); // 코드 시작 시간. 밀리초
+		long startTimeN = System.nanoTime(); // 코드 시작 시간. 나노초
+		
+		// 내가 작성한 코드와 시간은 큰 차이가 없지만 아래 코드가 좀 더 빠름
+		
+		int[] arr = new int[6];
+		
+		// 1370700n/s
+//		int i = 0;
+//		boolean flag = false;
+//		while(i < arr.length) {
+//			int n = ((int)(Math.random() * 45) + 1);
+//			for(int j = 0; j <= i; j++) {
+//				
+//				if(n == arr[j]) {
+//					flag = true;
+//					break;
+//				}
+//			}
+//			
+//			if(flag) {
+//				flag = false;
+//				continue;
+//			}
+//			arr[i] = n;
+//			i++;
+//		}
+		
+		// => 코드를 더 줄이기!
+		// 내가 작성한 코드도 중복값이 저장되고 있지만 로직이 너무 길다
+		// 1303300n/s
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = (int)(Math.random() * 45) + 1;
+			for(int j = 0; j < i; j++) {
+				if(arr[i] == arr[j]) {
+					i--;
 					break;
 				}
 			}
-			
-			if(flag) {
-				flag = false;
-				continue;
-			}
-			arr[i] = n;
-			i++;
 		}
 
 		Arrays.sort(arr);
@@ -348,6 +369,16 @@ public class ArrayPractice {
 		for(int a : arr) {
 			System.out.print(a + " ");
 		}
+
+		
+//		long endTimeM = System.currentTimeMillis(); // 코드 끝난 시간
+		long endTimeN = System.nanoTime(); // 코드 끝난 시간
+
+		long durationTimeSec = endTimeN - startTimeN;
+	    
+//		System.out.println(durationTimeSec + "m/s"); // 밀리세컨드 출력
+//		System.out.println((durationTimeSec / 1000) + "sec"); // 초 단위 변환 출력
+		System.out.println(durationTimeSec + "n/s"); // 나노세컨드 출력
 	}
 	
 	public void practice15() {
@@ -355,6 +386,10 @@ public class ArrayPractice {
 		 * 문자열을 입력 받아 문자열에 어떤 문자가 들어갔는지 배열에 저장하고
 		 * 문자의 개수와 함께 출력하세요.
 		 */
+		
+		long startTimeM = System.currentTimeMillis(); // 코드 시작 시간. 밀리초
+//		long startTimeN = System.nanoTime(); // 코드 시작 시간. 나노초
+		
 		Scanner sc = new Scanner(System.in);
 		boolean flag = false;
 		System.out.print("문자열 : ");
@@ -393,6 +428,14 @@ public class ArrayPractice {
 		System.out.println("문자 개수 : " + r.length);
 
 		sc.close();
+		
+		long endTimeM = System.currentTimeMillis(); // 코드 끝난 시간
+//		long endTimeN = System.nanoTime(); // 코드 끝난 시간
+
+		long durationTimeSec = endTimeM - startTimeM;
+	    
+		System.out.println(durationTimeSec + "m/s"); // 밀리세컨드 출력
+		System.out.println((durationTimeSec / 1000) + "sec"); // 초 단위 변환 출력
 	}
 	
 	public void practice16() {
@@ -403,6 +446,7 @@ public class ArrayPractice {
 		 * 늘린 곳에 어떤 데이터를 넣을 것인지 받으세요.
 		 * 사용자가 더 이상 입력하지 않겠다고 하면 배열 전체 값을 출력하세요.
 		 */
+		long startTimeM = System.currentTimeMillis(); // 코드 시작 시간. 밀리초
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("배열의 크기를 입력하세요 : ");
@@ -438,6 +482,7 @@ public class ArrayPractice {
 				break;
 			}
 		}
+		
 		System.out.print("[");
 		for(int i = 0; i < addStr.length; i++) {
 			if(i == addStr.length - 1) System.out.print(addStr[i]);
@@ -446,5 +491,12 @@ public class ArrayPractice {
 		System.out.print("]");
 		
 		sc.close();
+		
+		long endTimeM = System.currentTimeMillis(); // 코드 끝난 시간
+
+		long durationTimeSec = endTimeM - startTimeM;
+	    
+		System.out.println(durationTimeSec + "m/s"); // 밀리세컨드 출력
+		System.out.println((durationTimeSec / 1000) + "sec"); // 초 단위 변환 출력
 	}
 }
