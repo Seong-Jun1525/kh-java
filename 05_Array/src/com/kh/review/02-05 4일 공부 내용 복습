@@ -1,0 +1,21 @@
+/* 빈칸을 채워보자 */
+// 배열의 길이 확인
+int[] numbers = { 10, 20, 30, 40, 50 };
+System.out.println("배열 크기 : " + numbers.______);			// length
+
+// 배열은 아래 코드들과 같이 _____과 함께 자주 사용된다.		// 반복문
+// 크기가 5인 1차원 배열에 1 ~ 5까지의 값을 저장
+int[] arr = new int[5];
+for(int i=0; i < _____; i++) {									// arr.length
+    arr[i] = _____;												// i+1
+}
+
+// 3행 2열 배열에 1 ~ 6까지의 값을 저장
+int[][] arr2 = new int[_][_];									// 3 2
+int value = 1;
+
+for(int i=0; i < _____; i++) {									// arr2.length
+    for(int j=0; j < _____; j++) {								// arr2[i].length
+        arr2[i][j] = _____;										// value++
+    }
+}

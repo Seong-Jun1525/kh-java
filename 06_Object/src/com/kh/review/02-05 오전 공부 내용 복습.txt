@@ -1,0 +1,46 @@
+// 다음 코드의 빈칸을 채워보자. --------------------------
+public static void main(String[] args) {
+
+	test1();
+	int val1 = test1();
+
+	int result = test2(7);
+	System.out.println("result : " + result);
+	// 출력 결과는? 70
+	
+	test3(11);
+	// 출력 결과는?  11은 홀수입니다.
+	test3(10);
+	// 출력 결과는? 10은 짝수입니다.
+}
+
+public static int test1() {
+	return 10;
+}
+
+public static int test2(int num) {
+	return num * 10;
+}
+
+public static void test3(int num) {
+	if (num % 2 == 0) {
+		System.out.printf("%d는 짝수입니다.\n", num);
+		return;
+	}
+	
+	System.out.printf("%d는 홀수입니다.\n", num);
+}
+
+
+// ---------------------------------------------------
+	** [ 생성자, 메소드, 변수 ] 중 적절한 단어를 사용 **
+
+- 클래스는 [생성자]와 [메소드]와 [변수]로 구성되어 있다.
+
+  * [변수] : 객체의 상태(정보)를 담고 있는 것	   
+	   
+  * [메소드] : 객체의 동작/기능 등의 내용을 담고 있는 것
+	   
+  * [생성자] : 객체를 생성할 때 사용되는 것
+  
+// ---------------------------------------------------
