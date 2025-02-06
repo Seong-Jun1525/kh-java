@@ -1,4 +1,4 @@
-package com.kh.object.example;
+package com.kh.object.ex1;
 
 public class BankAccount {
 	private int balance = 0; // 예금잔액
