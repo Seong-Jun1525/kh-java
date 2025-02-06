@@ -23,6 +23,8 @@ public class LoopPractice {
 				else System.out.print(i + " ");
 			}
 		}
+		
+		sc.close();
 	}
 	
 	public void practice2() {
@@ -82,6 +84,7 @@ public class LoopPractice {
 //				break;
 //			}
 //		}
+		sc.close();
 	}
 	
 	public void practice3() {
@@ -99,6 +102,7 @@ public class LoopPractice {
 			if(i == 1) System.out.print(i);
 			else System.out.print(i + " ");
 		}
+		sc.close();
 	}
 	
 	public void practice4() {
@@ -122,6 +126,7 @@ public class LoopPractice {
 				break;
 			}
 		}
+		sc.close();
 	}
 	
 	public void practice5() {
@@ -137,6 +142,7 @@ public class LoopPractice {
 			if(i == n) System.out.print(i + " = " + sum);
 			else System.out.print(i + " + ");
 		}
+		sc.close();
 	}
 	
 	public void practice6() {
@@ -159,6 +165,7 @@ public class LoopPractice {
 				else System.out.print(i + " ");
 			}
 		}
+		sc.close();
 	}
 	
 	public void practice7() {
@@ -186,6 +193,7 @@ public class LoopPractice {
 				break;
 			}
 		}
+		sc.close();
 	}
 	
 	public void practice8() {
@@ -200,6 +208,7 @@ public class LoopPractice {
 		for(int i = 1; i <= 9; i++) {
 			System.out.printf("%d * %d = %d\n", n, i, n * i);
 		}
+		sc.close();
 	}
 	
 	public void practice9() {
@@ -223,6 +232,7 @@ public class LoopPractice {
 				}
 			}
 		}
+		sc.close();
 	}
 	
 	public void practice10() {
@@ -249,6 +259,7 @@ public class LoopPractice {
 				break;
 			}
 		}
+		sc.close();
 	}
 	
 	public void practice11() {
@@ -269,6 +280,7 @@ public class LoopPractice {
 			if(i == 1) System.out.print(startNum + " ");
 			else System.out.print((startNum += n) + " ");
 		}
+		sc.close();
 	}
 	
 	public void practice12() {
@@ -326,6 +338,7 @@ public class LoopPractice {
 				}
 			}
 		}
+		sc.close();
 	}
 	
 	public void practice13() {
@@ -348,6 +361,7 @@ public class LoopPractice {
 			}
 			System.out.println();
 		}
+		sc.close();
 	}
 	
 	public void practice14() {
@@ -368,6 +382,7 @@ public class LoopPractice {
 			}
 			System.out.println();
 		}
+		sc.close();
 	}
 
 }
