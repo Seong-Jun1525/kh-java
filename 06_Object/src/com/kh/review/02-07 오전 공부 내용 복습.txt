@@ -1,0 +1,80 @@
+// * 다음 코드에서 잘못된 부분을 찾아 수정하시오.
+public class Employee {
+
+	private static int empNo;	// 사원 번호
+	private String empName;	// 사원명
+	private String deptName;	// 부서명
+	private int salary;		// 급여
+
+	public Employee(String empName, String deptName, int salary) {
+		empNo++;
+		
+		// 이름이 같은 경우 멤버변수는 this.을 붙여야한다
+		
+		this.empName = empName;
+		this.deptName = deptName;
+		this.salary = salary;
+	}
+
+	public Employee(String empName, int salary) {
+		empNo++;
+		// 이름이 같은 경우 멤버변수는 this.을 붙여야한다
+		this.empName = empName;
+		this.salary = salary;
+	}
+
+	public int getEmpNo() {
+		return empNo;
+	}
+	
+	public String getEmpName() {
+		return empName;
+	}
+	
+	public void setEmpName(String empName) {
+		// 이름이 같은 경우 멤버변수는 this.을 붙여야한다
+		this.empName = empName;
+	}
+
+	public String getDeptName() {
+		return deptName;
+	}
+	
+	public void setDeptName(String deptName) {
+		// 이름이 같은 경우 멤버변수는 this.을 붙여야한다
+		this.deptName = deptName;
+	}
+
+	public int getSalary() {
+		return this.salary;
+	}
+	
+	public void setSalary([int] salary) {
+		// 이름이 같은 경우 멤버변수는 this.을 붙여야한다
+		this.salary = salary;
+	}
+	/**
+		* 저장된 사원 정보를 출력하는 메소드
+	*/
+	public [String] printInfo() {
+		// String info = "[" + empNo + "] " + empName + ", " + deptName + ", " + salary;
+		// return info;
+		
+		// 출력하는 메서드 였음..
+		System.out.println("[" + empNo + "] " + empName + ", " + deptName + ", " + salary);
+	}
+}
+
+class Run {
+
+	public static void main(String[] args) {
+		Employee emp1 = new Employee("홍길동", 3000);
+		emp1.printInfo();
+		// =>  예상 출력 결과 ? [1] 홍길동, null, 3000
+
+		Employee emp2 = new Employee();
+		emp2.printInfo();
+		// => 예상 출력 결과 ? error
+		// => 매개변수가 있는 생성자를 생성하면 JVM이 기본 생성자를 만들어주지 않는다 기본생성자를 만들지 않은 이상 error발생!
+	}
+}
