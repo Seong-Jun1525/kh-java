@@ -15,7 +15,7 @@ public class Shape {
 	}
 	
 	public String information() {
-		String result = String.format("%.1f %.1f %s", this.height, this.height, this.color);
+		String result = String.format("%.1f %.1f %s", this.height, this.width, this.color);
 		return result;
 	}
 
