@@ -1,5 +1,7 @@
 package com.kh.hw.employee;
 
+import java.text.DecimalFormat;
+
 public class Employee {
 	private int empNo;
 	private String name;
@@ -12,7 +14,6 @@ public class Employee {
 	public Employee() {}
 	
 	public Employee(int empNo, String name, char gender, String phone) {
-		super();
 		this.empNo = empNo;
 		this.name = name;
 		this.gender = gender;
@@ -20,7 +21,6 @@ public class Employee {
 	}
 
 	public Employee(int empNo, String name, char gender, String phone, String dept, int salary, double bonus) {
-		super();
 		this.empNo = empNo;
 		this.name = name;
 		this.gender = gender;
@@ -29,11 +29,16 @@ public class Employee {
 		this.salary = salary;
 		this.bonus = bonus;
 	}
-	
+
 	public String printEmployee() {
-		// 직원 정보 반환
-		return "";
+	    DecimalFormat df = new DecimalFormat("#.########"); // 불필요한 0 제거
+
+	    String formattedBonus = df.format(this.bonus); // double을 문자열로 변환
+
+	    return String.format("%d %s %c %s %s %d %s", 
+	        this.empNo, this.name, this.gender, this.phone, this.dept, this.salary, formattedBonus);
 	}
+
 
 	public int getEmpNo() {
 		return empNo;

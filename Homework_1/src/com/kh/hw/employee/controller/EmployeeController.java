@@ -34,6 +34,6 @@ public class EmployeeController {
 	
 	public String inform() {
 		
-		return "";
+		return e != null ? e.printEmployee() : null;
 	}
 }

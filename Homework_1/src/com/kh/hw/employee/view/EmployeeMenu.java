@@ -70,6 +70,7 @@ public class EmployeeMenu {
 		
 		System.out.print("사원 성별 : ");
 		char gender = sc.next().charAt(0);
+		sc.nextLine();
 		
 		System.out.print("전화 번호 : ");
 		String phone = sc.nextLine();
@@ -124,23 +125,53 @@ public class EmployeeMenu {
 		
 		if(n == 9) {
 			System.out.println("메인 메뉴로 돌아갑니다.");
-		}
-		
-		switch(n) {
-			case 1:
-			case 2:
-			case 3:
-			default:
-				System.out.println("잘못 입력하였습니다.");
-				break;
+		} else {
+			switch(n) {
+				case 1:
+					System.out.print("수정할 전화번호 : ");
+					String modifyPhone = sc.nextLine();
+					ec.modify(modifyPhone);
+					sc.nextLine();
+					break;
+				case 2:
+					System.out.print("수정할 사원 연봉 : ");
+					int modifySalary = sc.nextInt();
+					ec.modify(modifySalary);
+					sc.nextLine();
+					break;
+				case 3:
+					System.out.print("수정할 보너스 율 : ");
+					double modifyBonus = sc.nextDouble();
+					ec.modify(modifyBonus);
+					sc.nextLine();
+					break;
+				default:
+					System.out.println("잘못 입력하였습니다.");
+					break;
+			}	
 		}
 	}
 	
 	public void deleteEmp() {
+		// 정말 삭제할 것인지 물어본 후 삭제하겠다고 하면 
+		// EmployeeController의 remove()메소드를 호출하여 반환 값에 따라
+		// 데이터 삭제에 실패하였는지 성공하였는지 출력 
+		System.out.print("정말 삭제하시겠습니까? (y/n) : ");
+		char answer = sc.nextLine().charAt(0);
 		
+		if(answer == 'y' || answer == 'Y') {
+			if(ec.remove() == null) {
+				System.out.println("데이터 삭제에 성공하였습니다.");
+			}
+		}
 	}
 	
 	public void printEmp() {
-		
+		// 사원정보가 있다면 사원정보 출력, 없다면 “사원 데이터가 없습니다”출력 
+		if(ec.inform() != null) {
+			System.out.println(ec.inform());
+		} else {
+			System.out.println("사원 데이터가 없습니다.");
+		}
 	}
 }
