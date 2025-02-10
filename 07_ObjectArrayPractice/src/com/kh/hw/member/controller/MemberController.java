@@ -4,19 +4,21 @@ import com.kh.hw.member.mode.vo.Member;
 
 public class MemberController {
 	public static final int SIZE = 10;
-//	private Member[] m = new Member[SIZE];
-	private Member[] m = {
-			new Member("aaaaa", "박신우", "aa", "aaa@aaa.aaa", 'F', 33),
-			new Member("bbbbb", "강고결", "bb", "bbb@bbb.bbb", 'm', 34),
-			new Member("ccccc", "남나눔", "cc", "ccc@ccc.ccc", 'M', 28),
-			new Member("ddddd", "도대담", "dd", "ddd@ddd.ddd", 'M', 33),
-			new Member("eeeee", "류라라", "ee", "eee@eee.eee", 'f', 33),
-			new Member("fffff", "문미미", "ff", "fff@fff.fff", 'F', 33),
-			new Member("ggggg", "박보배", "gg", "ggg@ggg.ggg", 'm', 33),
-			new Member("hhhhh", "송성실", "hh", "hhh@hhh.hhh", 'm', 33),
-			new Member("iiiii", "윤예의", "ii", "iii@iii.iii", 'F', 33),
-			new Member("jjjjj", "정재주", "jj", "jjj@jjj.jjj", 'M', 33)
-	};
+	private Member[] m = new Member[SIZE];
+	
+	// 테스트용
+//	private Member[] m = {
+//			new Member("aaaaa", "박신우", "aa", "aaa@aaa.aaa", 'F', 33),
+//			new Member("bbbbb", "강고결", "bb", "bbb@bbb.bbb", 'm', 34),
+//			new Member("ccccc", "남나눔", "cc", "ccc@ccc.ccc", 'M', 28),
+//			new Member("ddddd", "도대담", "dd", "ddd@ddd.ddd", 'M', 35),
+//			new Member("eeeee", "류라라", "ee", "eee@eee.eee", 'f', 17),
+//			new Member("fffff", "문미미", "ff", "fff@fff.fff", 'F', 20),
+//			new Member("ggggg", "박보배", "gg", "ggg@ggg.ggg", 'm', 26),
+//			new Member("hhhhh", "송성실", "hh", "hhh@hhh.hhh", 'm', 41),
+//			new Member("iiiii", "윤예의", "ii", "iii@iii.iii", 'F', 28),
+//			new Member("jjjjj", "정재주", "jj", "jjj@jjj.jjj", 'M', 23)
+//	};
 	
 	public int existMemberNum() {
 		// 현재 존재하는 멤버 수 반환
@@ -176,5 +178,34 @@ public class MemberController {
 	
 	public Member[] printAll() {
 		return m;
+		
+		// 배열에 null값이 아예 없는 배열을 만들경우 아래처럼..
+//		Member[] memberList = new Member[m.length];
+//		for(int i = 0; i < m.length; i++) {
+//			if(m[i] != null) {
+//				for(int j = 0; j < memberList.length; j++) {
+//					if(memberList[j] == null) {
+//						memberList[j] = m[i];
+//						break;
+//					}
+//				}
+//			}
+//		}
+//		int idx = -1;
+//		for(int i = 0; i < memberList.length; i++) {
+//			if(memberList[i] == null) {
+//				idx = i;
+//				break;
+//			}
+//		}
+//		
+//		if(idx > -1) {
+//			Member[] copy = new Member[idx];
+//			System.arraycopy(memberList, 0, copy, 0, idx);
+//			memberList = copy;
+//		} else {
+//			memberList = new Member[0];
+//		}
+//		return memberList;
 	}
 }

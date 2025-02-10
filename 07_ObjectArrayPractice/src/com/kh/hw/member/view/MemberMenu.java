@@ -411,5 +411,16 @@ public class MemberMenu {
 		} else {
 			System.out.println("저장된 회원이 없습니다.\n");
 		}
+
+		// null 값이 아예 없는 배열을 리턴할 경우 아래처럼..
+//		if(mc.existMemberNum() > 0) {
+//			Member[] printAllMember = mc.printAll();
+//			for(int i = 0; i < printAllMember.length; i++) {
+//				System.out.println(printAllMember[i].inform());
+//			}
+//			System.out.println();
+//		} else {
+//			System.out.println("저장된 회원이 없습니다.\n");
+//		}
 	}
 }
