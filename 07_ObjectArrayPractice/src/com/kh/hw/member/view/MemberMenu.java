@@ -79,6 +79,7 @@ public class MemberMenu {
 				}
 			} else {
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				System.out.println();
 			}
 		}
 		
@@ -177,7 +178,8 @@ public class MemberMenu {
 				break;
 			case 9:
 				System.out.println("메인으로 돌아갑니다.");
-				break;
+				System.out.println();
+				return;
 			default:
 				System.out.println("잘못 입력하셨습니다.");
 				break;
@@ -193,10 +195,10 @@ public class MemberMenu {
 		// 회원 검색 결과 출력
 		System.out.print("검색할 아이디 : ");
 		String searchId = sc.nextLine();
-			
-		if(mc.searchId(searchId) != null) {
+		String searchIdResult = mc.searchId(searchId);
+		if(searchIdResult != null) {
 			System.out.println("찾으신 회원 조회결과 입니다.");
-			System.out.println(mc.searchId(searchId));
+			System.out.println(searchIdResult);
 		} else {
 			System.out.println("검색 결과가 없습니다.");
 		}
@@ -211,9 +213,8 @@ public class MemberMenu {
 		// 회원 검색 결과 출력
 		System.out.print("검색할 이름 : ");
 		String searchName = sc.nextLine();
-			
-		if(mc.searchName(searchName) != null) {
-			Member[] searchNameArr = mc.searchName(searchName);
+		Member[] searchNameArr = mc.searchName(searchName);
+		if(searchNameArr != null) {
 			System.out.println("searchNameArr : " + searchNameArr.length);
 			System.out.println("찾으신 회원 조회결과 입니다.");
 			for(int i = 0; i < searchNameArr.length; i++) {
@@ -228,9 +229,9 @@ public class MemberMenu {
 	public void searchEmail() {
 		System.out.print("검색할 이메일 : ");
 		String searchEmail = sc.nextLine();
+		Member[] searchEmailArr = mc.searchEmail(searchEmail);
 			
-		if(mc.searchEmail(searchEmail) != null) {
-			Member[] searchEmailArr = mc.searchEmail(searchEmail);
+		if(searchEmailArr != null) {
 			System.out.println("찾으신 회원 조회결과 입니다.");
 			for(int i = 0; i < searchEmailArr.length; i++) {
 				System.out.println(searchEmailArr[i].inform());
@@ -271,7 +272,8 @@ public class MemberMenu {
 				break;
 			case 9:
 				System.out.println("메인으로 돌아갑니다.");
-				break;
+				System.out.println();
+				return;
 			default:
 				System.out.println("잘못 입력하셨습니다.");
 				break;
@@ -363,7 +365,8 @@ public class MemberMenu {
 				break;
 			case 9:
 				System.out.println("메인으로 돌아갑니다.");
-				break;
+				System.out.println();
+				return;
 			default:
 				System.out.println("잘못 입력하셨습니다.");
 				break;

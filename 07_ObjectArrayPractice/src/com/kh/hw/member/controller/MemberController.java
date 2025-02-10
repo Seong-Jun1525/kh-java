@@ -4,26 +4,26 @@ import com.kh.hw.member.mode.vo.Member;
 
 public class MemberController {
 	public static final int SIZE = 10;
-	private Member[] m = new Member[SIZE];
-//	private Member[] m = {
-//			new Member("aaaaa", "박신우", "aa", "aaa@aaa.aaa", 'F', 33),
-//			new Member("bbbbb", "강고결", "bb", "bbb@bbb.bbb", 'm', 34),
-//			new Member("ccccc", "남나눔", "cc", "ccc@ccc.ccc", 'M', 28),
-//			new Member("ddddd", "도대담", "dd", "ddd@ddd.ddd", 'M', 33),
-//			new Member("eeeee", "류라라", "ee", "eee@eee.eee", 'f', 33),
-//			new Member("fffff", "문미미", "ff", "fff@fff.fff", 'F', 33),
-//			new Member("ggggg", "박보배", "gg", "ggg@ggg.ggg", 'm', 33),
-//			new Member("hhhhh", "송성실", "hh", "hhh@hhh.hhh", 'm', 33),
-//			new Member("iiiii", "윤예의", "ii", "iii@iii.iii", 'F', 33),
-//			new Member("jjjjj", "정재주", "jj", "jjj@jjj.jjj", 'M', 33)
-//	};
+//	private Member[] m = new Member[SIZE];
+	private Member[] m = {
+			new Member("aaaaa", "박신우", "aa", "aaa@aaa.aaa", 'F', 33),
+			new Member("bbbbb", "강고결", "bb", "bbb@bbb.bbb", 'm', 34),
+			new Member("ccccc", "남나눔", "cc", "ccc@ccc.ccc", 'M', 28),
+			new Member("ddddd", "도대담", "dd", "ddd@ddd.ddd", 'M', 33),
+			new Member("eeeee", "류라라", "ee", "eee@eee.eee", 'f', 33),
+			new Member("fffff", "문미미", "ff", "fff@fff.fff", 'F', 33),
+			new Member("ggggg", "박보배", "gg", "ggg@ggg.ggg", 'm', 33),
+			new Member("hhhhh", "송성실", "hh", "hhh@hhh.hhh", 'm', 33),
+			new Member("iiiii", "윤예의", "ii", "iii@iii.iii", 'F', 33),
+			new Member("jjjjj", "정재주", "jj", "jjj@jjj.jjj", 'M', 33)
+	};
 	
 	public int existMemberNum() {
 		// 현재 존재하는 멤버 수 반환
 		int count = 0;
 		for(int i = 0; i < m.length; i++) {
 			if(m[i] == null) {
-				break;
+				continue;
 			} else {
 				count++;
 			}
@@ -158,15 +158,13 @@ public class MemberController {
 	
 	public boolean delete(String id) {
 		// 특정 회원 삭제
-		boolean isDelete = false;
 		for(int i = 0; i < m.length; i++) {
 			if(m[i] != null && m[i].getId().equals(id)) {
 				m[i] = null;
-				isDelete = true;
-				break;
+				return true;
 			}
 		}
-		return isDelete;
+		return false;
 	}
 	
 	public void delete() {
