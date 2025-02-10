@@ -78,8 +78,7 @@ public class MemberMenu {
 						break;
 				}
 			} else {
-				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-				System.out.println();
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.\n");
 			}
 		}
 		
@@ -177,14 +176,12 @@ public class MemberMenu {
 				searchEmail();
 				break;
 			case 9:
-				System.out.println("메인으로 돌아갑니다.");
-				System.out.println();
+				System.out.println("메인으로 돌아갑니다.\n");
 				return;
 			default:
-				System.out.println("잘못 입력하셨습니다.");
+				System.out.println("잘못 입력하셨습니다.\n");
 				break;
 		}
-		System.out.println();
 	}
 	
 	public void searchId() {
@@ -198,11 +195,10 @@ public class MemberMenu {
 		String searchIdResult = mc.searchId(searchId);
 		if(searchIdResult != null) {
 			System.out.println("찾으신 회원 조회결과 입니다.");
-			System.out.println(searchIdResult);
+			System.out.println(searchIdResult + "\n");
 		} else {
-			System.out.println("검색 결과가 없습니다.");
+			System.out.println("검색 결과가 없습니다.\n");
 		}
-		System.out.println();
 	}
 	
 	public void searchName() {
@@ -220,10 +216,10 @@ public class MemberMenu {
 			for(int i = 0; i < searchNameArr.length; i++) {
 				System.out.println(searchNameArr[i].inform());
 			}
+			System.out.println();
 		} else {
-			System.out.println("검색 결과가 없습니다.");
+			System.out.println("검색 결과가 없습니다.\n");
 		}
-		System.out.println();
 	}
 	
 	public void searchEmail() {
@@ -236,10 +232,10 @@ public class MemberMenu {
 			for(int i = 0; i < searchEmailArr.length; i++) {
 				System.out.println(searchEmailArr[i].inform());
 			}
+			System.out.println();
 		} else {
-			System.out.println("검색 결과가 없습니다.");
+			System.out.println("검색 결과가 없습니다.\n");
 		}
-		System.out.println();
 	}
 	
 	public void updateMember() {
@@ -271,14 +267,12 @@ public class MemberMenu {
 				updateEmail();
 				break;
 			case 9:
-				System.out.println("메인으로 돌아갑니다.");
-				System.out.println();
+				System.out.println("메인으로 돌아갑니다.\n");
 				return;
 			default:
-				System.out.println("잘못 입력하셨습니다.");
+				System.out.println("잘못 입력하셨습니다.\n");
 				break;
 		}
-		System.out.println();
 	}
 	
 	public void updatePassword() {
@@ -293,12 +287,10 @@ public class MemberMenu {
 		String modifyPw = sc.nextLine();
 		
 		if(mc.updatePassword(modifyId, modifyPw)) {
-			System.out.println("수정이 성공적으로 되었습니다.");
+			System.out.println("수정이 성공적으로 되었습니다.\n");
 		} else {
-			System.out.println("존재하지 않는 아이디입니다.");
+			System.out.println("존재하지 않는 아이디입니다.\n");
 		}
-
-		System.out.println();
 	}
 	
 	public void updateName() {
@@ -313,11 +305,10 @@ public class MemberMenu {
 		String modifyName = sc.nextLine();
 		
 		if(mc.updateName(modifyId, modifyName)) {
-			System.out.println("수정이 성공적으로 되었습니다.");
+			System.out.println("수정이 성공적으로 되었습니다.\n");
 		} else {
-			System.out.println("존재하지 않는 아이디입니다.");
+			System.out.println("존재하지 않는 아이디입니다.\n");
 		}
-		System.out.println();
 	}
 	
 	public void updateEmail() {
@@ -332,12 +323,10 @@ public class MemberMenu {
 		String modifyEmail = sc.nextLine();
 		
 		if(mc.updateEmail(modifyId, modifyEmail)) {
-			System.out.println("수정이 성공적으로 되었습니다.");
+			System.out.println("수정이 성공적으로 되었습니다.\n");
 		} else {
-			System.out.println("존재하지 않는 아이디입니다.");
+			System.out.println("존재하지 않는 아이디입니다.\n");
 		}
-
-		System.out.println();
 	}
 	
 	public void deleteMember() {
@@ -364,14 +353,12 @@ public class MemberMenu {
 				deleteAll();
 				break;
 			case 9:
-				System.out.println("메인으로 돌아갑니다.");
-				System.out.println();
+				System.out.println("메인으로 돌아갑니다.\n");
 				return;
 			default:
-				System.out.println("잘못 입력하셨습니다.");
+				System.out.println("잘못 입력하셨습니다.\n");
 				break;
 		}
-		System.out.println();
 	}
 	
 	public void deleteOne() {
@@ -389,12 +376,11 @@ public class MemberMenu {
 		
 		if(answer == 'y' || answer == 'Y' ) {
 			if(mc.delete(deleteId)) {
-				System.out.println("성공적으로 삭제하였습니다.");
+				System.out.println("성공적으로 삭제하였습니다.\n");
 			} else {
-				System.out.println("존재하지 않는 아이디입니다.");
+				System.out.println("존재하지 않는 아이디입니다.\n");
 			}
 		}
-		System.out.println();
 	}
 	
 	public void deleteAll() {
@@ -407,9 +393,8 @@ public class MemberMenu {
 		
 		if(answer == 'y' || answer == 'Y' ) {
 			mc.delete();
-			System.out.println("성공적으로 삭제하였습니다.");
+			System.out.println("성공적으로 삭제하였습니다.\n");
 		}
-		System.out.println();
 	}
 	
 	public void printAll() {
@@ -422,9 +407,9 @@ public class MemberMenu {
 				if(printAllMember[i] == null) continue;
 				System.out.println(printAllMember[i].inform());
 			}
+			System.out.println();
 		} else {
-			System.out.println("저장된 회원이 없습니다.");
+			System.out.println("저장된 회원이 없습니다.\n");
 		}
-		System.out.println();
 	}
 }
