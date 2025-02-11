@@ -1,0 +1,38 @@
+아래와 같이 상속을 표현한 후 작성하였을 때 잘못된 부분은?
+--------------------------------
+class Employee {
+	private String name;	// 직원 이름
+	private int age;		// 직원 나이
+
+	public Employee() {} // 기본생성자를 추가하기
+
+	public Employee(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public String toString() {
+		return String.format("직원 정보 : %s, %d", name, age);
+	}
+}
+
+class Manager extends Employee {
+	private String position;	// 직책
+
+	public Manager() {} // 부모클래스에서 기본생성자를 추가해서 오류 막기
+	// 명시하지 않으면 부모클래스에 기본생성자를 생성하는데 Employee 클래스에 기본생성자가 없으므로 오류 발생
+
+	public Manager(String name, int age, String position) {
+		super(name, age); // super를 사용해서 부모클래스의 매개변수가 있는 생성자 생성
+		this.position = position;
+	}
+}
+
+class Run {
+	public static void main(String[] args) {
+		Manager m1 = new Manager("마이유", 28, "선임 연구원");
+		System.out.println(m1.toString());
+		//=> 코드가 정상적으로 실행되었을 경우 출력 결과는? 직원 정보 : 마이유, 28
+	}
+}
+
