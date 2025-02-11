@@ -53,6 +53,7 @@ public class PersonMenu {
 			}
 			
 			if(isEnd) {
+				sc.close();
 				System.out.println("종료합니다.");
 				break;
 			}
