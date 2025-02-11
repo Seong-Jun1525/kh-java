@@ -12,6 +12,7 @@ public class Rectangle extends Point {
 		this.height = height;
 	}
 
+	@Override
 	public String toString() {
 		String pointToString = super.toString();
 		return pointToString + "/ 높이 : " + this.height + ", 너비 : " + this.width;

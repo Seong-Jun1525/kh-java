@@ -9,7 +9,8 @@ public class Circle extends Point {
 		super(x, y);
 		this.radius = radius;
 	}
-	
+
+	@Override
 	public String toString() {
 		String pointToString = super.toString();
 		return pointToString + "/ 반지름 : " + this.radius;
