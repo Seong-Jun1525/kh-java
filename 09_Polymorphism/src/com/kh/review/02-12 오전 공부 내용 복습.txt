@@ -1,0 +1,25 @@
+* 다형성: [부모클래스]으로부터 파생된 [여러 자식 객체]를 [부모클래스 타입] 하나로 다룰 수 있는 기술
+=================================================
+다음과 같이 클래스가 정의되어 있을 때 아래 문제들을 풀어보자.
+----------------------------------
+class Car {}
+class Sonata extends Car {}
+class Avante extends Car {}
+class Cycle {}
+class Train {}
+----------------------------------
+
+* 다형성이 적용된 코드는?	5
+[1] Sonata s = new Sonata();
+[2] Avante a = new Avante();
+[3] Cycle c = new Car();
+[4] Train t = new Avante();
+[5] Car myCar = new Avante();
+
+* 업 캐스팅이 적용된 코드는?	2 3
+[1] Car c1 = new Car();
+[2] Car c2 = new Sonata();
+[3] Car c3 = new Avante();
+[4] Car c4 = new Cycle();
+[5] Car c5 = new Train();
+====================================================
