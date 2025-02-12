@@ -54,18 +54,22 @@ public class LibraryController {
 	
 	public int rentBook(int index) {
 		int result = 0;
-		if(bList[index] instanceof AniBook) { 							// 전달 받은 index의 bList 객체가 만화책을 참조하고 있고
-			if(mem.getAge() < ((AniBook)bList[index]).getAccessAge()) { // 해당 만화책의 제한 나이와 회원의 나이를 비교하여 회원 나이가 적을 경우
-				result = 1; 											// result를 1로 초기화 → 나이제한으로 대여 불가
+		if(0 <= index && index < bList.length) {
+			if(bList[index] instanceof AniBook) { 											 // 전달 받은 index의 bList 객체가 만화책을 참조하고 있고
+				if(mem != null && (mem.getAge() < ((AniBook)bList[index]).getAccessAge())) { // 해당 만화책의 제한 나이와 회원의 나이를 비교하여 회원 나이가 적을 경우
+					result = 1; 															 // result를 1로 초기화 → 나이제한으로 대여 불가
+				}
+			} else if(bList[index] instanceof CookBook) { 									 // 전달 받은 index의 bList 객체가 요리책을 참조하고 있고
+				if(((CookBook)bList[index]).isCoupon()) { 									 // 해당 요리책의 쿠폰유무가 “유”일 경우
+					int couponCount = mem.getCouponCount() + 1; 
+					mem.setCouponCount(couponCount); 										 // 회원의 couponCount 1 증가 처리 후
+					result = 2; 															 // result를 2로 초기화 → 성공적으로 대여 완료, 요리학원 쿠폰 발급
+				}
 			}
-		} else if(bList[index] instanceof CookBook) { 					// 전달 받은 index의 bList 객체가 요리책을 참조하고 있고
-			if(((CookBook)bList[index]).isCoupon()) { 					// 해당 요리책의 쿠폰유무가 “유”일 경우
-				int couponCount = mem.getCouponCount() + 1; 
-				mem.setCouponCount(couponCount); 						// 회원의 couponCount 1 증가 처리 후
-				result = 2; 											// result를 2로 초기화 → 성공적으로 대여 완료, 요리학원 쿠폰 발급
-			}
+		} else {
+			result = 3;
 		}
 		
-		return result; 													// result 값 리턴
+		return result; 																		 // result 값 리턴
 	}
 }

@@ -116,6 +116,9 @@ public class LibraryMenu {
 			case 2:
 				System.out.println("성공적으로 대여되었습니다. 요리학원 쿠폰이 발급되었으니 마이페이지에서 확인하세요.");
 				break;
+			default:
+				System.out.println("도서대여에 실패했습니다.");
+				break;
 		}
 	}
 }
