@@ -44,7 +44,7 @@ public class LibraryController {
 		// 검색결과의 도서목록에 담기 → HINT : count 이용
 		// 해당 검색결과의 도서목록 주소 값 리턴
 		for(int i = 0; i < bList.length; i++) {
-			if(bList[i].getTitle().contains(keyword)) {
+			if(bList[i] != null && bList[i].getTitle().contains(keyword)) { // null 값인지 아닌지 비교
 				searchBookList[count++] = bList[i];
 			}
 		}
