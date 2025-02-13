@@ -33,7 +33,7 @@ public class V40 extends SmartPhone implements NotePen {
 
 	@Override
 	public boolean bluetoothPen() {
-		return false;
+		return PEN_BUTTON ? !PEN_BUTTON : PEN_BUTTON;
 	}
 
 	@Override

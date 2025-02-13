@@ -33,7 +33,7 @@ public class GalaxyNote9 extends SmartPhone implements NotePen {
 
 	@Override
 	public boolean bluetoothPen() {
-		return true;
+		return PEN_BUTTON ? PEN_BUTTON : !PEN_BUTTON;
 	}
 
 	@Override

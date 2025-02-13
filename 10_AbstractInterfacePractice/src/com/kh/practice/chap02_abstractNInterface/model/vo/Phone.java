@@ -7,8 +7,8 @@ public interface Phone {
 	};
 	
 	// 전화걸기
-	public String makeCall();
+	public abstract String makeCall();
 	
 	// 전화받기
-	public String takeCall();
+	public abstract String takeCall();
 }

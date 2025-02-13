@@ -6,9 +6,7 @@ public abstract class SmartPhone implements CellPhone, TouchDisplay {
 	
 	public SmartPhone() {}
 	
-	public String printInformation() {
-		return "";
-	}
+	public abstract String printInformation();
 
 	public String getMaker() {
 		return maker;
