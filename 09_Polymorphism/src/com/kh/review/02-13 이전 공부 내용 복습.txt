@@ -1,0 +1,125 @@
+* 상속 *
+- 클래스의 멤버(필드/메소드)들을 다른 클래스에서 명시하지 않고 상속을 통해
+  자신의 멤버처럼 사용할 수 있도록 하는 기능
+  
+- 표현식 ( 아래와 같이 클래스 표현 시 상속 관계를 적용한다면 ? )
+
+		[접근제한자] class 클래스명 extends 부모클래스명 {
+		
+		}
+		
+- 특징
+  + 클래스 간의 상속은 [다중] 상속이 불가! ( [단일] 상속만 가능 )
+  + 부모 클래스에 정의되어 있는 [protected] 필드는 자식 클래스에서 직접 접근 가능
+  + 자식 클래스는 부모클래스에 있는 메소드를 호출 (가능)
+    => 부모클래스에 있는 메소드를 자식클래스에서 재정의 가능 ( [오버라이딩] )
+  + 명시되어 있지 않지만 모든 클래스는 [Object] 클래스의 후손클래스임!
+  
+- 오버라이딩 
+  + 자식클래스가 상속받고 있는 부모클래스의 메소드를 재정의하는 것
+  + 자식객체를 통해 실행 시 자식 메소드가 우선권을 가짐
+  + 성립조건
+    * [메소드명] 동일
+    * 매개변수 개수, 자료형, 순서 [동일]
+    * 부모메소드의 [반환형] 동일
+    * 부모메소드의 접근제한자보다 범위가 같거나 커야함
+      ex) 부모메소드의 접근제한자가 protected인 경우 오버라이딩되는 메소드의 접근제한자는 protected, public!
+ 
+- 상속 구조에서의 클래스 간 형변환
+  + 업캐스팅 (UpCasting)
+    : [자식] 클래스 타입 -> [부모] 클래스 타입
+    : 자동 형변환
+    
+  + 다운캐스팅 (DownCasting)
+    : [부모] 클래스 타입 -> [자식] 클래스 타입
+    : 강제 형변환
+    
+==============================================
+* 다형성 *
+- [부모 클래스] 타입으로 파생된 여러가지 타입의 [자식클래스] 객체들을 [부모클래스] 타입 하나로 다룰 수 있는 기술
+
+- 장점
+  + 부모 타입의 배열로 [여러] 자식 객체들을 다룰 수 있음
+  + 메소드 정의 시 [매개변수]로 다형성을 적용하게 되면 메소드 갯수가 확 줄어듬!
+
+- 동적바인딩
+  : 프로그램 실행 시 동적으로 자식클래스의 [오버라이딩] 된 메소드를 찾아서 실행
+==============================================
+
+@ 아래 코드 실행 시 예상되는 결과를 작성하시오
+------------------------------------------
+class Game {
+  private String name;
+  private int playerCount;
+  
+  public Game(String name, int playerCount) {
+    this.name = name;
+    this.playerCount = playerCount;
+  }
+  
+  public void info() {
+    System.out.println("------ 게임 정보 ------");
+    System.out.println("게임명 = " + name);
+    System.out.println("플레이어수 = " + playerCount);
+  }
+}
+
+class BoardGame extends Game {
+  private String publisher;
+  
+  public BoardGame(String name, int playerCount, String publisher) {
+    super(name, playerCount);
+    this.publisher= publisher;
+  }
+  
+  public void info() {
+    super.info();
+    System.out.println("발매사 = " + publisher);
+  }
+}
+
+public class GameRun {
+
+  public static void main(String[] args) {
+    Game[] gameList = new Game[5];
+    gameList[0] = new BoardGame("Splendor", 4, "Space Cowboys");
+    // Game 타입의 참조변수가 BoardGame 객체를 참조할 수 있음! (다형성 적용됨!)
+    gameList[1] = new OnlineGame("카트라이더", 8, "Nexon");
+
+    for(int i=0; i < gameList.length; i++) {
+      if (gameList[i] != null) {
+        gameList[i].info();
+      }
+    }
+  }
+
+}
+------------------------------------------
+게임명 = Splendor
+플레이어수 = 4
+발매사 = Space Cowboys
+@ 위 코드에서 온라인게임 정보도 추가하기 위한 객체를 생성해보자.
+  온라인게임 정보 : 이름, 플레이어수, 개발사
+class OnlineGame extends Game {
+//	private String name;
+// 	private int playerCount;
+	private String developer;
+
+	public OnlineGame(String name, int playerCount, String developer) {
+//		this.name = name;
+//		this.playerCount = playerCount;
+		super(name, playerCount);	// 부모클래스 생성자 사용
+		this.developer = developer;
+	}
+	
+	@Override
+  	public void info() {
+		super.info(); // 부모클래스의 info 메소드 호출
+/*
+    		System.out.println("------ 게임 정보 ------");
+    		System.out.println("게임명 = " + name);
+    		System.out.println("플레이어수 = " + playerCount);
+*/
+    		System.out.println("개발사 = " + developer);
+  	}
+}
