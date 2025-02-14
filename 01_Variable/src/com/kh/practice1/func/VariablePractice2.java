@@ -16,5 +16,6 @@ public class VariablePractice2 {
 		System.out.println("빼기 결과 : " + (x-y));
 		System.out.println("곱하기 결과 : " + (x*y));
 		System.out.println("나누기 몫 결과 : " + (x/y));
+		sc.close();
 	}
 }

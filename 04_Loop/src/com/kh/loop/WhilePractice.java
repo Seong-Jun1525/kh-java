@@ -19,7 +19,7 @@ public class WhilePractice {
 		 * -> 조건식 검사 -> 조건식의 결과가 false인 경우 반복문 종료
 		 */
 		
-//		method1();
+		method1();
 		method2();
 	}
 

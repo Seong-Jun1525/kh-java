@@ -13,10 +13,10 @@ public class Run {
 		VariablePractice3 vp3 = new VariablePractice3();
 		VariablePractice4 vp4 = new VariablePractice4();
 		
-//		vp1.userInfo();
-//		vp2.calc();
-//		vp3.Rectangle();
-//		vp4.vp4Test();
+		vp1.userInfo();
+		vp2.calc();
+		vp3.Rectangle();
+		vp4.vp4Test();
 	}
 
 }

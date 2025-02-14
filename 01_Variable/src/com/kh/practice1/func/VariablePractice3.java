@@ -13,5 +13,6 @@ public class VariablePractice3 {
 		
 		System.out.printf("면적 : %.2f\n", (w * h));
 		System.out.printf("둘레 : %.1f\n", (w + h) * 2);
+		sc.close();
 	}
 }

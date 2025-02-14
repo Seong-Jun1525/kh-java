@@ -63,6 +63,7 @@ public class VariablePractice0 {
 		System.out.println(userName + "님 반갑습니다.");
 		System.out.println(userAge + "살 입니다.");
 		System.out.println(temp);
+		sc.close();
 	}
 
 }

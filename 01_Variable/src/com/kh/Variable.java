@@ -33,8 +33,8 @@ public class Variable {
 		 */
 		
 		// 정수형 변수
-		int num = 10;
-		int num2 = 20;
+//		int num = 10;
+//		int num2 = 20;
 		
 		// 논리형 (boolean) (1B) : 논리값. 참, 거짓. true, false
 		boolean isTrue = true;
@@ -52,18 +52,18 @@ public class Variable {
 		// 숫자
 		// 2-1 정수형 : 딱 떨어지는 수
 		// byte(1B) < short(2B) < ★int(4B)★ < long(8B)
-		byte bNum; // -128 ~ 127
+//		byte bNum; // -128 ~ 127
 //		bNum = 128; // 범위를 벗어나면 오류 발생
 		
 		// 2-2 실수형 : 소수점 있다
 		// float(4B) < ★double(8B)★
 		// float형은 소수점 7자리까지 표현 가능함
 		// 값 자체(리터럴)를 저장할 때 값 뒤에 f를 붙여줌
-		float fNum = 0.0f; // 그냥 0.0은 오류남. f를 붙여서 float형이란 것을 알림
+//		float fNum = 0.0f; // 그냥 0.0은 오류남. f를 붙여서 float형이란 것을 알림
 		
 		// double 형은 소수점 15자리까지 표현 가능함
 		// 실수형의 기본 자료형임
-		double dNum = 0; 
+//		double dNum = 0; 
 		
 		// 문자형
 		// 3-1 문자형 : char (2B)
@@ -80,7 +80,7 @@ public class Variable {
 		// 상수 : 변하지 않는 값을 저장하는 공간
 		// final 자료형 변수명;
 		
-		final int AGE = 26;
+//		final int AGE = 26;
 //		AGE = 20; // 에러. 상수는 재할당 불가
 		
 		System.out.println(Math.PI);

@@ -8,7 +8,7 @@ public class ContinuePractice {
 		 * for문일 경우 증감식으로 while문일 경우 조건식으로 이동
 		 */
 		
-//		method1();
+		method1();
 		method2();
 	}
 

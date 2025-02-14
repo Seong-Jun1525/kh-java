@@ -33,6 +33,7 @@ public class DoWhilePractice {
 		} while(n != 0);
 		
 		System.out.println("입력받은 값들의 총 합 : " + sum);
+		sc.close();
 	}
 
 }

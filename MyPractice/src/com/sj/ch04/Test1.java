@@ -8,5 +8,6 @@ public class Test1 {
 		String[] strNum = sc.nextLine().split(" ");
 		
 		System.out.println(Long.parseLong(strNum[0]) + Long.parseLong(strNum[1]));
+		sc.close();
 	}
 }

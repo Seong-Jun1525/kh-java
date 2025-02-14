@@ -3,7 +3,7 @@ package com.kh.array;
 public class Array_Copy {
 
 	public static void main(String[] args) {
-//		lightCopy();
+		lightCopy();
 		deepCopy();
 	}
 

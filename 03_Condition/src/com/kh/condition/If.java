@@ -33,8 +33,8 @@ public class If {
 		 * 			else { ... }
 		 */
 		
-//		method1();
-//		method2();
+		method1();
+		method2();
 		method3();
 	}
 
@@ -70,6 +70,7 @@ public class If {
 		} else {
 			System.out.println("잘못입력되었습니다.");
 		}
+		sc.close();
 	}
 
 	private static void method2() {
@@ -88,6 +89,7 @@ public class If {
 		} else {
 			System.out.println("알파벳이 아닙니다.");
 		}
+		sc.close();
 	}
 
 	private static void method1() {
@@ -110,6 +112,7 @@ public class If {
 //		} else {
 //			System.out.println("범위를 벗어났습니다.");
 //		}
+		sc.close();
 		
 	}
 

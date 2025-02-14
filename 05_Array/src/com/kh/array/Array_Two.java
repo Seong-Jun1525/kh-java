@@ -32,7 +32,7 @@ public class Array_Two {
 		 * 		변수명[배열순번][인덱스] = 값;
 		 */
 		
-//		practice();
+		practice();
 		practice2();
 	}
 

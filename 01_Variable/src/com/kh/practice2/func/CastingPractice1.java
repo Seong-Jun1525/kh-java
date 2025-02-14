@@ -11,5 +11,6 @@ public class CastingPractice1 {
 		char c = str.charAt(0);
 		
 		System.out.printf("%c unicode : %d\n", c, (int)c);
+		sc.close();
 	}
 }

@@ -63,11 +63,11 @@ public class HelloWorld {
 		
 		System.out.println((byte) a);
 		
-		char ch = 'A';
-		int chNum = (int) ch;
+//		char ch = 'A';
+//		int chNum = (int) ch;
 		
-		float f = 1.09f;
-		int num = (int) f;
+//		float f = 1.09f;
+//		int num = (int) f;
 	}
 
 }

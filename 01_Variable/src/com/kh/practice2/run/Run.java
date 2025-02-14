@@ -12,8 +12,8 @@ public class Run {
 		CastingPractice2 cp2 = new CastingPractice2();
 		CastingPractice3 cp3 = new CastingPractice3();
 		
-//		cp1.test();
-//		cp2.test();
+		cp1.test();
+		cp2.test();
 		cp3.method();
 	}
 

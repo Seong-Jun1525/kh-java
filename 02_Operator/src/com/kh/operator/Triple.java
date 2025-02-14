@@ -27,6 +27,7 @@ public class Triple {
 //		}
 		
 		System.out.println(rMessage);
+		sc.close();
 	}
 	
 	public static void method2() {
@@ -47,6 +48,7 @@ public class Triple {
 		}
 		
 		System.out.println(result);
+		sc.close();
 	}
 	
 	public static void method21() {
@@ -74,6 +76,7 @@ public class Triple {
 		
 //		String result = ((o == '+') ? a + b : (o == '-' ? a - b : "잘못입력하였습니다.")) + "";
 //		System.out.printf("%d %c %d = %s\n", a, o, b, result);
+		sc.close();
 	}
 
 }

@@ -28,14 +28,14 @@ public class ForPractice {
 		 * 			=> 세미콜론(;)은 필수!
 		 */
 		
-//		method1();
-//		method2();
-//		method3();
-//		method4();
-//		method5();
-//		method6();
-//		method7();
-//		method8();
+		method1();
+		method2();
+		method3();
+		method4();
+		method5();
+		method6();
+		method7();
+		method8();
 	}
 
 	private static void method8() {
@@ -75,6 +75,7 @@ public class ForPractice {
 			System.out.println("2 ~ 9 사이의 정수를 입력하세요");
 			method7();
 		}
+		sc.close();
 	}
 
 	private static void method6() {
@@ -134,6 +135,7 @@ public class ForPractice {
 			System.out.println("1~10사이의 정수가 아닙니다.");
 			method4();
 		}
+		sc.close();
 	}
 
 	private static void method3() {

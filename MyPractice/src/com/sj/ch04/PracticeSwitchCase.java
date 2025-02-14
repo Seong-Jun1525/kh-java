@@ -31,6 +31,7 @@ public class PracticeSwitchCase {
 				System.out.printf("%d층은 없는 층입니다.\n", floor);
 				break;
 		}
+		sc.close();
 	}
 
 }

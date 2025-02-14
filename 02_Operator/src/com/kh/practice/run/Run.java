@@ -9,7 +9,7 @@ public class Run {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		OperatorPractice op = new OperatorPractice();
 		
-//		op.practice1();
+		op.practice1();
 //		op.practice2();
 //		op.practice3();
 //		op.practice4();

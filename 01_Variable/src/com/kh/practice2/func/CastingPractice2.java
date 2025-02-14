@@ -20,5 +20,6 @@ public class CastingPractice2 {
 		System.out.println();
 		System.out.print("평균 : " + (int)((korean + english + math) / 3));
 		System.out.println();
+		sc.close();
 	}
 }

@@ -29,6 +29,7 @@ public class Logical {
 		
 		if(a >= 1 && a <= 10) System.out.println("입력받은 값은 1~10사이의 값이다 : " + (a >= 1 && a <= 10));
 		else System.out.println("1~10사이의 값이 아니다");
+		sc.close();
 	}
 	
 	public static void method2() {
@@ -39,6 +40,7 @@ public class Logical {
 		
 		if(c >= 'a' && c <= 'z') System.out.println("소문자다");
 		else System.out.println("소문자가 아니다");
+		sc.close();
 	}
 
 }

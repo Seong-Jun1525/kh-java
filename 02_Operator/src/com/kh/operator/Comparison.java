@@ -29,6 +29,7 @@ public class Comparison {
 		System.out.println("첫 번째 숫자가 두 번째 숫자보다 큰 값인가? : " + (a > b));
 		System.out.println("두 번째 숫자는 짝수인가? : " + (b % 2 == 0));
 		System.out.println("두 번째 값은 'A'의 유니코드인가 ? : " + (b == 'A'));
+		sc.close();
 	}
 
 }

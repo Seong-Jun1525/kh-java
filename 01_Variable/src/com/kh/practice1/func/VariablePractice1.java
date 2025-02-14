@@ -27,6 +27,7 @@ public class VariablePractice1 {
 		// 소수점은 반올림 해서 출력해줌
 		System.out.printf("키 %.1fcm인 %d살 %s자 %s님 반갑습니다.^^\n", height, age, gender, name);
 		System.out.printf("키 %.1fcm인 %d살 %c자 %s님 반갑습니다.^^\n", height, age, g, name);
+		sc.close();
 	}
 	
 }

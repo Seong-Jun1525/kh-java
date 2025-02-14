@@ -24,6 +24,7 @@ public class StudentGrade {
 		}
 		
 		System.out.printf("성적은 %c입니다.\n", grade);
+		sc.close();
 	}
 
 }

@@ -23,8 +23,8 @@ public class Switch {
 		 * 			...
 		 * }
 		 */
-//		method1();
-//		method2();
+		method1();
+		method2();
 		method3();
 	}
 
@@ -49,6 +49,7 @@ public class Switch {
 			default:
 				System.out.println("잘못입력했습니다.");
 		}
+		sc.close();
 	}
 
 	private static void method2() {
@@ -87,6 +88,7 @@ public class Switch {
 		} else {
 			System.out.println("없는 과일입니다.");
 		}
+		sc.close();
 	}
 
 	private static void method1() {
@@ -125,6 +127,7 @@ public class Switch {
 		} else {
 			System.out.println("잘못입력하셨습니다.");
 		}
+		sc.close();
 	}
 
 }

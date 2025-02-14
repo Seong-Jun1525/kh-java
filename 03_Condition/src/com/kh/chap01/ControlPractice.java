@@ -415,6 +415,7 @@ public class ControlPractice {
 			else if(password.charAt(2) == password.charAt(3)) System.out.println("실패");
 			else System.out.println("성공");
 		}
+		sc.close();
 	}
 }
 

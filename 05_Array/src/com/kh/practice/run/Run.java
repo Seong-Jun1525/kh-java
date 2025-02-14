@@ -10,7 +10,7 @@ public class Run {
 		DimensionPractice dp = new DimensionPractice();
 		
 		// 1차원배열 실습 문제
-//		ap.practice1();
+		ap.practice1();
 //		ap.practice2();
 //		ap.practice3();
 //		ap.practice4();
