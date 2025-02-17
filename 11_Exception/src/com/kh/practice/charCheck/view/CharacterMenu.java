@@ -18,13 +18,22 @@ public class CharacterMenu {
 		
 		try {
 			str = br.readLine();
+			System.out.print(str + "에 포함된 영문자 개수 : " + new CharacterController().countAlpha(str) + "\n");
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-		}
-		try {
-			System.out.print(str + "에 포함된 영문자 개수 : " + new CharacterController().countAlpha(str) + "\n");
 		} catch (CharCheckException e) {
 			e.printStackTrace();
 		}
+		
+//		try {
+//			str = br.readLine();
+//		} catch (IOException e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			System.out.print(str + "에 포함된 영문자 개수 : " + new CharacterController().countAlpha(str) + "\n");
+//		} catch (CharCheckException e) {
+//			e.printStackTrace();
+//		}
 	}
 }

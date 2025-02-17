@@ -1,10 +1,11 @@
 package com.sj.mini.model.vo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BackendDeveloper extends Developer implements Character {
 	private String job;
-	private List<Skill> skillList;
+	private List<Skill> skillList = new ArrayList<>();
 
 	public BackendDeveloper() {}
 
@@ -56,12 +57,13 @@ public class BackendDeveloper extends Developer implements Character {
 	public String showStatus() {
 		return String.format(
                 "%d턴 진행 중...\n" +
-                "플레이어명: %s\n" +
-                "직업: %s 개발자\n" +
-                "레벨: %d\n" +
+                "개발자명: %s\n" +
+                "직업: %s\n" +
+                "레벨: Lv.%d\n" +
+                "체력: %d\n" +
                 "경험치: %d\n" +
-                "보유 기술: %s\n",
-                super.getTurn(), this.getName(), this.job, this.getLevel(), super.getExp(), mySkillList()
+                "보유 기술: %s",
+                super.getTurn(), this.getName(), this.job, this.getLevel(), super.getHp(), super.getExp(), mySkillList()
         );
 	}
 
@@ -81,4 +83,29 @@ public class BackendDeveloper extends Developer implements Character {
 		this.skillList = skillList;
 	}
 
+	@Override
+	public boolean isMySkill(String name) {
+		return mySkillList().contains(name);
+	}
+
+	@Override
+	public Skill getMySkill(String name) {
+		if(isMySkill(name)) {
+			for(int i = 0; i < this.skillList.size(); i++) {
+				if(this.skillList.get(i).getName().equals(name)) {
+					return this.skillList.get(i);
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public boolean decreaseExp(int amount) {
+		if(super.getHp() - amount >= 0) {
+			super.setHp(super.getHp() - amount);
+			return true;
+		}
+		return false;
+	}
 }

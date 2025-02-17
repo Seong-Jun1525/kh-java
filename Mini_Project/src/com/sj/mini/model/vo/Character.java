@@ -6,6 +6,7 @@ public interface Character {
 	public abstract void study(Skill targetSkill);
 	public abstract String mySkillList();
 	public abstract void gainExp(int amount);
+	public abstract boolean decreaseExp(int amount);
 	public abstract void levelUp();
 	public abstract String showStatus();
 }

@@ -24,7 +24,7 @@ public class Skill {
     /** 스킬 레벨업 */
     private void levelUp() {
         this.level++;
-        System.out.println("🔼 " + name + " 스킬이 레벨업! 현재 레벨: " + level);
+        System.out.println("🔼 " + this.name + " 스킬이 레벨업! 현재 레벨: " + this.level);
     }
 
     public String getName() {
@@ -35,8 +35,24 @@ public class Skill {
         return level;
     }
 
-    @Override
+    public int getExp() {
+		return exp;
+	}
+
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	@Override
     public String toString() {
-        return String.format("%s (Lv.%d)", name, level);
+        return String.format("%s (Lv.%d, Exp.%d)", this.name, this.level, this.exp);
     }
 }
