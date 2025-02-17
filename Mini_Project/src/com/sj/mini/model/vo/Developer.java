@@ -8,13 +8,15 @@ public abstract class Developer implements Character {
 	private int turn;
 	
 	protected static int DEFAULT_HP = 100;
+	protected static int DEFAULT_LEVEL = 1;
+	protected static int DEFAULT_EXP = 0;
 	
 	public Developer() {}
 	public Developer(String name) {
 		this.name = name;
 		this.hp = DEFAULT_HP;
-		this.level = 1;
-		this.exp = 0;
+		this.level = DEFAULT_LEVEL;
+		this.exp = DEFAULT_EXP;
 		this.turn = 1;
 	}
 	public String getName() {

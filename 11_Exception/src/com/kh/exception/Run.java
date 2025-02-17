@@ -1,5 +1,9 @@
 package com.kh.exception;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Run {
@@ -34,7 +38,9 @@ public class Run {
 	 */
 
 	public static void main(String[] args) {
-		method1();
+//		method1();
+//		method2();
+		method3();
 	}
 	
 	public static void method1() {
@@ -42,21 +48,63 @@ public class Run {
 		// static은 프로그램이 실행될 때 메모리에 미리 적재를 해놓는데
 		// method1이 static으로 선언되어 있지 않으면 해당 메소드가 없을 수 있기 때문에 컴파일 에러가 발생한다
 		
+		// Unchecked Exception : 예외처리가 필수는 아니나 실행 중 발생 가능성이 있는 예외
 		Scanner sc = new Scanner(System.in);
-		System.out.print("a / b ... a?");
-		int a = sc.nextInt();
-
 		try {
+			System.out.print("a / b ... a?");
+			int a = sc.nextInt();
 			System.out.print("a / b ... b?");
 			int b = sc.nextInt();
 			
 			System.out.printf("%d / %d = %d\n", a, b, a / b);
-		} catch(Exception e) {
-			e.getMessage();
+		} catch(ArithmeticException ae) {
+			System.out.println("예외 발생!");
+			System.out.println(ae.getMessage());
+		} catch(InputMismatchException ie) {
+			System.out.println("예외 발생!");
+			System.out.println(ie.getMessage());
 		}
 		
-		System.out.println("=== method1 종료 ===");
+		System.out.println("=== m2ethod1 종료 ===");
 		sc.close();
+	}
+	
+	public static void method2() {
+		// Checked Exception
+		// 조건문 사용 불가 : 예측이 불가능한 곳에서 문제가 발생되기 때문이다. 외부 매체와의 입출력 시 발생됨
+		// BufferedReader : Scanner와 같이 키보드로부터 값을 입력 받을 수 있는 객체
+		//					문자열로 읽어옴
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = null;
+		try {
+			str = br.readLine(); // readLine 메서드에 throws Exception이 있기 때문에 반드시 예외처리를 해야함
+		} catch (NumberFormatException e) {
+			System.out.println("예외 발생!");
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println("예외 발생!");
+			System.out.println(e.getMessage());
+		}
+
+		System.out.println("실행 : " + str);
+		
+		try {
+			br.close();
+		} catch (IOException e) {
+			System.out.println("예외 발생!");
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void method3() {
+		// 나만의 예외 만들기 => 예외 발생시키기
+		try {
+			// 유효성 검사할 때 많이 사용
+			throw new MyException("나의 오류 만들기");
+		} catch(MyException me) {
+			System.out.println(me.getMessage());
+		}
 	}
 
 }

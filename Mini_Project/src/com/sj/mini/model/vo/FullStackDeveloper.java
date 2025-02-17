@@ -2,16 +2,16 @@ package com.sj.mini.model.vo;
 
 import java.util.List;
 
-public class FrontendDeveloper extends Developer implements Character {
+public class FullStackDeveloper extends Developer implements Character {
 	private String job;
 	private List<Skill> skillList;
 
-	public FrontendDeveloper() {}
+	public FullStackDeveloper() {}
 
-	public FrontendDeveloper(String name, String job) {
+	public FullStackDeveloper(String name, String job) {
 		super(name);
 		this.job = job;
-		this.skillList.add(new Skill("HTML&CSS"));
+		this.skillList.add(new Skill("JavaScript"));
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class FrontendDeveloper extends Developer implements Character {
 
 	@Override
 	public void study(Skill targetSkill) {
-		targetSkill.increaseExp((int)Math.random() * 10 + 3);
+		targetSkill.increaseExp((int)Math.random() * 15 + 7);
 	}
 
 	@Override

@@ -7,5 +7,5 @@ public interface Character {
 	public abstract String mySkillList();
 	public abstract void gainExp(int amount);
 	public abstract void levelUp();
-	public abstract void showStatus();
+	public abstract String showStatus();
 }

@@ -1,0 +1,117 @@
+▶ 예외 처리 ◀
+
+* 오류의 종류
+  - [컴파일] 에러 : 소스 코드 상의 문법 오류. 개발자의 실수.
+  - [런타임] 에러 : 문법 상 문제는 없으나 실행 중 발생할 수 있는 오류.
+  - [시스템] 에러 : 컴퓨터의 오작동으로 발생되는 오류.
+
+* 예외 처리란? 프로그램의 [비정상적인] 종료를 방지하기 위한 방법
+
+   - 예외 처리 방법
+	[1] 직접 처리 : [try-catch] 문 사용
+	=> 표현식
+	try {
+		// 관찰 영역
+	} catch(예외클래스명 변수명) {
+		// 에러 처리 영역
+	}
+
+	[2] 위임(떠넘기기) : [throws] 사용
+	=> 표현식
+	메서드 헤더 throws 예외클래스명
+
+   - 특정 조건에 따라 예외를 발생시키고자 할 경우
+	=> 표현식
+	throw new 예외클래스명
+
+   - 나만의 예외클래스 만드는 방법
+	[1] [예외클래스]를 상속
+	[2] [생성자]를 통해 예외 내용 작성
+
+	=> 표현식
+	[접근제한자] class 예외클래스명 extends Exception {
+		public 예외클래스명() {
+			
+		}
+	}
+
+---------------------------------------------------------------------------
+* 다음 코드의 출력 결과 예상해보기
+public class Main {
+	public static void main(String[] args) {
+		try {
+			System.out.println("수행 연산 : 10 / 0 ");
+			int result = divide(10, 0);
+			System.out.println("결과는 : " + result);
+		} catch ( ArithmeticException e ) {
+			System.out.println("예외 발생!!! :: " + e.getMessage());
+		} finally {
+			System.out.println("======= 프로그램 종료 ==========");
+		}
+	}
+
+	public static int divide(int a, int b) {
+		return a / b;
+	}
+
+}
+수행 연산 : 10 / 0 
+예외 발생!!! :: / by zero
+-------------------------------------------------------------------------
+* 다음 코드의 주석 내용을 참고하여 작성해보자.
+public class Main {
+	private static final String ID = "admin";
+	private static final String PWD = "qwer";
+
+	public static void main(String[] args) {
+		java.util.Scanner sc = new java.util.Scanner(System.in);
+		System.out.print("ID 입력 : ");
+		String inputId = sc.next();
+
+		System.out.print("PASSWD 입력 : ");
+		String inputPwd = sc.next();
+		
+		// id, pwd 유효성 검사 후 일치하는 경우 "로그인 성공" 출력
+		// id 값이 잘못된 경우 "로그인 실패. 잘못된 ID 값 입니다." 출력
+		// pwd 값이 잘못된 경우 "로그인 실패. 잘못된 PWD 값 입니다." 출력
+		try {
+			idCheck(inputId);
+			pwdCheck(inputPwd);
+			
+			System.out.println("로그인 성공");
+		} catch(InvalidUser e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public static boolean idCheck(String id) throws InvalidUser { // ★★★ throws InvalidUser
+		// 전달된 id 값과 ID 상수필드의 값이 같은 경우 true 리턴
+		// 다른 경우 InvalidUser 예외 발생
+		if(id.equals(ID)) {
+			return true;
+		}
+		
+		throw new InvalidUser("로그인 실패. 잘못된 ID 값 입니다.");
+		
+	}
+
+
+	public static boolean pwdCheck(String pwd) throws InvalidUser { // ★★★ throws InvalidUser
+		// 전달된 pwd 값과 PWD 상수필드의 값이 같은 경우 true 리턴
+		// 다른 경우 InvalidUser 예외 발생
+		if(pwd.equals(PWD)) {
+			return true;
+		}
+		
+		throw new InvalidUser("로그인 실패. 잘못된 PWD 값 입니다.");
+	}
+
+}
+
+class InvalidUser extends Exception {
+
+	public InvalidUser(String msg) {
+		super(msg);
+	}
+}
