@@ -54,7 +54,7 @@ public class ScoreMenu {
 			int math = sc.nextInt();
 			sc.nextLine();
 			int sum = kor + eng + math;
-			double avg = sum / 3;
+			double avg = (double)sum / (double)num;
 			
 			scr.saveScore(name, kor, eng, math, sum, avg);
 			
@@ -79,6 +79,7 @@ public class ScoreMenu {
 			dis = scr.readScore();
 			while(true) {
 //				System.out.println("반복문 시작");
+				// DataInputStream은 각 자료형에 맞게 입력이 가능
 				String name = dis.readUTF();
 				int kor = dis.readInt();
 				int eng = dis.readInt();
@@ -97,7 +98,7 @@ public class ScoreMenu {
 			}
 		} catch(EOFException e) { 
 			System.out.println("읽은 횟수\t전체합계\t전체평균");
-			System.out.println(count + "\t\t" + sumAll + "\t\t " + avgAll);
+			System.out.println(count + "\t\t" + sumAll + "\t\t " + avgAll / count);
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
