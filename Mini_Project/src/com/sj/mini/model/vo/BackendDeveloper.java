@@ -3,7 +3,7 @@ package com.sj.mini.model.vo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BackendDeveloper extends Developer implements Character {
+public class BackendDeveloper extends Developer {
 	private String job;
 	private List<Skill> skillList = new ArrayList<>();
 
@@ -107,5 +107,22 @@ public class BackendDeveloper extends Developer implements Character {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public TestLevel participate(Developer developer, int n) {
+		if(developer != null) {
+			switch(n) {
+				case 1:
+					return TestLevel.BASIC;
+				case 2:
+					return TestLevel.MIDDLE;
+				case 3:
+					return TestLevel.HARD;
+					default:
+						System.out.println("난이도를 잘못선택했습니다.");
+			}
+		}
+		return null;
 	}
 }

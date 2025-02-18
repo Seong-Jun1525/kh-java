@@ -10,6 +10,7 @@ import com.sj.mini.controller.GameController;
 import com.sj.mini.exception.MyException;
 import com.sj.mini.model.vo.BackendDeveloper;
 import com.sj.mini.model.vo.Developer;
+import com.sj.mini.model.vo.Developer.TestLevel;
 import com.sj.mini.model.vo.FrontendDeveloper;
 import com.sj.mini.model.vo.FullStackDeveloper;
 
@@ -24,45 +25,57 @@ public class GameMenu {
 	public GameMenu() {}
 	
 	public void mainMenu() {
-		System.out.println("====== 개발자 키우기 ======");
-		if(fd.getName().equals(Developer.DEFAULT_NAME)
-				&& bd.getName().equals(Developer.DEFAULT_NAME)
-				&& fsd.getName().equals(Developer.DEFAULT_NAME)) {
-			System.out.println("1. 프론트엔드 개발자 생성");
-			System.out.println("2. 백엔드 개발자 생성");
-			System.out.println("3. 풀스택 개발자 생성");
-		} else {
-			System.out.println("이미 캐릭터를 생성하였습니다.");
-		}
-		System.out.println("9. 종료하기");
-		System.out.println("===========================");
-		System.out.print("=> 입력 : ");
-		
-		try {
-			try {
-				Developer developer = gc.createDeveloper(Integer.parseInt(br.readLine()));
-				
-				if(developer != null) {
-					if(developer instanceof FrontendDeveloper) {
-						fd = ((FrontendDeveloper)(developer));
-					} else if(developer instanceof BackendDeveloper) {
-						bd = ((BackendDeveloper)(developer));
-					} else if(developer instanceof FullStackDeveloper) {
-						fsd = ((FullStackDeveloper)(developer));
-					}
-				}
-
-				gameMenu(developer);
-			} catch (MyException e) {
-				e.getMessage();
+		int n = 0;
+		while(true) {
+			System.out.println("====== 개발자 키우기 ======");
+			if(fd.getName().equals(Developer.DEFAULT_NAME)
+					&& bd.getName().equals(Developer.DEFAULT_NAME)
+					&& fsd.getName().equals(Developer.DEFAULT_NAME)) {
+				System.out.println("1. 프론트엔드 개발자 생성");
+				System.out.println("2. 백엔드 개발자 생성");
+				System.out.println("3. 풀스택 개발자 생성");
+			} else {
+				System.out.println("이미 캐릭터를 생성하였습니다.");
 			}
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+			System.out.println("9. 종료하기");
+			System.out.println("===========================");
+			System.out.print("=> 입력 : ");
+			try {
+				n = Integer.parseInt(br.readLine());
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(n == 9) break;
+			if(1 <= n && n <= 3) {
+				try {
+					try {
+						Developer developer = gc.createDeveloper(n);
+						
+						if(developer != null) {
+							if(developer instanceof FrontendDeveloper) {
+								fd = ((FrontendDeveloper)(developer));
+							} else if(developer instanceof BackendDeveloper) {
+								bd = ((BackendDeveloper)(developer));
+							} else if(developer instanceof FullStackDeveloper) {
+								fsd = ((FullStackDeveloper)(developer));
+							}
+						}
+
+						gameMenu(developer);
+					} catch (MyException e) {
+						e.getMessage();
+					}
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		System.out.println("프로그램 종료합니다.");
 	}
 
 	private void gameMenu(Developer developer) {
@@ -70,7 +83,7 @@ public class GameMenu {
 			gc.myInfo(developer);
 			System.out.println("\n======== 게임 메뉴 ========");
 			System.out.println("1. 공부하기");
-			System.out.println("2. 대회 참가 하기");
+			System.out.println("2. 시험보기");
 			System.out.println("3. 휴식하기");
 			System.out.println("===========================");
 			System.out.print("=> 입력 : ");
@@ -85,7 +98,7 @@ public class GameMenu {
 						break;
 					case 2:
 						// 대회참여
-						joinContestMenu();
+						testMenu(developer);
 						break;
 					case 3:
 						// 휴식하기
@@ -103,8 +116,41 @@ public class GameMenu {
 		} while(true);
 	}
 
-	private void joinContestMenu() {
+	private void testMenu(Developer developer) {
 		// 대회참여 메뉴
+		int n = 0;
+		do {
+			System.out.println("\n========= 시험보기 ==========");
+			System.out.println("1. 기초");
+			System.out.println("2. 중급");
+			System.out.println("3. 고급");
+			System.out.println("===========================");
+			System.out.print("=> 입력 : ");
+			try {
+				n = Integer.parseInt(br.readLine());
+				TestLevel tl = developer.participate(developer, n);
+				gc.participateTest(developer, tl);
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}catch (MyException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} while(n != 9);
+	}
+	
+	public void testBasic() {
+		
+	}
+	public void testMiddle() {
+			
+	}
+	public void testHard() {
+		
 	}
 
 	private void studySkillMenu(Developer developer) {

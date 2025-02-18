@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import com.sj.mini.exception.MyException;
 import com.sj.mini.model.vo.BackendDeveloper;
 import com.sj.mini.model.vo.Developer;
+import com.sj.mini.model.vo.Developer.TestLevel;
 import com.sj.mini.model.vo.FrontendDeveloper;
 import com.sj.mini.model.vo.FullStackDeveloper;
 import com.sj.mini.model.vo.Skill;
@@ -59,5 +60,9 @@ public class GameController {
 		} else {
 			throw new MyException("해당 기술이 존재하지 않습니다.");
 		}
+	}
+	
+	public void participateTest(Developer developer, TestLevel tl) throws MyException {
+		
 	}
 }

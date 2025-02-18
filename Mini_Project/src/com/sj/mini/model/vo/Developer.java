@@ -1,6 +1,6 @@
 package com.sj.mini.model.vo;
 
-public abstract class Developer implements Character {
+public abstract class Developer implements Character, Competition {
 	private String name;
 	private int hp;
 	private int level;
@@ -76,4 +76,7 @@ public abstract class Developer implements Character {
 		this.turn++;
 	}
 
+	public enum TestLevel {
+        BASIC, MIDDLE, HARD;
+    }
 }
