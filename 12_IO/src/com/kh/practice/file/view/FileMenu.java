@@ -1,7 +1,4 @@
 package com.kh.practice.file.view;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 import com.kh.practice.file.controller.FileController;
@@ -63,14 +60,6 @@ public class FileMenu {
 				break;
 			}
 		} while(answer != 'y');
-		File file = new File(fileName);
-		
-		try {
-			file.createNewFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		fc.fileSave(fileName, sb);
 	}

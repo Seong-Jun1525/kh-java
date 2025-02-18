@@ -1,0 +1,41 @@
+// * 다음 코드에서 잘못된 부분을 찾아 수정하시오.
+import java.util.io;
+
+public class Main {
+
+	private static String fileName = "tt.txt";
+	// => static으로 선언된 변수이어야지 static 메서드에서 사용 가능함
+
+	public static void main(String[] args) {
+		fileWrite();
+		fileRead();
+	}
+	
+	public static void fileWrite() { // => static으로 선언된 메서드이므로 멤버변수를 사용하려면 static으로 선언되어있어야 함!!
+		String[] samples = {"안녕하세요", "반가워요", "또만나요"};
+		
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));) {
+			for(String s : samples) {
+		
+				bw.write(s);
+				bw.newLine();
+				
+			}
+		} catch (IOException e) {
+			e.printStackTrace();		
+		}
+	
+	}
+	
+	public static void fileRead() {
+	
+		try (BufferedReader br = new BufferedReader(new FileReader(fileName));) {
+			String data = null;
+			while ((data = br.readLine()) != null) {
+				System.out.println(data);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
