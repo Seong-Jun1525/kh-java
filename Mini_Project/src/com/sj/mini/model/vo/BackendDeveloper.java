@@ -34,7 +34,7 @@ public class BackendDeveloper extends Developer {
 	public String mySkillList() {
         StringBuilder skillStr = new StringBuilder();
         for (Skill skill : this.skillList) {
-            skillStr.append(skill.getName()).append(" ");
+            skillStr.append(skill.getName() + "(Lv." + skill.getLevel() + ")").append(" ");
         }
         return skillStr.toString();
 	}
@@ -63,7 +63,13 @@ public class BackendDeveloper extends Developer {
                 "체력: %d\n" +
                 "경험치: %d\n" +
                 "보유 기술: %s",
-                super.getTurn(), this.getName(), this.job, this.getLevel(), super.getHp(), super.getExp(), mySkillList()
+                super.getTurn(),
+                this.getName(),
+                this.job,
+                this.getLevel(),
+                super.getHp(),
+                super.getExp(),
+                mySkillList()
         );
 	}
 

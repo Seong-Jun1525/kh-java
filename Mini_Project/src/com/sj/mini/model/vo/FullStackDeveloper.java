@@ -34,7 +34,7 @@ public class FullStackDeveloper extends Developer {
 	public String mySkillList() {
         StringBuilder skillStr = new StringBuilder();
         for (Skill skill : this.skillList) {
-            skillStr.append(skill.getName()).append(" ");
+            skillStr.append(skill.getName() + "(Lv." + skill.getLevel() + ")").append(" ");
         }
         return skillStr.toString();
 	}

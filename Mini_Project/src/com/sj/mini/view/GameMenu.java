@@ -15,6 +15,7 @@ import com.sj.mini.model.vo.FrontendDeveloper;
 import com.sj.mini.model.vo.FullStackDeveloper;
 
 public class GameMenu {
+	public static int turn = 0;
 	private GameController gc = new GameController();
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	private BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -27,7 +28,7 @@ public class GameMenu {
 	public void mainMenu() {
 		Developer developer = null;
 		int n = 0;
-		while(true) {
+		while(turn < 10) {
 			System.out.println("====== 개발자 키우기 ======");
 			if(fd.getName().equals(Developer.DEFAULT_NAME)
 					&& bd.getName().equals(Developer.DEFAULT_NAME)
@@ -73,8 +74,7 @@ public class GameMenu {
 						e.getMessage();
 					}
 				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					e.getMessage();
 				}
 			} else if(n == 4) {
 				// 이미 생성되었을 경우
@@ -86,6 +86,7 @@ public class GameMenu {
 
 	private void gameMenu(Developer developer) {
 		int n = 0;
+		int count = 0;
 		do {
 			// 개발자 정보출력
 			gc.myInfo(developer);
@@ -116,11 +117,14 @@ public class GameMenu {
 						break;
 				}
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
+			count++;
+			if(count % 3 == 0) {
+				turn++;
+				developer.nextTurn();
 			}
 		} while(n != 9);
 		System.out.println("메인 메뉴로 돌아갑니다.\n");
@@ -142,14 +146,11 @@ public class GameMenu {
 				TestLevel tl = developer.participate(developer, n);
 				gc.participateTest(developer, tl);
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.getMessage();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.getMessage();
 			}catch (MyException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.getMessage();
 			}
 		} while(n != 9);
 		System.out.println("게임 메뉴로 돌아갑니다.\n");
@@ -172,7 +173,11 @@ public class GameMenu {
 
 	private void studySkillMenu(Developer developer) {
 		String answer = null;
-		do {
+		while (true) {
+			if(developer.getHp() < 70) {
+				System.out.println("너무 많은 공부로 인해 피로가 쌓였습니다..ㅠ");
+				break;
+			}
 			System.out.println("\n======== 공부 하기 ========");
 			System.out.println("공부할 기술을 입력하세요");
 			System.out.println(developer.mySkillList());
@@ -181,17 +186,13 @@ public class GameMenu {
 			System.out.print("=> 입력 : ");
 			try {
 				answer = br.readLine();
+				if(answer.equals("exit")) break;
 				gc.studySkill(developer, answer);
 				developer.decreaseExp((int)(Math.random() * 5 + 2));
-				System.out.println("기술 공부 성공!\n");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (MyException e) {
-				// TODO Auto-generated catch block
-				e.getMessage();
 			}
-		} while (!answer.equals("exit"));
+		}
 	}
 
 }

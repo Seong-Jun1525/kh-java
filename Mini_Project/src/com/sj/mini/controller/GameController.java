@@ -51,14 +51,21 @@ public class GameController {
 		System.out.println("===========================");
 	}
 
-	public void studySkill(Developer developer, String name) throws MyException {
+	public void studySkill(Developer developer, String name) throws IOException {
 		Skill mySkill = developer.getMySkill(name);
 		
 		if(mySkill != null) {
 			developer.study(mySkill);
 			System.out.println(developer.getMySkill(name).toString());
 		} else {
-			throw new MyException("해당 기술이 존재하지 않습니다.");
+			System.out.println("=== 해당 기술이 존재하지 않습니다. ===");
+			System.out.print("기술을 추가하시겠습니까? (y / n) : ");
+			char answer = br.readLine().charAt(0);
+			
+			if(answer == 'y' || answer == 'Y') {
+				developer.addSkill(name);
+				System.out.println("기술을 추가했습니다!");
+			}
 		}
 	}
 	

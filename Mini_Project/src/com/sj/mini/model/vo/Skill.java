@@ -15,6 +15,7 @@ public class Skill {
     /** 경험치 증가 및 스킬 레벨업 */
     public void increaseExp(int amount) {
         this.exp += amount;
+		System.out.println("기술 공부 성공!\n");
         if (this.exp >= 100 && this.level < MAX_LEVEL) {
             this.exp = 0;
             levelUp();
