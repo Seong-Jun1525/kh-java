@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 import com.sj.mini.controller.GameController;
 import com.sj.mini.exception.MyException;
@@ -46,11 +47,9 @@ public class GameMenu {
 			try {
 				n = Integer.parseInt(br.readLine());
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.getMessage();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.getMessage();
 			}
 			if(n == 9) break;
 			if(1 <= n && n <= 3) {
@@ -87,7 +86,7 @@ public class GameMenu {
 	private void gameMenu(Developer developer) {
 		int n = 0;
 		int count = 0;
-		do {
+		while(turn < 10) {
 			// 개발자 정보출력
 			gc.myInfo(developer);
 			
@@ -95,12 +94,14 @@ public class GameMenu {
 			System.out.println("1. 공부하기");
 			System.out.println("2. 시험보기");
 			System.out.println("3. 휴식하기");
+			System.out.println("4. 스킬관리");
 			System.out.println("9. 뒤로가기");
 			System.out.println("===========================");
 			System.out.print("=> 입력 : ");
 			
 			try {
 				n = Integer.parseInt(br.readLine());
+				if(n == 9) break;
 
 				switch(n) {
 					case 1:
@@ -115,19 +116,50 @@ public class GameMenu {
 						// 휴식하기
 						developer.rest();
 						break;
+					case 4:
+						// 스킬관
+						skillManage(developer);
+						break;
 				}
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+				e.getMessage();
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.getMessage();
 			}
 			count++;
 			if(count % 3 == 0) {
 				turn++;
 				developer.nextTurn();
 			}
-		} while(n != 9);
+		}
 		System.out.println("메인 메뉴로 돌아갑니다.\n");
+	}
+
+	private void skillManage(Developer developer) {
+		// 스킬 관리
+		String answer = null;
+		while (true) {
+			System.out.println("\n======== 공부 하기 ========");
+			System.out.println("제거할 스킬 번호를 입력하세요");
+			StringTokenizer stk = new StringTokenizer(developer.mySkillList());
+			int len = stk.countTokens();
+			for(int i = 1; i <= len; i++) {
+				System.out.println(i + ". " + stk.nextToken());
+			}
+			System.out.println("뒤로가시려면 \"exit\"를 입력하세요");
+			System.out.println("===========================");
+			System.out.print("=> 입력 : ");
+			try {
+				answer = br.readLine();
+				if(answer.equals("exit")) break;
+				int idx = Integer.parseInt(answer) - 1;
+				if(0 <= idx && idx < len) {
+					developer.removeSkill(idx);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private void testMenu(Developer developer) {
@@ -135,7 +167,7 @@ public class GameMenu {
 		int n = 0;
 		do {
 			System.out.println("\n========= 시험보기 ==========");
-			System.out.println("1. 기초");
+			System.out.println("1. 초급");
 			System.out.println("2. 중급");
 			System.out.println("3. 고급");
 			System.out.println("9. 뒤로가기");
@@ -158,17 +190,17 @@ public class GameMenu {
 	
 	public void testBasic() {
 		// 초급 테스트
-		System.out.println("현재 미구현 입니다.");
+		System.out.println("\n========= 초급시험 ==========");
 	}
 	
 	public void testMiddle() {
 		// 중급 테스트			
-		System.out.println("현재 미구현 입니다.");
+		System.out.println("\n========= 중급시험 ==========");
 	}
 	
 	public void testHard() {
 		// 상급 테스트
-		System.out.println("현재 미구현 입니다.");
+		System.out.println("\n========= 고급시험 ==========");
 	}
 
 	private void studySkillMenu(Developer developer) {
@@ -190,7 +222,7 @@ public class GameMenu {
 				gc.studySkill(developer, answer);
 				developer.decreaseExp((int)(Math.random() * 5 + 2));
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.getMessage();
 			}
 		}
 	}

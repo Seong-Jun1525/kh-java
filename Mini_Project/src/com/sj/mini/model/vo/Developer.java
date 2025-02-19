@@ -10,6 +10,7 @@ public abstract class Developer implements Character, Competition {
 	protected static final int DEFAULT_HP = 100;
 	protected static final int DEFAULT_LEVEL = 1;
 	protected static final int DEFAULT_EXP = 0;
+	protected static final String[] MAIN_LANGUAGE = {"HTML&CSS", "Java", "JavaScript"};
 	
 	public abstract boolean isMySkill(String name);
 	public abstract Skill getMySkill(String name);

@@ -42,22 +42,41 @@ public class LeapController {
 		}
 		
 		int cMonth = c.get(Calendar.MONTH);
+		System.out.println(cMonth);
 		
-		switch(cMonth) {
-		case 1:case 3: case 5: case 7: case 8: case 10: case 12:
-			a += 31;
-			break;
-		case 4: case 6: case 9: case 11:
-			a += 30;
-		case 2:
-			a += isLeapYear(currentYear) ? 29 : 28;
-			break;
+//		switch(cMonth) {
+//		case 1:case 3: case 5: case 7: case 8: case 10: case 12:
+//			a += 31;
+//			break;
+//		case 4: case 6: case 9: case 11:
+//			a += 30;
+//			break;
+//		case 2:
+//			a += isLeapYear(currentYear) ? 29 : 28;
+//			break;
+//		}
+		
+		for(int i = 0; i < cMonth; i++) {
+			switch(i) {
+			case 0:case 2: case 4: case 6: case 7: case 9: case 11:
+				a += 31;
+				break;
+			case 3: case 5: case 8: case 10:
+				a += 30;
+				break;
+			case 1:
+				a += isLeapYear(currentYear) ? 29 : 28;
+				break;
+			}
 		}
 		
 		// 현재 날짜 까지 더하기
+		System.out.println(c.get(Calendar.DAY_OF_MONTH));
+		System.out.println(c.get(Calendar.DAY_OF_YEAR));
 //		return a + c.get(Calendar.DAY_OF_YEAR);
 		
 		// 현재 월에 맞게 더하기
-		return a;
+		return a + c.get(Calendar.DAY_OF_MONTH);
+//		return a;
 	}
 }
