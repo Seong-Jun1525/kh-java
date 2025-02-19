@@ -25,6 +25,7 @@ public class GameMenu {
 	public GameMenu() {}
 	
 	public void mainMenu() {
+		Developer developer = null;
 		int n = 0;
 		while(true) {
 			System.out.println("====== 개발자 키우기 ======");
@@ -36,6 +37,7 @@ public class GameMenu {
 				System.out.println("3. 풀스택 개발자 생성");
 			} else {
 				System.out.println("이미 캐릭터를 생성하였습니다.");
+				System.out.println("4. 게임 메뉴로 가기");
 			}
 			System.out.println("9. 종료하기");
 			System.out.println("===========================");
@@ -51,9 +53,10 @@ public class GameMenu {
 			}
 			if(n == 9) break;
 			if(1 <= n && n <= 3) {
+				// 개발자 생성
 				try {
 					try {
-						Developer developer = gc.createDeveloper(n);
+						developer = gc.createDeveloper(n);
 						
 						if(developer != null) {
 							if(developer instanceof FrontendDeveloper) {
@@ -73,23 +76,30 @@ public class GameMenu {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			} else if(n == 4) {
+				// 이미 생성되었을 경우
+				gameMenu(developer);
 			}
 		}
 		System.out.println("프로그램 종료합니다.");
 	}
 
 	private void gameMenu(Developer developer) {
+		int n = 0;
 		do {
+			// 개발자 정보출력
 			gc.myInfo(developer);
+			
 			System.out.println("\n======== 게임 메뉴 ========");
 			System.out.println("1. 공부하기");
 			System.out.println("2. 시험보기");
 			System.out.println("3. 휴식하기");
+			System.out.println("9. 뒤로가기");
 			System.out.println("===========================");
 			System.out.print("=> 입력 : ");
 			
 			try {
-				int n = Integer.parseInt(br.readLine());
+				n = Integer.parseInt(br.readLine());
 
 				switch(n) {
 					case 1:
@@ -103,7 +113,6 @@ public class GameMenu {
 					case 3:
 						// 휴식하기
 						developer.rest();
-						System.out.println("휴식했습니다.");
 						break;
 				}
 			} catch (NumberFormatException e) {
@@ -113,7 +122,8 @@ public class GameMenu {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} while(true);
+		} while(n != 9);
+		System.out.println("메인 메뉴로 돌아갑니다.\n");
 	}
 
 	private void testMenu(Developer developer) {
@@ -124,6 +134,7 @@ public class GameMenu {
 			System.out.println("1. 기초");
 			System.out.println("2. 중급");
 			System.out.println("3. 고급");
+			System.out.println("9. 뒤로가기");
 			System.out.println("===========================");
 			System.out.print("=> 입력 : ");
 			try {
@@ -141,36 +152,46 @@ public class GameMenu {
 				e.printStackTrace();
 			}
 		} while(n != 9);
+		System.out.println("게임 메뉴로 돌아갑니다.\n");
 	}
 	
 	public void testBasic() {
-		
+		// 초급 테스트
+		System.out.println("현재 미구현 입니다.");
 	}
+	
 	public void testMiddle() {
-			
+		// 중급 테스트			
+		System.out.println("현재 미구현 입니다.");
 	}
+	
 	public void testHard() {
-		
+		// 상급 테스트
+		System.out.println("현재 미구현 입니다.");
 	}
 
 	private void studySkillMenu(Developer developer) {
-		System.out.println("\n======== 공부 하기 ========");
-		System.out.println("공부할 기술을 입력하세요");
-		System.out.println(developer.mySkillList());
-		System.out.println("===========================");
-		System.out.print("=> 입력 : ");
-		
-		try {
-			gc.studySkill(developer, br.readLine());
-			developer.decreaseExp((int)(Math.random() * 5 + 2));
-			System.out.println("기술 공부 성공!\n");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MyException e) {
-			// TODO Auto-generated catch block
-			e.getMessage();
-		}
+		String answer = null;
+		do {
+			System.out.println("\n======== 공부 하기 ========");
+			System.out.println("공부할 기술을 입력하세요");
+			System.out.println(developer.mySkillList());
+			System.out.println("뒤로가시려면 \"exit\"를 입력하세요");
+			System.out.println("===========================");
+			System.out.print("=> 입력 : ");
+			try {
+				answer = br.readLine();
+				gc.studySkill(developer, answer);
+				developer.decreaseExp((int)(Math.random() * 5 + 2));
+				System.out.println("기술 공부 성공!\n");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (MyException e) {
+				// TODO Auto-generated catch block
+				e.getMessage();
+			}
+		} while (!answer.equals("exit"));
 	}
 
 }

@@ -26,16 +26,21 @@ public abstract class Developer implements Character, Competition {
 	}
 	
 	public void rest() {
+		int plusHP = 0;
 		if(this.getHp() < 100) {
-			if(70 <= this.getHp() && this.getHp() < 90) {
-				this.setHp(this.getHp() + (int)(Math.random() * 10 + 3));
+			if(90 <= this.getHp()) {
+				plusHP = this.getHp() + (int)(Math.random() * 5 + 1);
+				this.setHp(plusHP > 100 ? 100 : plusHP);
+			} else if(70 <= this.getHp() && this.getHp() < 90) {
+				this.setHp(this.getHp() + (int)(Math.random() * 10 + 1));
 			} else if(40 <= this.getHp() && this.getHp() < 70) {
-				this.setHp(this.getHp() + (int)(Math.random() * 20 + 5));
+				this.setHp(this.getHp() + (int)(Math.random() * 20 + 1));
 			} else if(10 <= this.getHp() && this.getHp() < 40) {
-				this.setHp(this.getHp() + (int)(Math.random() * 30 + 7));
+				this.setHp(this.getHp() + (int)(Math.random() * 30 + 1));
 			} else {
 				this.setHp(this.getHp() + (int)(Math.random() * 5));
 			}
+			System.out.println("휴식했습니다.");
 		} else {
 			System.out.println("체력을 보충할 필요가 없습니다.");
 		}

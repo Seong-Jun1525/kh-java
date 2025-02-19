@@ -1,0 +1,19 @@
+// * Java에서 자동으로 import 되는 패키지 경로는 ? java.lang
+
+// * 다음 코드의 결과를 예상해보자.
+System.out.println("apple" == "apple");     // true
+
+String str1 = "아이유";
+String str2 = new String("아이유");
+System.out.println(str1 == str2);            // false
+System.out.println(str1 == "아이유");        // true
+System.out.println(str2 == "아이유");        // false
+
+// * 다음 변수들의 타입을 Wrapper로 작성해보자.
+______ w1 = 'A';		// Character
+______ w2 = 13.5;		// Double
+______ w3 = 99.4f;		// Float
+______ w4 = 10000l;		// Long
+byte a = 5;				
+short b = 10;			
+______ w5 = a+b;		// byte + short = short => int로 변함 => Integer로 해야함 ★★★

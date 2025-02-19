@@ -2,7 +2,6 @@ package com.kh.api;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class API4_Date {
@@ -38,6 +37,8 @@ public class API4_Date {
 		
 		// 올해 며칠남았는지?
 		// 올해 총 일수 - 현재까지의 일수
+		LocalDateTime ldt = LocalDateTime.of(2025, 12, 31, 0, 0);
+		System.out.println(ldt.getDayOfYear() - date3.getDayOfYear());
 	}
 
 }
