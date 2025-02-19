@@ -1,0 +1,73 @@
+** 입출력 (IO) **
+- 프로그램 상의 데이터를 외부 매체로 [출력] 하거나,
+  외부 매체로부터 데이터를 [입력] 받을 수 있음.
+- 자바에서 IO는 [스트림]을 통해 이루어진다.
+
+  * 사이즈에 따른 분류
+    [1] [바이트 스트림] : 바이트 단위로 데이터를 읽고 씀 (1Byte 씩)
+        + 최상위 클래스로 [InputStream] 클래스와 [OutputStream] 클래스가 있음
+        
+    [2] [문자 스트림] : 문자 단위로 데이터를 읽고 씀 (2Byte 씩)
+        + 최상위 클래스로 [Reader] 클래스와 [Writer] 클래스가 있음
+  * 외부 매체와의 직접 연결 유무에 따른 분류
+    [1] [기반스트림] : 외부 매체와 직접적으로 연결되는 스트림. 필수!!
+    [2] [보조스트림] : 다양 기능을 제공하므로서 도와주는 스트림. 단독 사용 불가!
+
+// 아래 빈칸을 채워주세요 :)
+* 키워드 : BufferedReader, InputStream, FileReader, FileInputStream, FileWriter,
+FileOutputStream
+
+	바이트 스트림			  	  |	문자스트림
+	--------------------------------------------------
+	[InputStream]	  	 	    |	Reader
+	OutputStream			  	  |	Writer
+				         	  	    |
+	BufferedInputStream		  |	[BufferedReader]
+	BufferedOutputStream	  |	BufferedWriter
+					  	  	  	  	|
+	[FileInputStream]	  		  	|	[FileReader]
+	[FileOutputStream]    	      |	[FileWriter]
+	--------------------------------------------------
+	바이트 스트림만 존재
+
+	DataInputStream
+	DataOutputStream
+
+	ObjectInputStream
+	ObjectOutputStream
+	--------------------------------------------------
+	바이트스트림 -> 문자스트림 변환
+
+	InputStreamReader
+	OutputStreamWriter
+	--------------------------------------------------
+	문자 출력 스트림
+
+	PrintWriter
+	--------------------------------------------------
+	
+// 코드가 잘 동작될 수 있도록 수정해주세요 :)
+import java.io.*;
+
+public class FileDAO {
+    public static void main(String[] args) {
+	    fileCopy("src.txt", "dst.txt");
+    }
+    
+    public static void fileCopy(String src, String dst) {
+        File origin = new File(src);
+        File copy = new File(dst);
+
+        try (FileInputStream fis = new [FileInputStream](origin);
+             FileOutputStream fos = new [FileOutputStream](copy)) {
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = fis.[read](buffer)) != -1) {
+                fos.[write](buffer, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    
+    }
+}
