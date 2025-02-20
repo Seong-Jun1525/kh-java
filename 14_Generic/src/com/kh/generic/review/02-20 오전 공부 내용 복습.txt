@@ -1,0 +1,124 @@
+** 제네릭 **
+- 클래스 또는 메소드에서 사용되는 다양한 [데이터타입]을 일반화 시켜서 정의하는 방법
+
+- 특징
+  * 코드 재사용성이 높아짐
+  * 타입 안정성 제공 ( 의도하지 않은 타입 사용 방지 )
+  * 불필요한 형변환 줄임
+  
+- 제네릭 클래스 (제네릭이 적용된 클래스)
+  * 표현법 * // 아래에 작성해주세요
+  	접근제한자 class 클래스명<타입매개변수> {}
+  * 특징 *
+  + 제네릭 클래스 객체 생성 시 [타입(파라미터,전달값)]를 결정해주는 것이 좋음
+    => 명시되지 않으면 [Object]로 처리됨
+  + 제네릭 클래스의 참조 변수 선언 시 [타입(파라미터,전달값)]를 명시하고,
+    생성 부분(new) 에서는 <>만 사용 가능.
+    => 객체 생성 시 [기본 자료형]은 사용할 수 없음
+  + 적용 범위 : 필드의 데이터 타입 및 메서드 반환, 매개변수타입, 지역변수
+  
+- 제네릭 메소드 (제네릭이 적용된 메소드)
+  * 표현법 * // 아래에 작성해주세요  
+  접근제한자 <타입매개변수> 반환형 메서드명(매개변수정보) {}
+  
+  * 특징 *
+  + 메소드 내에서 사용하는 [데이터타입]을 일반화시켜 정의
+  + 제네릭 메소드의 타입 파라미터를 결정하는 방법
+    - 호출 시 직접 명시하기
+    - 호출 시 전달되는 값의 타입에 따라 자동으로 결정되게 하기
+      => 매개변수의 타입이 제네릭 타입이어야 함!
+    - 호출 시 반환 값을 받는 변수의 타입에 따라 자동으로 결정되게 하기
+      => 반환타입이 제네릭 타입이어야 함!
+      => 매개변수가 제네릭을 사용하지 않아야 함!
+      
+ - 제네릭 타입 제한하기
+   <T> : 어떤 타입 파라미터든 허용
+   <T extends 클래스 또는 인터페이스> : 부모 타입을 상속받은 자식 클래스만 허용
+   * <T extends 클래스A> : 클래스A, 또는 클래스A의 상속받은 클래스만 허용
+   * <T extends 인터페이스A> : 인터페이스A를 구현(상속)한 클래스만 허용
+   * <T extends 클래스A & 인터페이스A> : 클래스A를 상속받고 인터페이스A를 구현한 클래스만 허용    
+
+
+
+
+
+
+
+
+//  --- 아래 코드에 제네릭을 적용하여 MyArray 클래스를 문자열 데이터용, 정수형 데이터용으로 따로 구분해보자.
+public class Main {
+
+	public static void main(String[] args) {
+
+		try {
+			// MyArray<T> mArr = new MyArray<>(5);
+
+			// mArr.add("문자열 데이터");
+			// mArr.add(1000);
+			
+			MyArray<String> strArr = new MyArray<>(5);
+			MyArray<Integer> iArr = new MyArray<>(5);
+
+			for(int i=0; i < strArr.size(); i++) {
+				System.out.println(strArr.get(i));
+			}
+			
+			for(int i=0; i < iArr.size(); i++) {
+				System.out.println(iArr.get(i));
+			}
+		
+		} catch (MyException e) {
+			System.out.println("오류 발생#################");
+			e.printStackTrace();
+		}		
+
+	}
+
+
+}
+
+class MyArray<T> {
+
+	private T[] arr;
+
+	public MyArray(int size) throws MyException {
+		if (size < 0) throw new MyException("size는 0보다 작을 수 없습니다."); 
+		arr = new T[size];
+	}
+
+	public boolean add(T element) throws MyException {
+		for(int i=0; i < arr.length; i++) {
+			if (arr[i] == null) {
+				arr[i] = element;
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public T get(int index) throws MyException {
+		if (index < 0) throw new MyException("index는 0보다 작을 수 없습니다.");
+		if (index >= arr.length) throw new MyException("index는 size보다 작아야 합니다.");
+		return arr[index];
+	}
+ 
+	public void remove(int index) throws MyException {
+		if (index < 0) throw new MyException("index는 0보다 작을 수 없습니다.");
+		if (index >= arr.length) throw new MyException("index는 size보다 작아야 합니다.");
+		arr[index] = null;
+	}
+
+	public int size() {
+		return arr.length;
+	}
+
+}
+
+class MyException extends Exception {
+	public MyException() {}
+
+	public MyException(String msg) {
+		super(msg);
+	}
+}

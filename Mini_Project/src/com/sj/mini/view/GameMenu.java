@@ -24,6 +24,8 @@ public class GameMenu {
 	private BackendDeveloper bd = new BackendDeveloper();
 	private FullStackDeveloper fsd = new FullStackDeveloper();
 	
+	private boolean studyFlag = true; // false가 되면 체력이 방전된 상태 휴식해야함
+	
 	public GameMenu() {}
 	
 	public void mainMenu() {
@@ -205,9 +207,11 @@ public class GameMenu {
 
 	private void studySkillMenu(Developer developer) {
 		String answer = null;
+		int currentHp = developer.getHp();
 		while (true) {
-			if(developer.getHp() < 70) {
+			if(currentHp - developer.getHp() > 10 || !studyFlag) {
 				System.out.println("너무 많은 공부로 인해 피로가 쌓였습니다..ㅠ");
+				studyFlag = !studyFlag; // studyFlag값을 true로
 				break;
 			}
 			System.out.println("\n======== 공부 하기 ========");
