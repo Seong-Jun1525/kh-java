@@ -10,10 +10,13 @@ import java.io.IOException;
 public class ScoreDAO {
 
 	public void saveScore(String name, int kor, int eng, int math, int sum, double avg) {
-		// 매개변수들을 DataOutputStream을 통해 파일에 저장
-		// 아래처럼 했을 경우 자동 close()를 해주기 때문에 스트림을 쓸 수가 없어짐
-		// => 즉, close를 해주면 DataOutputStream을 여러번 생성하기 때문에
-		// 값을 제대로 읽어오지 못함. 에러가 발생
+		/**
+		 * 매개변수들을 DataOutputStream을 통해 파일에 저장
+		 * 아래처럼 했을 경우 자동 close()를 해주기 때문에 스트림을 쓸 수가 없어짐
+		 * => 즉, close를 해주면 DataOutputStream을 여러번 생성하기 때문에
+		 * 값을 제대로 읽어오지 못함. 에러가 발생
+		 */
+		/*
 //		try(DataOutputStream dos = new DataOutputStream(new FileOutputStream("data.txt"))) {
 //			dos.writeBytes("이름\t국어\t영어\t수학\t총점\t평균\n");
 //			dos.writeBytes(name + "\t");
@@ -30,6 +33,8 @@ public class ScoreDAO {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+ * 
+ */
 		DataOutputStream dos = null;
 		try {
 			dos = new DataOutputStream(new FileOutputStream("data.txt", true));

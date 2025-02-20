@@ -4,7 +4,6 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.kh.practice2.score.controller.ScoreController;
