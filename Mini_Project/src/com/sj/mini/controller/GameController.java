@@ -24,7 +24,6 @@ public class GameController {
 			System.out.print("이름 : ");
 			name = br.readLine();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

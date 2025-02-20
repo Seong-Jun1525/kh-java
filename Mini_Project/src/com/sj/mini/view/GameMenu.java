@@ -1,28 +1,19 @@
 package com.sj.mini.view;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 import com.sj.mini.controller.GameController;
 import com.sj.mini.exception.MyException;
-import com.sj.mini.model.vo.BackendDeveloper;
 import com.sj.mini.model.vo.Developer;
 import com.sj.mini.model.vo.Developer.TestLevel;
-import com.sj.mini.model.vo.FrontendDeveloper;
-import com.sj.mini.model.vo.FullStackDeveloper;
 
 public class GameMenu {
 	public static int turn = 0;
 	private GameController gc = new GameController();
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	private BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	private FrontendDeveloper fd = new FrontendDeveloper();
-	private BackendDeveloper bd = new BackendDeveloper();
-	private FullStackDeveloper fsd = new FullStackDeveloper();
 	
 	private boolean studyFlag = true; // false가 되면 체력이 방전된 상태 휴식해야함
 	
@@ -33,9 +24,7 @@ public class GameMenu {
 		int n = 0;
 		while(turn < 10) {
 			System.out.println("====== 개발자 키우기 ======");
-			if(fd.getName().equals(Developer.DEFAULT_NAME)
-					&& bd.getName().equals(Developer.DEFAULT_NAME)
-					&& fsd.getName().equals(Developer.DEFAULT_NAME)) {
+			if(developer == null) {
 				System.out.println("1. 프론트엔드 개발자 생성");
 				System.out.println("2. 백엔드 개발자 생성");
 				System.out.println("3. 풀스택 개발자 생성");
@@ -59,16 +48,6 @@ public class GameMenu {
 				try {
 					try {
 						developer = gc.createDeveloper(n);
-						
-						if(developer != null) {
-							if(developer instanceof FrontendDeveloper) {
-								fd = ((FrontendDeveloper)(developer));
-							} else if(developer instanceof BackendDeveloper) {
-								bd = ((BackendDeveloper)(developer));
-							} else if(developer instanceof FullStackDeveloper) {
-								fsd = ((FullStackDeveloper)(developer));
-							}
-						}
 
 						gameMenu(developer);
 					} catch (MyException e) {
@@ -134,6 +113,7 @@ public class GameMenu {
 				developer.nextTurn();
 			}
 		}
+		System.out.println("턴이 종료되었습니다.");
 		System.out.println("메인 메뉴로 돌아갑니다.\n");
 	}
 
@@ -146,7 +126,7 @@ public class GameMenu {
 			StringTokenizer stk = new StringTokenizer(developer.mySkillList());
 			int len = stk.countTokens();
 			for(int i = 1; i <= len; i++) {
-				System.out.println(i + ". " + stk.nextToken());
+				System.out.println(stk.nextToken());
 			}
 			System.out.println("뒤로가시려면 \"exit\"를 입력하세요");
 			System.out.println("===========================");
@@ -154,10 +134,7 @@ public class GameMenu {
 			try {
 				answer = br.readLine();
 				if(answer.equals("exit")) break;
-				int idx = Integer.parseInt(answer) - 1;
-				if(0 <= idx && idx < len) {
-					developer.removeSkill(idx);
-				}
+				developer.removeSkill(answer);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -211,7 +188,7 @@ public class GameMenu {
 		while (true) {
 			if(currentHp - developer.getHp() > 10 || !studyFlag) {
 				System.out.println("너무 많은 공부로 인해 피로가 쌓였습니다..ㅠ");
-				studyFlag = !studyFlag; // studyFlag값을 true로
+				studyFlag = true; // studyFlag값을 true로
 				break;
 			}
 			System.out.println("\n======== 공부 하기 ========");
