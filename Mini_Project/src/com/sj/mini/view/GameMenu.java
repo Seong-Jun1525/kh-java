@@ -119,9 +119,81 @@ public class GameMenu {
 
 	private void skillManage(Developer developer) {
 		// 스킬 관리
+		int n = 0;
+		do {
+			System.out.println("\n========= 스킬 관리 ==========");
+			System.out.println("1. 스킬추가");
+			System.out.println("2. 스킬삭제");
+			System.out.println("9. 뒤로가기");
+			System.out.println("===========================");
+			System.out.print("=> 입력 : ");
+			try {
+				n = Integer.parseInt(br.readLine());
+				
+				switch(n) {
+				case 1:
+					addSkillMenu(developer);
+					break;
+				case 2:
+					removeSkillMenu(developer);
+					break;
+				}
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		} while(n != 9);
+	}
+	
+	private void addSkillMenu(Developer developer) {
+		boolean flag = false;
+		System.out.println("\n========= 스킬 추가 ==========");
+		if(developer.getJob().equals(Developer.MAIN_JOB[0])) {
+			System.out.println("1. Java");
+			System.out.println("2. JavaScript");
+		} else if(developer.getJob().equals(Developer.MAIN_JOB[1])) {
+			System.out.println("1. HTML&CSS");
+			System.out.println("2. JavaScript");
+		} else if(developer.getJob().equals(Developer.MAIN_JOB[2])) {
+			System.out.println("1. HTML&CSS");
+			System.out.println("2. Java");
+		}
+		System.out.println("===========================");
+		System.out.print("=> 기술명 입력 : ");
+		try {
+			String skillName = br.readLine();
+			
+			for(int i = 0; i < Developer.MAIN_LANGUAGE.length; i++) {
+				if(skillName.equals(Developer.MAIN_LANGUAGE[i])) {
+					flag = true;
+				}
+			}
+			
+			if(!flag) {
+				System.out.println("기술명을 잘못입력했습니다.");
+			} else if(developer.isMySkill(skillName)) {
+				System.out.println("이미 존재하는 기술입니다.");
+			} else {
+				gc.addSkill(developer, skillName);
+			}
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeSkillMenu(Developer developer) {
 		String answer = null;
 		while (true) {
-			System.out.println("\n======== 공부 하기 ========");
+			System.out.println("\n======== 스킬 관리 ========");
 			System.out.println("제거할 스킬 번호를 입력하세요");
 			StringTokenizer stk = new StringTokenizer(developer.mySkillList());
 			int len = stk.countTokens();

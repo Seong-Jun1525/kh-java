@@ -56,15 +56,28 @@ public class GameController {
 		if(mySkill != null) {
 			developer.study(mySkill);
 			System.out.println(developer.getMySkill(name).toString());
+		} else System.out.println("잘못 입력했습니다.");
+//		else {
+//			System.out.println("=== 해당 기술이 존재하지 않습니다. ===");
+//			System.out.print("기술을 추가하시겠습니까? (y / n) : ");
+//			char answer = br.readLine().charAt(0);
+//			
+//			if(answer == 'y' || answer == 'Y') {
+//				developer.addSkill(name);
+//				System.out.println("기술을 추가했습니다!");
+//			}
+//		}
+	}
+	
+	public void addSkill(Developer developer, String name) throws IOException {
+		System.out.print("기술을 추가하시겠습니까? (y / n) : ");
+		char answer = br.readLine().charAt(0);
+		
+		if(answer == 'y' || answer == 'Y') {
+			developer.addSkill(name);
+			System.out.println("기술을 추가했습니다!");
 		} else {
-			System.out.println("=== 해당 기술이 존재하지 않습니다. ===");
-			System.out.print("기술을 추가하시겠습니까? (y / n) : ");
-			char answer = br.readLine().charAt(0);
-			
-			if(answer == 'y' || answer == 'Y') {
-				developer.addSkill(name);
-				System.out.println("기술을 추가했습니다!");
-			}
+			System.out.println("잘못 입력했습니다.");
 		}
 	}
 	
@@ -73,8 +86,8 @@ public class GameController {
 	}
 
 	public boolean isDischarge(int currentHp, Developer developer) {
-		System.out.println("현재 체력 : " + currentHp);
-		System.out.println("개발자 체력 : " + developer.getHp());
+//		System.out.println("현재 체력 : " + currentHp);
+//		System.out.println("개발자 체력 : " + developer.getHp());
 		/**
 		 * currentHp : 공부하기 기능을 시작했을 때의 체력
 		 * 

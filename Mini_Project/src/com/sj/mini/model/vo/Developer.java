@@ -9,8 +9,8 @@ public abstract class Developer implements Character, Competition {
 	private static final int DEFAULT_HP = 100;
 	private static final int DEFAULT_LEVEL = 1;
 	private static final int DEFAULT_EXP = 0;
-	private static final String[] MAIN_JOB = {"프론트엔드 개발자", "백엔드 개발자", "풀스택 개발자"};
-	private static final String[] MAIN_LANGUAGE = {"HTML&CSS", "Java", "JavaScript"};
+	public static final String[] MAIN_JOB = {"프론트엔드 개발자", "백엔드 개발자", "풀스택 개발자"};
+	public static final String[] MAIN_LANGUAGE = {"HTML&CSS", "Java", "JavaScript"};
 	
 	private String name;
 	private String job;
@@ -47,6 +47,7 @@ public abstract class Developer implements Character, Competition {
 	public void removeSkill(String removeName) {
 		if(this.skillList.size() > 1) {
 			for(int i = 0; i < 3; i++) {
+				// TODO 이 부분 해결하기
 				if(removeName.toLowerCase().equals(MAIN_LANGUAGE[i].toLowerCase())) {
 					System.out.println("메인언어는 제거할 수 없습니다.");
 					return;
