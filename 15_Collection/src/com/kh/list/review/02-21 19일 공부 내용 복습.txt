@@ -1,0 +1,82 @@
+* 컬렉션 (Collection)
+ : [자료구조]에 대한 기능을 제공하는 기본 클래스
+   -> 데이터를 구조적으로 처리하는 방법
+
+ * 컬렉션 종류 (3가지)
+   [1] [List]: 순서가 있고, 중복 허용
+	    [ArrayList]<E>  : 데이터 조회가 빠름(배열 기반)	        ㅁㅁㅁㅁㅁ
+	    [LinkedList]<E>  : 데이터 추가/삭제가 빠름 (리스트 기반)   ㅁ->ㅁ->ㅁ
+   [2] [Set]: 순서가 없고, 중복 불가
+   [3] [Map]: 데이터를 key, value 형태로 관리. key 값은 중복 불가. 순서없음
+	 
+ * 컬렉션 관련 메소드
+   - 리스트에서 특정 위치의 데이터를 조회 : get()
+   - 리스트에서 특정 위치의 데이터를 삭제 : remove()
+   - 리스트 끝에 데이터 추가 : add()
+   - 리스트에 저장된 데이터 크기 조회 : size()
+	 
+// --------------------------------------
+	 
+public class Practice1 {
+
+	public static void main(String[] args) {
+		List<String> cars = new ArrayList<>();
+		cars.add("테슬라");
+		cars.add("코나");
+		cars.add("i30");
+		
+		System.out.println(cars);
+		// => 출력 결과는? [테슬라, 코나, i30]
+		
+		cars.add(1, "제네시스");
+		System.out.println(cars);
+		// => 출력 결과는? [테슬라, 제네시스, 코나, i30]
+	}
+
+}	 
+	 
+// --------------------------------------	 
+// * 아래 코드에서 이상한 부분을 수정해보자.
+public class Practice2 {
+
+	public static void main(String[] args) {
+		List<Product> list = new ArrayList<>();
+		
+		// 아래 제품에 대하여 관리하기 위해 List를 사용하였으나,
+		// 의도대로 동작되지 않았다.. 문제가 무엇일까...
+		/*
+			제품명          | 가격
+			--------------------------------
+			아이퐁16          1500000
+			아이퐁SE          800000
+		*/
+		list.add(new Product("아이퐁16", 1500000));
+		// list.add("아이퐁SE");
+		// list.add(800000);
+		list.add(new Product("아이퐁SE", 800000));
+
+    for(int i=0; i<list.size(); i++) {
+	    System.out.println(list.get(i));
+    }
+    // => 정상적으로 실행했을 때 출력 결과는?
+    // 아이퐁16 : 1500000
+    // 아이퐁SE : 800000
+	}
+	
+}
+
+class Product {
+	private String name;
+	private int price;
+	
+	public Product(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s : %d", name, price);
+	}
+	
+}

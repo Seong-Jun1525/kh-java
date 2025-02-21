@@ -14,8 +14,7 @@ public class GameMenu {
 	public static int turn = 0;
 	private GameController gc = new GameController();
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	
-	private boolean studyFlag = true; // false가 되면 체력이 방전된 상태 휴식해야함
+	private boolean chargeFlag = false; // true가 되면 체력이 방전된 상태 휴식해야함
 	
 	public GameMenu() {}
 	
@@ -96,6 +95,7 @@ public class GameMenu {
 					case 3:
 						// 휴식하기
 						developer.rest();
+						chargeFlag = false;
 						break;
 					case 4:
 						// 스킬관
@@ -186,11 +186,15 @@ public class GameMenu {
 		String answer = null;
 		int currentHp = developer.getHp();
 		while (true) {
-			if(currentHp - developer.getHp() > 10 || !studyFlag) {
-				System.out.println("너무 많은 공부로 인해 피로가 쌓였습니다..ㅠ");
-				studyFlag = true; // studyFlag값을 true로
+			// 체력 방전 기능
+			if(chargeFlag) {
+				System.out.println("휴식을 해야합니다!");
 				break;
 			}
+			
+			chargeFlag = gc.isDischarge(currentHp, developer);
+			if(chargeFlag) break;
+			
 			System.out.println("\n======== 공부 하기 ========");
 			System.out.println("공부할 기술을 입력하세요");
 			System.out.println(developer.mySkillList());

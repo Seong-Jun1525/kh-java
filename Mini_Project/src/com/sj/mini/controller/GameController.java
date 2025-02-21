@@ -71,4 +71,19 @@ public class GameController {
 	public void participateTest(Developer developer, TestLevel tl) throws MyException {
 		
 	}
+
+	public boolean isDischarge(int currentHp, Developer developer) {
+		System.out.println("현재 체력 : " + currentHp);
+		System.out.println("개발자 체력 : " + developer.getHp());
+		/**
+		 * currentHp : 공부하기 기능을 시작했을 때의 체력
+		 * 
+		 * currentHp와 공부하기 기능을 동작한 후의 변화되는 체력의 차가 10보다 크면 피로 누적으로 인한 종료
+		 */
+		if(currentHp - developer.getHp() > 10) {
+			System.out.println("너무 많은 공부로 인해 피로가 쌓였습니다..ㅠ");
+			return true;
+		}
+		return false;
+	}
 }
