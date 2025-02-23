@@ -98,7 +98,7 @@ public class GameMenu {
 						chargeFlag = false;
 						break;
 					case 4:
-						// 스킬관
+						// 스킬관리
 						skillManage(developer);
 						break;
 				}
@@ -145,8 +145,6 @@ public class GameMenu {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
 		} while(n != 9);
 	}
 	
