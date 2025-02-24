@@ -14,7 +14,7 @@ import com.sj.mini.model.vo.Question;
 
 public class TestFileDAO {
 	
-	
+	// 문제 파일 경로
 	private String baiscFilePath = "./resources/question/basic";
 	private String middleFilePath = "./resources/question/middle";
 	private String hardFilePath = "./resources/question/hard";
@@ -31,7 +31,7 @@ public class TestFileDAO {
 		}
 	}
 
-	public boolean checkBaiscFolder(TestLevel tl) {
+	public boolean checkFolder(TestLevel tl) {
 		if(tl == TestLevel.BASIC) return new File(baiscFilePath).exists();
 		else if(tl == TestLevel.MIDDLE) return new File(middleFilePath).exists();
 		else if(tl == TestLevel.HARD) return new File(hardFilePath).exists();
@@ -39,14 +39,16 @@ public class TestFileDAO {
 		return false;
 	}
 	
+	// 매개변수 정보에 따른 문제 반환
 	public List<Question> fileOpen(TestLevel tl, String file) {
-		List<Question> qList = new ArrayList<>();
-		String question = "";
-		String hint = "";
-		int answer = 0;
+		List<Question> qList = new ArrayList<>(); // 문제를 저장할 리스트
+		String question = ""; // 문제
+		String hint = ""; // 문제 힌트
+		int answer = 0; // 정답
 		
 		String data = null;
-		File f = new File(baiscFilePath, file);
+		File f = new File(tl == TestLevel.BASIC ? (tl == TestLevel.MIDDLE ? middleFilePath : baiscFilePath) : hardFilePath, file);
+		
 		try(BufferedReader br = new BufferedReader(new FileReader(f))) {
 			while((data = br.readLine()) != null) {
 				StringTokenizer stk = new StringTokenizer(data, "&");
@@ -56,8 +58,6 @@ public class TestFileDAO {
 				
 				qList.add(new Question(question, hint, answer));
 			}
-			
-			return qList;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

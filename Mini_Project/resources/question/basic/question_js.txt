@@ -1,0 +1,10 @@
+자바스크립트에서 변수 선언을 위한 키워드는?&1. var$2. let$3. const$4. 위 모두&4
+자바스크립트에서 함수를 선언하는 올바른 방법은?&1. function myFunction() {}$2. def myFunction() {}$3. func myFunction() {}$4. function:myFunction() {}&1
+자바스크립트에서 배열의 길이를 얻기 위한 속성은?&1. length$2. size$3. count$4. getSize&1
+자바스크립트에서 주석을 다는 방법은?&1. // 주석$2. /* 주석 */$3. <!-- 주석 -->$4. 위 모두&1
+자바스크립트에서 조건문을 작성하는 키워드는?&1. if$2. elif$3. switch$4. select&1
+자바스크립트에서 true 또는 false 값을 나타내는 데이터 타입은?&1. String$2. Number$3. Boolean$4. Object&3
+자바스크립트에서 숫자를 문자열로 변환하는 메서드는?&1. toString()$2. parseInt()$3. parseFloat()$4. Number()&1
+자바스크립트에서 이벤트를 처리하는 메서드는?&1. addEventListener()$2. attachEvent()$3. onEvent()$4. handleEvent()&1
+자바스크립트에서 객체의 속성을 접근하는 연산자는?&1. .$2. ::$3. ->$4. =>&1
+자바스크립트에서 HTML 요소를 선택하는 메서드는?&1. getElementById()$2. getElementsByClassName()$3. querySelector()$4. 위 모두&4

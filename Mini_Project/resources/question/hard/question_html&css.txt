@@ -1,0 +1,10 @@
+CSS Grid에서 영역을 구성하기 위한 속성은?&1. grid-template-areas$2. grid-template-zones$3. grid-template-sections$4. grid-template-regions&1
+HTML5에서 사용자 지정 데이터 속성을 추가하는 올바른 형식은?&1. data-custom="value"$2. custom-data="value"$3. custom="data-value"$4. value="data-custom"&1
+CSS에서 스크롤바를 숨기기 위한 속성은?&1. overflow$2. display$3. visibility$4. scroll-hide&1
+HTML5에서 웹 저장소(Web Storage)를 사용하는 방법은?&1. localStorage.setItem()$2. sessionStorage.setItem()$3. cookies.setItem()$4. 1과 2 모두&4
+CSS에서 특정 요소에만 적용되는 키프레임 애니메이션을 정의하는 규칙은?&1. @keyframes$2. @animation$3. @transition$4. @motion&1
+HTML에서 SVG 이미지를 삽입하기 위한 태그는?&1. <svg>$2. <img>$3. <vector>$4. <image>&1
+CSS에서 특정 미디어 조건에 따라 스타일을 적용하기 위한 규칙은?&1. @media$2. @screen$3. @print$4. @display&1
+HTML5에서 비동기 작업을 수행하기 위해 사용하는 API는?&1. Fetch API$2. XMLHttpRequest$3. WebSocket$4. EventSource&1
+CSS에서 상속되지 않는 속성을 강제로 상속받도록 설정하는 키워드는?&1. inherit$2. default$3. auto$4. unset&1
+HTML5에서 폼 데이터를 서버로 전송하기 위한 메서드는?&1. get$2. post$3. put$4. delete&2

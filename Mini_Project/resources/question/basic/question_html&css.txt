@@ -1,0 +1,10 @@
+웹 페이지의 제목을 지정하는 태그는?&1. <title>$2. <head>$3. <meta>$4. <link>&1
+HTML에서 주석을 다는 방법은?&1. <!-- 주석 -->$2. \<!-- 주석 -->$3. \/* 주석 */$4. \** 주석 **&1
+CSS에서 색상을 지정하는 올바른 코드는?&1. color: #FFFFFF;$2. color: rgb(255, 255, 255);$3. color: white;$4. color: hex(FFFFFF);&1
+HTML에서 링크를 생성하는 태그는?&1. <a>$2. <link>$3. <href>$4. <url>&1
+CSS에서 글꼴 크기를 설정하는 속성은?&1. font-size$2. font-family$3. font-weight$4. font-style&1
+HTML에서 줄 바꿈을 하기 위한 태그는?&1. <break>$2. <br>$3. <hr>$4. <p>&2
+CSS에서 배경 색상을 설정하는 속성은?&1. background-color$2. color$3. bg-color$4. bgcolor&1
+HTML에서 폼을 생성하는 태그는?&1. <form>$2. <input>$3. <button>$4. <submit>&1
+CSS에서 id가 'header'인 요소를 선택하는 방법은?&1. .header$2. #header$3. header$4. *header&2
+HTML에서 목록을 만들기 위한 태그는?&1. <ul> 및 <li>$2. <ol> 및 <li>$3. <list> 및 <item>$4. <dir> 및 <item>&1

@@ -1,0 +1,10 @@
+JavaScript에서 'this' 키워드가 가리키는 것은 무엇입니까?&1. 전역 객체$2. 현재 객체$3. 부모 객체$4. 함수 객체&2
+JavaScript에서 클로저(closure)의 주요 용도는 무엇입니까?&1. 함수 재사용성 증가$2. 데이터 은닉$3. 메모리 관리$4. 실행 속도 향상&2
+JavaScript에서 'strict mode'를 활성화하는 방법은 무엇입니까?&1. "use strict";$2. "enable strict";$3. "strict mode on";$4. "strict: true";&1
+JavaScript에서 배열의 요소를 정렬하는 메서드는 무엇입니까?&1. sort()$2. order()$3. arrange()$4. align()&1
+JavaScript에서 비동기 코드를 처리하기 위해 사용하는 객체는 무엇입니까?&1. Promise$2. Callback$3. Event$4. Generator&1
+JavaScript에서 Symbol 타입의 주요 용도는 무엇입니까?&1. 유니크한 식별자 생성$2. 문자열 변환$3. 수치 연산$4. 배열 생성&1
+JavaScript에서 객체의 속성을 순회하기 위한 메서드는 무엇입니까?&1. Object.keys()$2. Object.values()$3. Object.entries()$4. 위 모두&4
+JavaScript에서 'null'과 'undefined'의 차이점은 무엇입니까?&1. null은 비어있는 값, undefined는 값이 정의되지 않음$2. null은 값이 정의되지 않음, undefined는 비어있는 값$3. 둘 다 동일함$4. null은 숫자 타입, undefined는 문자열 타입&1
+JavaScript에서 이벤트 위임(event delegation)을 구현하는 방법은 무엇입니까?&1. 부모 요소에 이벤트 리스너를 추가하고 이벤트 버블링을 활용$2. 각 자식 요소에 이벤트 리스너를 개별적으로 추가$3. 전역 객체에 이벤트 리스너를 추가$4. 함수를 통해 이벤트를 전달&1
+JavaScript에서 기본 제공되는 모듈 시스템은 무엇입니까?&1. CommonJS$2. AMD$3. UMD$4. ES Modules&4

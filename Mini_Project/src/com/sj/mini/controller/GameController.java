@@ -18,8 +18,8 @@ public class GameController {
 
 	public GameController() {}
 
+	// 개발자 생성
 	public Developer createDeveloper(int n) throws MyException {
-		// 개발자 생성
 		String name = null;
 		try {
 			System.out.print("이름 : ");
@@ -43,14 +43,15 @@ public class GameController {
 		
 		return null;
 	}
-	
+
+	// 나의 정보 보기
 	public void myInfo(Developer developer) {
-		// 나의 정보 보기
 		System.out.println("\n======= 개발자 정보 =======");
 		System.out.println(developer.showStatus());
 		System.out.println("===========================");
 	}
 
+	// 공부하기
 	public void studySkill(Developer developer, String name) throws IOException {
 		Skill mySkill = developer.getMySkill(name);
 		
@@ -70,6 +71,7 @@ public class GameController {
 //		}
 	}
 	
+	// 스킬 추가
 	public void addSkill(Developer developer, String name) throws IOException {
 		System.out.print("기술을 추가하시겠습니까? (y / n) : ");
 		char answer = br.readLine().charAt(0);
@@ -82,18 +84,12 @@ public class GameController {
 		}
 	}
 	
-	public int participateTest(Developer developer, TestLevel tl) throws MyException {
-		int result = 0;
-		if(tl == TestLevel.BASIC) result = qc.openBasicTest(developer, tl);
-		else if(tl == TestLevel.MIDDLE) qc.openMiddleTest(developer, tl);
-		else if(tl == TestLevel.HARD) qc.openHardTest(developer, tl);
-		else {
-			System.out.println("난이도를 잘못선택하셨습니다.");
-		}
-		
-		return result;
+	// 대회 참가
+	public int participateTest(String job, TestLevel tl) throws MyException {
+		return qc.openTest(job, tl);
 	}
 
+	// 체력 감소
 	public boolean isDischarge(int currentHp, Developer developer) {
 //		System.out.println("현재 체력 : " + currentHp);
 //		System.out.println("개발자 체력 : " + developer.getHp());

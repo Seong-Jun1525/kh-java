@@ -27,25 +27,28 @@ public class QuestionController {
 	 * 후에 count * 5 해서 점수 출력
 	 */
 
-	// 초급 테스트
-	public int openBasicTest(Developer delveoper, TestLevel tl) {
-		int score = 0;
-		if(tl == TestLevel.BASIC) {
-			System.out.println("초급 시험\n" + "-".repeat(30));
-			
-			score = basicTest(delveoper, tl) * 10;
-			
-			System.out.println("결과는 " + score + "점 입니다.");
-		} else System.out.println("난이도가 일치하지 않습니다.");
+	// 테스트
+	public int openTest(String job, TestLevel tl) {
+		int score = levelTest(job, tl) * 10;
 		
+		System.out.println("결과는 " + score + "점 입니다.");
 		return score;
 	}
 	
-	public int basicTest(Developer delveoper, TestLevel tl) {
-		char[] myAnsArr = new char[10];
-		int count = 0;
-		if(fileDAO.checkBaiscFolder(tl)) {
-			List<Question> result = fileDAO.fileOpen(tl, "question_java.txt");
+	public int levelTest(String job, TestLevel tl) {
+		System.out.println("시험\n" + "-".repeat(30));
+		char[] myAnsArr = new char[10]; // 사용자의 답안 배열
+		int count = 0; // 맞힌 문제 수
+		if(fileDAO.checkFolder(tl)) {
+			
+			// 사용자 직업과 테스트 레벨에 따라 문제 가져오기
+			List<Question> result = fileDAO.fileOpen(
+					tl, 
+					job.equals(Developer.MAIN_JOB[0]) 
+					? (job.equals(Developer.MAIN_JOB[1]) 
+							? "question_java.txt" : "question_html&css.txt") : "question_js.txt");
+			
+			// 문제 출력 후 답안 작성
 			for(int i = 0; i < result.size(); i++) {
 				System.out.println(result.get(i).getQuestion());
 				StringTokenizer stk = new StringTokenizer(result.get(i).getHint(), "$");
@@ -62,6 +65,7 @@ public class QuestionController {
 			}
 		}
 		
+		// 채점
 		for(int i = 0; i < myAnsArr.length; i++) {
 			if(myAnsArr[i] == 'O') {
 				count++;
@@ -69,19 +73,5 @@ public class QuestionController {
 		}
 		
 		return count;
-	}
-	
-	// 중급 테스트
-	public void openMiddleTest(Developer delveoper, TestLevel tl) {
-		if(tl == TestLevel.MIDDLE) {
-			System.out.println("중급 시험");
-		} else System.out.println("난이도가 일치하지 않습니다.");
-	}
-	
-	// 상급 테스트
-	public void openHardTest(Developer delveoper, TestLevel tl) {
-		if(tl == TestLevel.HARD) {
-			System.out.println("상급 시험");
-		} else System.out.println("난이도가 일치하지 않습니다.");
 	}
 }

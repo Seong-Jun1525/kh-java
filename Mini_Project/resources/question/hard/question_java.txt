@@ -1,0 +1,10 @@
+Java에서 새로운 API와 함께 사용할 수 있는 신속한 입출력을 위해 제공되는 클래스는?&1. Scanner$2. BufferedReader$3. DataInputStream$4. Files&4
+Java에서 주어진 스레드 풀을 관리하기 위해 사용하는 인터페이스는?&1. Executor$2. Callable$3. Runnable$4. Future&1
+Java에서 스트림 API를 사용할 때, 순차 스트림을 병렬 스트림으로 변환하는 방법은?&1. parallelStream()$2. stream()$3. parallel()$4. sequential()&1
+Java에서 JPA (Java Persistence API)에서 엔터티를 정의하기 위해 사용하는 애너테이션은?&1. @Entity$2. @Table$3. @Column$4. @Persistence&1
+Java에서 람다 표현식을 사용하여 익명 클래스를 대체할 때, 올바른 형식은?&1. (parameters) -> expression$2. -> (parameters) expression$3. (parameters): expression$4. (parameters) => expression&1
+Java에서 기본 메서드를 가지는 인터페이스를 정의하기 위한 키워드는?&1. abstract$2. static$3. default$4. synchronized&3
+Java에서 불변 객체를 생성하기 위해 사용하는 클래스는?&1. String$2. StringBuilder$3. StringBuffer$4. Optional&1
+Java에서 가비지 컬렉션의 동작을 제어하기 위한 JVM 옵션은?&1. -Xms$2. -Xmx$3. -Xss$4. -XX:+UseG1GC&4
+Java에서 주어진 날짜와 시간 형식을 변환하기 위해 사용하는 클래스는?&1. Date$2. Calendar$3. LocalDateTime$4. SimpleDateFormat&4
+Java에서 병렬 처리를 효율적으로 수행하기 위해 사용하는 클래스는?&1. Thread$2. ForkJoinPool$3. ExecutorService$4. CompletableFuture&2

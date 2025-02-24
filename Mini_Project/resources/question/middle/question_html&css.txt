@@ -1,0 +1,10 @@
+HTML5에서 사용되는 새로운 입력 유형은?&1. text$2. password$3. email$4. file&3
+CSS에서 특정 요소를 비율에 맞게 크기 조정하는 속성은?&1. width$2. height$3. aspect-ratio$4. ratio&3
+HTML5에서 비디오를 삽입하기 위한 태그는?&1. <video>$2. <movie>$3. <media>$4. <clip>&1
+CSS Flexbox에서 요소를 수평으로 가운데 정렬하는 속성은?&1. align-items$2. justify-content$3. align-content$4. flex-direction&2
+HTML에서 'data-' 속성의 주요 용도는?&1. 스타일 지정$2. 데이터 저장$3. 이벤트 처리$4. 구조 변경&2
+CSS Grid Layout에서 열의 크기를 정의하는 속성은?&1. grid-template-columns$2. grid-template-rows$3. column-gap$4. row-gap&1
+HTML에서 반복 가능한 콘텐츠를 만들기 위한 태그는?&1. <repeat>$2. <loop>$3. <template>$4. <copy>&3
+CSS에서 마우스 커서를 변경하는 속성은?&1. cursor$2. pointer$3. mouse$4. hover&1
+HTML5에서 오디오를 삽입하기 위한 태그는?&1. <audio>$2. <sound>$3. <music>$4. <voice>&1
+CSS에서 글꼴을 정의하기 위한 규칙은?&1. @font-face$2. @font-style$3. @font-family$4. @font-weight&1

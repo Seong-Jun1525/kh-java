@@ -1,0 +1,10 @@
+JavaScript에서 Generators를 생성하기 위한 키워드는 무엇입니까?&1. yield$2. async$3. function*$4. await&3
+JavaScript에서 프로토타입 상속을 사용하는 주요 이유는 무엇입니까?&1. 객체 간의 메서드 공유$2. 클래스 정의$3. 데이터 은닉$4. 비동기 처리&1
+JavaScript에서 'event loop'의 역할은 무엇입니까?&1. 비동기 콜백 함수 관리$2. 이벤트 처리$3. 함수 호출 스택 관리$4. 위 모두&4
+JavaScript에서 'this' 바인딩을 명시적으로 설정하기 위한 메서드는 무엇입니까?&1. bind()$2. call()$3. apply()$4. 위 모두&4
+JavaScript에서 객체를 얕게 복사하기 위해 사용하는 메서드는 무엇입니까?&1. Object.assign()$2. Object.copy()$3. Object.clone()$4. Object.duplicate()&1
+JavaScript에서 트랜스파일러의 주요 역할은 무엇입니까?&1. 코드 변환$2. 코드 압축$3. 코드 디버깅$4. 코드 배포&1
+JavaScript에서 비동기 반복문을 생성하기 위한 키워드는 무엇입니까?&1. async/await$2. forEach$3. map$4. filter&1
+JavaScript에서 클래스의 생성자를 호출하기 위한 키워드는 무엇입니까?&1. constructor$2. new$3. class$4. init&2
+JavaScript에서 이벤트를 트리거하기 위한 메서드는 무엇입니까?&1. trigger()$2. dispatchEvent()$3. emit()$4. fireEvent()&2
+JavaScript에서 'Proxy' 객체의 주요 용도는 무엇입니까?&1. 객체의 동작을 커스터마이즈$2. 비동기 코드 처리$3. 배열 관리$4. 이벤트 리스닝&1

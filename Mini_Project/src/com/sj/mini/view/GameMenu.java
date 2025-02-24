@@ -18,6 +18,7 @@ public class GameMenu {
 	
 	public GameMenu() {}
 	
+	// 메인 메뉴
 	public void mainMenu() {
 		Developer developer = null;
 		int n = 0;
@@ -47,7 +48,6 @@ public class GameMenu {
 				try {
 					try {
 						developer = gc.createDeveloper(n);
-
 						gameMenu(developer);
 					} catch (MyException e) {
 						e.getMessage();
@@ -63,12 +63,18 @@ public class GameMenu {
 		System.out.println("프로그램 종료합니다.");
 	}
 
+	// 게임 메뉴
 	private void gameMenu(Developer developer) {
 		int n = 0;
 		int count = 0;
 		while(turn < 10) {
 			// 개발자 정보출력
 			gc.myInfo(developer);
+			
+			if(developer.getLevel() >= 3) {
+				System.out.println("개발자 레벨이 최대 레벨에 도달했습니다.\n축하합니다!!!");
+				break;
+			}
 			
 			System.out.println("\n======== 게임 메뉴 ========");
 			System.out.println("1. 공부하기");
@@ -139,15 +145,14 @@ public class GameMenu {
 					break;
 				}
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} while(n != 9);
 	}
 	
+	// 스킬 추가
 	private void addSkillMenu(Developer developer) {
 		boolean flag = false;
 		System.out.println("\n========= 스킬 추가 ==========");
@@ -180,14 +185,13 @@ public class GameMenu {
 				gc.addSkill(developer, skillName);
 			}
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	// 스킬 삭제
 	public void removeSkillMenu(Developer developer) {
 		String answer = null;
 		while (true) {
@@ -211,6 +215,7 @@ public class GameMenu {
 		}
 	}
 
+	// 공부하기 기능
 	private void studySkillMenu(Developer developer) {
 		String answer = null;
 		int currentHp = developer.getHp();
@@ -242,6 +247,7 @@ public class GameMenu {
 		}
 	}
 	
+	// 대회참가 기능
 	private void testMenu(Developer developer) {
 		// 대회참여 메뉴
 		int n = 0;
@@ -266,10 +272,21 @@ public class GameMenu {
 			try {
 				n = Integer.parseInt(br.readLine());
 				TestLevel tl = developer.participate(developer, n);
-				int result = gc.participateTest(developer, tl);
-				System.out.println("result : " + result);
-				developer.gainExp((int)(result + result * 0.3));
-				developer.decreaseHP((int)(Math.random() * 15 + 5));
+				int result = gc.participateTest(developer.getJob(), tl);
+//				System.out.println("result : " + result);
+				
+				if(tl == TestLevel.BASIC) {
+					developer.gainExp((int)(result + result * 0.3));
+					developer.decreaseHP((int)(Math.random() * 15 + 5));
+				} else if(tl == TestLevel.MIDDLE) {
+					developer.gainExp((int)(result + result * 0.6));
+					developer.decreaseHP((int)(Math.random() * 25 + 10));
+				} else if(tl == TestLevel.HARD) {
+					developer.gainExp((int)(result + result * 0.9));
+					developer.decreaseHP((int)(Math.random() * 35 + 15));
+				}
+				
+				
 			} catch (NumberFormatException e) {
 				e.getMessage();
 			} catch (IOException e) {
