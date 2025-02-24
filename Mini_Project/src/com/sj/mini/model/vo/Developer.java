@@ -78,9 +78,9 @@ public abstract class Developer implements Character, Competition {
 
 	@Override
 	public void gainExp(int amount) {
-		this.setExp(this.getExp() + amount);
+		this.setExp(this.exp + amount);
         while (this.getExp() >= 100) {  // 경험치가 100 이상이면 레벨업
-        	this.setExp(0);
+        	this.setExp(this.getExp() - 100);
             levelUp();
         }
 	}
@@ -132,7 +132,7 @@ public abstract class Developer implements Character, Competition {
 	}
 
 	@Override
-	public boolean decreaseExp(int amount) {
+	public boolean decreaseHP(int amount) {
 		if(this.getHp() - amount >= 0) {
 			this.setHp(this.getHp() - amount);
 			return true;

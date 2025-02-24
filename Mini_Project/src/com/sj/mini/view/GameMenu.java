@@ -211,47 +211,6 @@ public class GameMenu {
 		}
 	}
 
-	private void testMenu(Developer developer) {
-		// 대회참여 메뉴
-		int n = 0;
-		do {
-			System.out.println("\n========= 시험보기 ==========");
-			System.out.println("1. 초급");
-			System.out.println("2. 중급");
-			System.out.println("3. 고급");
-			System.out.println("9. 뒤로가기");
-			System.out.println("===========================");
-			System.out.print("=> 입력 : ");
-			try {
-				n = Integer.parseInt(br.readLine());
-				TestLevel tl = developer.participate(developer, n);
-				gc.participateTest(developer, tl);
-			} catch (NumberFormatException e) {
-				e.getMessage();
-			} catch (IOException e) {
-				e.getMessage();
-			}catch (MyException e) {
-				e.getMessage();
-			}
-		} while(n != 9);
-		System.out.println("게임 메뉴로 돌아갑니다.\n");
-	}
-	
-	public void testBasic() {
-		// 초급 테스트
-		System.out.println("\n========= 초급시험 ==========");
-	}
-	
-	public void testMiddle() {
-		// 중급 테스트			
-		System.out.println("\n========= 중급시험 ==========");
-	}
-	
-	public void testHard() {
-		// 상급 테스트
-		System.out.println("\n========= 고급시험 ==========");
-	}
-
 	private void studySkillMenu(Developer developer) {
 		String answer = null;
 		int currentHp = developer.getHp();
@@ -271,15 +230,56 @@ public class GameMenu {
 			System.out.println("뒤로가시려면 \"exit\"를 입력하세요");
 			System.out.println("===========================");
 			System.out.print("=> 입력 : ");
+			
 			try {
 				answer = br.readLine();
 				if(answer.equals("exit")) break;
 				gc.studySkill(developer, answer);
-				developer.decreaseExp((int)(Math.random() * 5 + 2));
+				developer.decreaseHP((int)(Math.random() * 5 + 2));
 			} catch (IOException e) {
 				e.getMessage();
 			}
 		}
 	}
+	
+	private void testMenu(Developer developer) {
+		// 대회참여 메뉴
+		int n = 0;
+		int currentHp = developer.getHp();
+		do {
+			// 체력 방전 기능
+			if(chargeFlag) {
+				System.out.println("휴식을 해야합니다!");
+				break;
+			}
+			
+			chargeFlag = gc.isDischarge(currentHp, developer);
+			if(chargeFlag) break;
+			
+			System.out.println("\n========= 시험보기 ==========");
+			System.out.println("1. 초급");
+			System.out.println("2. 중급");
+			System.out.println("3. 고급");
+			System.out.println("9. 뒤로가기");
+			System.out.println("===========================");
+			System.out.print("=> 입력 : ");
+			try {
+				n = Integer.parseInt(br.readLine());
+				TestLevel tl = developer.participate(developer, n);
+				int result = gc.participateTest(developer, tl);
+				System.out.println("result : " + result);
+				developer.gainExp((int)(result + result * 0.3));
+				developer.decreaseHP((int)(Math.random() * 15 + 5));
+			} catch (NumberFormatException e) {
+				e.getMessage();
+			} catch (IOException e) {
+				e.getMessage();
+			}catch (MyException e) {
+				e.getMessage();
+			}
+		} while(n != 9);
+		System.out.println("게임 메뉴로 돌아갑니다.\n");
+	}
+
 
 }

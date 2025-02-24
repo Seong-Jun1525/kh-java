@@ -2,12 +2,14 @@ package com.sj.mini.model.vo;
 
 public class Question {
 	private String question;
-	private String answer;
+	private String hint;
+	private int answer;
 	
 	public Question() {}
-	
-	public Question(String question, String answer) {
+
+	public Question(String question, String hint, int answer) {
 		this.question = question;
+		this.hint = hint;
 		this.answer = answer;
 	}
 
@@ -19,12 +21,21 @@ public class Question {
 		this.question = question;
 	}
 
-	public String getAnswer() {
+	public String getHint() {
+		return hint;
+	}
+
+	public void setHint(String hint) {
+		this.hint = hint;
+	}
+
+	public int getAnswer() {
 		return answer;
 	}
 
-	public void setAnswer(String answer) {
+	public void setAnswer(int answer) {
 		this.answer = answer;
 	}
+	
 	
 }

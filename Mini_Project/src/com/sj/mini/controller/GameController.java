@@ -82,13 +82,16 @@ public class GameController {
 		}
 	}
 	
-	public void participateTest(Developer developer, TestLevel tl) throws MyException {
-		if(tl == TestLevel.BASIC) qc.openBasicTest(developer, tl);
+	public int participateTest(Developer developer, TestLevel tl) throws MyException {
+		int result = 0;
+		if(tl == TestLevel.BASIC) result = qc.openBasicTest(developer, tl);
 		else if(tl == TestLevel.MIDDLE) qc.openMiddleTest(developer, tl);
 		else if(tl == TestLevel.HARD) qc.openHardTest(developer, tl);
 		else {
 			System.out.println("난이도를 잘못선택하셨습니다.");
 		}
+		
+		return result;
 	}
 
 	public boolean isDischarge(int currentHp, Developer developer) {
