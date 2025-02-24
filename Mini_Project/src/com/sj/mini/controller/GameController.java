@@ -13,6 +13,7 @@ import com.sj.mini.model.vo.FullStackDeveloper;
 import com.sj.mini.model.vo.Skill;
 
 public class GameController {
+	QuestionController qc = new QuestionController();
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	public GameController() {}
@@ -82,7 +83,12 @@ public class GameController {
 	}
 	
 	public void participateTest(Developer developer, TestLevel tl) throws MyException {
-		
+		if(tl == TestLevel.BASIC) qc.openBasicTest(developer, tl);
+		else if(tl == TestLevel.MIDDLE) qc.openMiddleTest(developer, tl);
+		else if(tl == TestLevel.HARD) qc.openHardTest(developer, tl);
+		else {
+			System.out.println("난이도를 잘못선택하셨습니다.");
+		}
 	}
 
 	public boolean isDischarge(int currentHp, Developer developer) {

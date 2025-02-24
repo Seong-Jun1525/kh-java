@@ -3,13 +3,15 @@ package com.sj.mini.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sj.mini.model.dao.TestFileDAO;
 import com.sj.mini.model.vo.Developer;
 import com.sj.mini.model.vo.Developer.TestLevel;
 import com.sj.mini.model.vo.Question;
 
 public class QuestionController {
+	private TestFileDAO fileDAO = new TestFileDAO();
 	
-	List<Question> qList = new ArrayList<>();
+	private List<Question> qList = new ArrayList<>();
 
 	public QuestionController() {}
 	
@@ -28,21 +30,24 @@ public class QuestionController {
 	// 초급 테스트
 	public void openBasicTest(Developer delveoper, TestLevel tl) {
 		if(tl == TestLevel.BASIC) {
-			
+			System.out.println("초급 시험");
+			if(fileDAO.checkBaiscFolder(tl)) {
+				
+			}
 		} else System.out.println("난이도가 일치하지 않습니다.");
 	}
 	
 	// 중급 테스트
 	public void openMiddleTest(Developer delveoper, TestLevel tl) {
 		if(tl == TestLevel.MIDDLE) {
-			
+			System.out.println("중급 시험");
 		} else System.out.println("난이도가 일치하지 않습니다.");
 	}
 	
 	// 상급 테스트
 	public void openHardTest(Developer delveoper, TestLevel tl) {
 		if(tl == TestLevel.HARD) {
-			
+			System.out.println("상급 시험");
 		} else System.out.println("난이도가 일치하지 않습니다.");
 	}
 }
