@@ -108,7 +108,7 @@
    		}
    		
    		public boolean checkForSale() {
-   			return this.price < 1 ? false : true;
+   			return stock < 1 ? false : true;
    			// return !(stock < 1);
    		}
    		
