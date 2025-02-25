@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class ServerReceiver implements Runnable {
-
+public class ClientReceiver extends Thread {
 	private Socket socket;
 	
-	public ServerReceiver(Socket socket) {
+	public ClientReceiver(Socket socket) {
 		this.socket = socket;
 	}
 	
@@ -21,13 +20,11 @@ public class ServerReceiver implements Runnable {
 			while(true) {
 				String message = br.readLine();
 				
-				System.out.println("클라이언트로부터 온 메시지 : " + message);
+				System.out.println("서버로부터 온 메시지 : " + message);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
 	}
-
 }
