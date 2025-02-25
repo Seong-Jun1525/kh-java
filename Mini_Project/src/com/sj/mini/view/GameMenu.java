@@ -23,7 +23,7 @@ public class GameMenu {
 		Developer developer = null;
 		int n = 0;
 		while(turn < 10) {
-			System.out.println("====== 개발자 키우기 ======");
+			System.out.println("=".repeat(8) + " 개발자 키우기 " + "=".repeat(8));
 			if(developer == null) {
 				System.out.println("1. 프론트엔드 개발자 생성");
 				System.out.println("2. 백엔드 개발자 생성");
@@ -33,7 +33,7 @@ public class GameMenu {
 				System.out.println("4. 게임 메뉴로 가기");
 			}
 			System.out.println("9. 종료하기");
-			System.out.println("===========================");
+			System.out.println("=".repeat(31));
 			System.out.print("=> 입력 : ");
 			try {
 				n = Integer.parseInt(br.readLine());
@@ -75,14 +75,15 @@ public class GameMenu {
 				System.out.println("개발자 레벨이 최대 레벨에 도달했습니다.\n축하합니다!!!");
 				break;
 			}
-			
-			System.out.println("\n======== 게임 메뉴 ========");
+
+			System.out.println();
+			System.out.println("=".repeat(10) + " 게임 메뉴 " + "=".repeat(10));
 			System.out.println("1. 공부하기");
 			System.out.println("2. 시험보기");
 			System.out.println("3. 휴식하기");
 			System.out.println("4. 스킬관리");
 			System.out.println("9. 뒤로가기");
-			System.out.println("===========================");
+			System.out.println("=".repeat(31));
 			System.out.print("=> 입력 : ");
 			
 			try {
@@ -123,15 +124,16 @@ public class GameMenu {
 		System.out.println("메인 메뉴로 돌아갑니다.\n");
 	}
 
+	// 스킬 관리
 	private void skillManage(Developer developer) {
-		// 스킬 관리
 		int n = 0;
 		do {
-			System.out.println("\n========= 스킬 관리 ==========");
+			System.out.println();
+			System.out.println("=".repeat(10) + " 스킬 관리 " + "=".repeat(10));
 			System.out.println("1. 스킬추가");
 			System.out.println("2. 스킬삭제");
 			System.out.println("9. 뒤로가기");
-			System.out.println("===========================");
+			System.out.println("=".repeat(31));
 			System.out.print("=> 입력 : ");
 			try {
 				n = Integer.parseInt(br.readLine());
@@ -155,7 +157,8 @@ public class GameMenu {
 	// 스킬 추가
 	private void addSkillMenu(Developer developer) {
 		boolean flag = false;
-		System.out.println("\n========= 스킬 추가 ==========");
+		System.out.println();
+		System.out.println("=".repeat(10) + " 스킬 추가 " + "=".repeat(10));
 		if(developer.getJob().equals(Developer.MAIN_JOB[0])) {
 			System.out.println("1. Java");
 			System.out.println("2. JavaScript");
@@ -166,7 +169,7 @@ public class GameMenu {
 			System.out.println("1. HTML&CSS");
 			System.out.println("2. Java");
 		}
-		System.out.println("===========================");
+		System.out.println("=".repeat(31));
 		System.out.print("=> 기술명 입력 : ");
 		try {
 			String skillName = br.readLine();
@@ -178,7 +181,7 @@ public class GameMenu {
 			}
 			
 			if(!flag) {
-				System.out.println("기술명을 잘못입력했습니다.");
+				System.out.println("기술을 추가하지 못했습니다.");
 			} else if(developer.isMySkill(skillName)) {
 				System.out.println("이미 존재하는 기술입니다.");
 			} else {
@@ -195,7 +198,8 @@ public class GameMenu {
 	public void removeSkillMenu(Developer developer) {
 		String answer = null;
 		while (true) {
-			System.out.println("\n======== 스킬 관리 ========");
+			System.out.println();
+			System.out.println("=".repeat(10) + " 스킬 삭제 " + "=".repeat(10));
 			System.out.println("제거할 스킬 번호를 입력하세요");
 			StringTokenizer stk = new StringTokenizer(developer.mySkillList());
 			int len = stk.countTokens();
@@ -203,7 +207,7 @@ public class GameMenu {
 				System.out.println(stk.nextToken());
 			}
 			System.out.println("뒤로가시려면 \"exit\"를 입력하세요");
-			System.out.println("===========================");
+			System.out.println("=".repeat(32));
 			System.out.print("=> 입력 : ");
 			try {
 				answer = br.readLine();
@@ -228,12 +232,12 @@ public class GameMenu {
 			
 			chargeFlag = gc.isDischarge(currentHp, developer);
 			if(chargeFlag) break;
-			
-			System.out.println("\n======== 공부 하기 ========");
+			System.out.println();
+			System.out.println("=".repeat(10) + " 공부 하기 " + "=".repeat(10));
 			System.out.println("공부할 기술을 입력하세요");
 			System.out.println(developer.mySkillList());
 			System.out.println("뒤로가시려면 \"exit\"를 입력하세요");
-			System.out.println("===========================");
+			System.out.println("=".repeat(31));
 			System.out.print("=> 입력 : ");
 			
 			try {
@@ -252,7 +256,7 @@ public class GameMenu {
 		// 대회참여 메뉴
 		int n = 0;
 		int currentHp = developer.getHp();
-		do {
+		while(true) {
 			// 체력 방전 기능
 			if(chargeFlag) {
 				System.out.println("휴식을 해야합니다!");
@@ -261,19 +265,23 @@ public class GameMenu {
 			
 			chargeFlag = gc.isDischarge(currentHp, developer);
 			if(chargeFlag) break;
-			
-			System.out.println("\n========= 시험보기 ==========");
+
+			System.out.println();
+			System.out.println("=".repeat(10) + " 시험 보기 " + "=".repeat(10));
 			System.out.println("1. 초급");
 			System.out.println("2. 중급");
 			System.out.println("3. 고급");
 			System.out.println("9. 뒤로가기");
-			System.out.println("===========================");
+			System.out.println("=".repeat(31));
 			System.out.print("=> 입력 : ");
 			try {
 				n = Integer.parseInt(br.readLine());
+				if(n == 9) {
+					System.out.println("게임 메뉴로 돌아갑니다.\n");
+					break;
+				}
 				TestLevel tl = developer.participate(developer, n);
 				int result = gc.participateTest(developer.getJob(), tl);
-//				System.out.println("result : " + result);
 				
 				if(tl == TestLevel.BASIC) {
 					developer.gainExp((int)(result + result * 0.3));
@@ -294,8 +302,7 @@ public class GameMenu {
 			}catch (MyException e) {
 				e.getMessage();
 			}
-		} while(n != 9);
-		System.out.println("게임 메뉴로 돌아갑니다.\n");
+		}
 	}
 
 

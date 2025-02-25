@@ -28,9 +28,7 @@ public class GameController {
 			e.printStackTrace();
 		}
 
-		if(!(1 <= n && n <= 3)) {
-			throw new MyException("메뉴에 없는 번호입니다.!");
-		}
+		if(!(1 <= n && n <= 3)) throw new MyException("메뉴에 없는 번호입니다!");
 		
 		switch(n) {
 			case 1:
@@ -46,9 +44,10 @@ public class GameController {
 
 	// 나의 정보 보기
 	public void myInfo(Developer developer) {
-		System.out.println("\n======= 개발자 정보 =======");
+		System.out.println();
+		System.out.println("=".repeat(9) + " 개발자 정보 " + "=".repeat(9));
 		System.out.println(developer.showStatus());
-		System.out.println("===========================");
+		System.out.println("=".repeat(31));
 	}
 
 	// 공부하기
@@ -59,16 +58,6 @@ public class GameController {
 			developer.study(mySkill);
 			System.out.println(developer.getMySkill(name).toString());
 		} else System.out.println("잘못 입력했습니다.");
-//		else {
-//			System.out.println("=== 해당 기술이 존재하지 않습니다. ===");
-//			System.out.print("기술을 추가하시겠습니까? (y / n) : ");
-//			char answer = br.readLine().charAt(0);
-//			
-//			if(answer == 'y' || answer == 'Y') {
-//				developer.addSkill(name);
-//				System.out.println("기술을 추가했습니다!");
-//			}
-//		}
 	}
 	
 	// 스킬 추가

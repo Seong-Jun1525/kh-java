@@ -47,7 +47,7 @@ public class TestFileDAO {
 		int answer = 0; // 정답
 		
 		String data = null;
-		File f = new File(tl == TestLevel.BASIC ? (tl == TestLevel.MIDDLE ? middleFilePath : baiscFilePath) : hardFilePath, file);
+		File f = new File(tl == TestLevel.BASIC ? baiscFilePath : (tl == TestLevel.MIDDLE ? middleFilePath : hardFilePath), file);
 		
 		try(BufferedReader br = new BufferedReader(new FileReader(f))) {
 			while((data = br.readLine()) != null) {

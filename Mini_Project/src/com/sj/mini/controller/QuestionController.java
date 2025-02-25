@@ -28,6 +28,9 @@ public class QuestionController {
 	 */
 
 	// 테스트
+	/**
+	 * TODO 현재 개발자 캐릭터의 정보들과 테스트 레벨을 넘겨받아서 테스트볼 과목을 선택 후 테스트 진행으로 변경하기
+	 */
 	public int openTest(String job, TestLevel tl) {
 		int score = levelTest(job, tl) * 10;
 		
