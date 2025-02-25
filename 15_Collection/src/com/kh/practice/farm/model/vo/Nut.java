@@ -8,7 +8,7 @@ public class Nut extends Farm {
 	public Nut() {}
 
 	public Nut(String kind, String name) {
-		super(kind);
+		super(kind); // 부모 클래스의 매개변수있는 생성자를 호출하여 값 전달하여 생성
 		this.name = name;
 	}
 

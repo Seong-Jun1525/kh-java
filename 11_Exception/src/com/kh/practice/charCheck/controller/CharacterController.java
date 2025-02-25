@@ -19,6 +19,7 @@ public class CharacterController {
 //					count++;
 //				}
 //			}
+			// 전부 소문자로 변환 후 체크하면 조건이 하나 줄어드므로 효율적이다
 			s = s.toLowerCase();
 			
 			for(int i = 0; i < s.length(); i++) {

@@ -73,9 +73,8 @@ public class TCPServer {
 				if(pw != null) pw.close();
 				if(br != null) br.close();
 				
-				if(server != null ) {
-					server.close();
-				}
+				if(server != null ) server.close();
+				sc.close();
 			} catch(Exception e) {
 				e.printStackTrace();
 			}

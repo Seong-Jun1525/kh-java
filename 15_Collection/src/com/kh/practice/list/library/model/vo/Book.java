@@ -73,9 +73,10 @@ public class Book implements Comparable<Book> {
 				&& Objects.equals(title, other.title);
 	}
 	
+	// Comparable 인터페이스의 compareTo 메서드 오버라이딩하여 정렬 구현
 	@Override
 	public int compareTo(Book o) {
-		// TODO Auto-generated method stub
+		// 정렬의 기준이 되는 멤버변수를 사용
 		return this.title.compareTo(o.getTitle());
 	}
 

@@ -54,8 +54,8 @@ public class API2_StringTokenizer {
 		String[] strArr3 = new String[3];
 		int idx = 0;
 		
-		while(stk.hasMoreTokens()) {
-			strArr3[idx] = stk.nextToken();
+		while(stk.hasMoreTokens()) { // hasMoreTokens() 메서드는 다음 토큰이 있는지에 대한 여부를 논리값으로 반환한다
+			strArr3[idx] = stk.nextToken(); // nextToken 다음 토큰을 가지고 온다
 			System.out.println(strArr3[idx++]);
 		}
 		

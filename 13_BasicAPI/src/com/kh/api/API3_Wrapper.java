@@ -25,8 +25,8 @@ public class API3_Wrapper {
 		System.out.println(i1.compareTo(i2)); // 두 값을 비교하여 앞의 값이 크면 1 뒤의 값이 크면 -1 같으면 0
 
 		// [2] 객체 생성 구문 없이 사용
-		Integer i3 = n1; // 오토박싱
-		Integer i4 = n2; // 오토박싱
+		Integer i3 = n1; // 오토박싱 => 자동 객체화
+		Integer i4 = n2; // 오토박싱 => 자동 객체화
 		System.out.println(i3.equals(i4));
 		System.out.println(i4.equals(n2));		// true
 		
@@ -42,8 +42,8 @@ public class API3_Wrapper {
 		int n4 = i6.intValue();
 		
 		// [2] 메서드 사용하지 않고 바로 대입
-		int n5 = i5; // 오토언박싱
-		int n6 = i6; // 오토언박싱
+		int n5 = i5; // 오토언박싱 => 자동 객체화 해제
+		int n6 = i6; // 오토언박싱 => 자동 객체화 해제
 		
 		// String ---> 기본 자료형
 		String str1 = "10";

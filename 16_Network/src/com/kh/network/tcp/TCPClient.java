@@ -13,7 +13,6 @@ public class TCPClient {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		// 192.168.10.24
 		Socket socket = null;
 		BufferedReader br = null;
 		PrintWriter pw = null;
@@ -21,8 +20,7 @@ public class TCPClient {
 		// 서버로 요청할 때 필요한 정보
 		// => 서버 ip주소와 포트번호
 		
-//		String serverIP = myIpAddress();
-		String serverIP = "192.168.10.91";
+		String serverIP = myIpAddress();
 		int port = 3000;
 		
 		try {
@@ -58,6 +56,7 @@ public class TCPClient {
 				if(pw != null) pw.close();
 				if(br != null) br.close();
 				if(socket != null) socket.close();
+				sc.close();
 			} catch(IOException e) {
 				e.printStackTrace();
 			}

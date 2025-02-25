@@ -3,9 +3,6 @@ package com.kh.practice.book.model.dao;
 import java.io.Serializable;
 
 public class Book implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String title;
 	private String author;
@@ -13,10 +10,8 @@ public class Book implements Serializable {
 	private String date;
 	private double discount;
 
-	public Book() {
-		// TODO Auto-generated constructor stub
-	}
-	
+	public Book() {}
+
 	public Book(String title, String author, int price, String date, double discount) {
 		this.title = title;
 		this.author = author;
@@ -67,9 +62,9 @@ public class Book implements Serializable {
 
 	@Override
 	public String toString() {
-		String r = String.format("%s" + "\t" + "%s" + "\t" + "%d" + "\t" + "%s" + "\t" + "%.1f", title, author, price, date, discount);
+		String r = String.format("%s" + "\t" + "%s" + "\t" + "%d" + "\t" + "%s" + "\t" + "%.1f", title, author, price,
+				date, discount);
 		return r;
 	}
 
-	
 }

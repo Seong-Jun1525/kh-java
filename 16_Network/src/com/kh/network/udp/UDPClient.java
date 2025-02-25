@@ -43,6 +43,7 @@ public class UDPClient {
 			e.printStackTrace();
 		}
 		
+		sc.close();
 	}
 
 	

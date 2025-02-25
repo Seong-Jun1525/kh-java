@@ -67,7 +67,7 @@ public class SetRun {
 		// 반복자 Iterator
 		Iterator<Student> it = hSet2.iterator();
 		
-		while(it.hasNext()) { // 데이터 유/무 확인
+		while(it.hasNext()) { // 데이터 유/무 확인 => it의 다음 값이 존재 하는지 안하는지 체크!
 			Student s = it.next();
 			
 			System.out.println(s.getName());
@@ -75,7 +75,7 @@ public class SetRun {
 		
 		// 인덱스로 접근해서 처리해야할 경우 구조 변환 후에 복사하여 사용!
 		ArrayList<Student> list = new ArrayList<>();
-		list.addAll(hSet2);
+		list.addAll(hSet2); // 매개변수로 전달받은 컬렉션 값들을 전부 복사할 때 사용하는 메서드 addAll()
 	}
 
 }

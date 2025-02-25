@@ -1,16 +1,12 @@
 package com.kh.set;
 
-import java.util.Objects;
-
 public class Student {
 
 	private String name;
 	private int age;
 	private int score;
 	
-	public Student() {
-		// TODO Auto-generated constructor stub
-	}
+	public Student() {}
 
 	public Student(String name, int age, int score) {
 		this.name = name;

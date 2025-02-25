@@ -2,7 +2,7 @@ package com.kh.generic.ex1;
 
 // 제네릭 적용 전!
 public class Box {
-	private Object ob;
+	private Object ob; // 최상위 객체인 Object를 참조자료형으로 선언하여 모든 객체를 다 받을 수 있다.
 	
 	public Box() {}
 

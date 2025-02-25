@@ -20,7 +20,7 @@ public class FarmController {
 		
 		Iterator<Farm> ir = key.iterator();
 		while(ir.hasNext()) {
-			if(ir.next().equals(f)) {
+			if(ir.next().equals(f)) { // 참조형은 주소값을 저장하고 있으므로 equals를 통해 비교해야함
 				return false;
 			}
 		}
@@ -29,6 +29,7 @@ public class FarmController {
 		
 		return true;
 	}
+	
 	public boolean removeKind(Farm f){
 		// 전달 받은 f가 hMap 안에 key로 존재할 때 hMap에 f 삭제 후 true 반환
 		// 존재하지 않을 경우 false 반환
@@ -44,6 +45,7 @@ public class FarmController {
 		
 		return false;
 	}
+	
 	public boolean changeAmount(Farm f, int amount){
 		// 전달 받은 f가 hMap 안에 key로 존재할 때 f와 amount 저장 후 true 반환
 		// 존재하지 않을 경우 false 반환
@@ -60,10 +62,12 @@ public class FarmController {
 		
 		return false;
 	}
+	
 	public HashMap<Farm, Integer> printFarm() {
 		// 농산물 데이터가 들어가있는 컬렉션 반환
 		return hMap;
 	}
+	
 	public boolean buyFarm(Farm f){
 		// 전달 받은 f가 hMap 안에 존재하면서 그 f의 수량이 0개 이상일 때
 		// list에 f 추가, 그리고 hMap에 f의 수량 1 감소 후 true 반환
@@ -83,6 +87,7 @@ public class FarmController {
 		
 		return false;
 	}
+	
 	public boolean removeFarm(Farm f){
 		// 전달 받은 f가 list에 존재할 때 list에 f 삭제, 그리고 hMap에 f 수량 1 증가
 		// 위 경우일 때 true 반환, 아니면 false 반환
@@ -98,6 +103,7 @@ public class FarmController {
 		
 		return false;
 	}
+	
 	public ArrayList<Farm> printBuyFarm(){
 		// 농산물 구매 데이터가 들어가있는 컬렉션 반환
 		return list;

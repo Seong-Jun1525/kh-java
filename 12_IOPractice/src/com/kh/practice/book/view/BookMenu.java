@@ -10,15 +10,15 @@ public class BookMenu {
 	Scanner sc = new Scanner(System.in);
 	BookController bc = new BookController();
 	Book[] bArr;
-	
+
 	public BookMenu() {
 		// 파일이 없을 때 만들어주기 위해 BookController(bc)에 makeFile() 호출
 		// 필드에 있는 bArr에 bc의 fileRead() 반환 값 대입
 		bc.makeFile();
 		bArr = bc.fileRead();
 	}
-	
-	public void mainMenu(){
+
+	public void mainMenu() {
 		// 1. 도서 추가 저장 ➔ fileSave()
 		// 2. 저장 도서 출력 ➔ fileRead()
 		// 9. 프로그램 끝내기 ➔ “프로그램 종료” 출력 후 종료
@@ -32,23 +32,24 @@ public class BookMenu {
 			System.out.print("메뉴 번호 : ");
 			n = sc.nextInt();
 			sc.nextLine();
-			
-			switch(n) {
-				case 1:
-					fileSave();
-					break;
-				case 2:
-					fileRead();
-					break;
-				case 9:
-					break;
-				default:
-					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+
+			switch (n) {
+			case 1:
+				fileSave();
+				break;
+			case 2:
+				fileRead();
+				break;
+			case 9:
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 			}
-			
-		} while(n != 9);
+
+		} while (n != 9);
 		System.out.println("프로그램 종료");
 	}
+
 	public void fileSave() {
 		// 도서 명 :
 		// 저자 명 :
@@ -69,21 +70,23 @@ public class BookMenu {
 		System.out.print("할인율 : ");
 		double discount = sc.nextDouble();
 		sc.nextLine();
-		for(int i = 0; i < bArr.length; i++) {
-			if(bArr[i] == null) {
+		for (int i = 0; i < bArr.length; i++) {
+			if (bArr[i] == null) {
 				bArr[i] = new Book(title, author, price, date, discount);
 				break;
 			}
 		}
 		bc.fileSave(bArr);
 	}
-	public void fileRead(){
+
+	public void fileRead() {
 		// bc에 fileRead()의 반환 값을 가지고 저장된 데이터 출력
 		Book[] bookArr = bc.fileRead();
-		
-		for(int i = 0; i < bookArr.length; i++) {
+
+		for (int i = 0; i < bookArr.length; i++) {
 			System.out.println(bookArr[i]);
-			if(bookArr[i + 1] == null) break;
+			if (bookArr[i + 1] == null)
+				break;
 		}
 	}
 }

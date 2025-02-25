@@ -21,7 +21,7 @@ public class IO01_File {
 		File f1 = new File("sample//myDiary.txt");
 		
 		if(!f1_folder.exists()) {
-			f1_folder.mkdir();
+			f1_folder.mkdir(); // 폴더 생성
 		}
 
 		try {
@@ -44,10 +44,10 @@ public class IO01_File {
 
 	private static void fileTest1() {
 		// File 객체 생성 => new File("파일명");
+		// => 파일 객체 생성. 실제 파일은 생성되지 않음.
 		
 		// [1] 파일명만 전달하여 생성
 		File f1 = new File("test1.txt");
-		// => 파일 객체 생성. 실제 파일은 생성되지 않음.
 		
 		// [2] 실제로 존재하는 폴더 경로+파일명 전달하여 생성
 		File f2 = new File("D:\\test2.txt");
@@ -65,7 +65,7 @@ public class IO01_File {
 		try {
 			f1.createNewFile();
 			f2.createNewFile();
-			f3_folder.mkdir();
+			f3_folder.mkdir(); // 폴더 생성
 			f3.createNewFile();
 			
 			// 파일이 존재하는지 확인하는 메섣 : exists()

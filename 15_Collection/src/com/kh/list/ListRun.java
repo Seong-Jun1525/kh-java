@@ -33,6 +33,7 @@ public class ListRun {
 //		iList.add(123);
 //		iList.add(123);
 //		System.out.println(iList);
+
 		List list = new LinkedList(); // 제네릭 기호는 필수가 아니지만 경고가 뜬다..
 		list.add("샘플데이터1");
 		list.add(123);

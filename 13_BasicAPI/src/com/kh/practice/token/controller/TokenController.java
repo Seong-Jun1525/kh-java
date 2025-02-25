@@ -40,7 +40,7 @@ public class TokenController {
 	public int findChar(String input, char one){
 		// 매개변수의 문자가 문자열 안에 몇 개가 들어가 있는지 반환
 		if(input.length() == 0 || input.indexOf(one) == -1) return 0;
-		char[] cArr = input.toCharArray();
+		char[] cArr = input.toCharArray(); // toCharArray() 메서드를 활용하여 반복문을 사용하지 않고 바로 char[] 만들기
 		int count = 0;
 		
 //		for(int i = 0; i < cArr.length; i++) {

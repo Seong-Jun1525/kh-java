@@ -1,6 +1,5 @@
 package com.kh.generic.ex3;
 
-// 제네릭 적용 전!
 /**
  * 타입 제한하기
  * <T extends 클래스 또는 인터페이스>

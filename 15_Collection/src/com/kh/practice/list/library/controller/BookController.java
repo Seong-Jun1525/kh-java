@@ -20,6 +20,7 @@ public class BookController {
 	List<Book> bookList = new ArrayList<>();
 
 	public BookController() {
+		// 기본생성자를 활용하여 bookList를 초기화 
 		bookList.add(new Book("자바의 정석", "남궁 성", "기타", 20000));
 		bookList.add(new Book("쉽게 배우는 알고리즘", "문병로", "기타", 15000));
 		bookList.add(new Book("대화의 기술", "강보람", "인문", 17500));
@@ -31,7 +32,9 @@ public class BookController {
 	}
 
 	public ArrayList<Book> selectList() {
-		ArrayList<Book> selectList = (ArrayList<Book>) bookList;
+//		ArrayList<Book> selectList = (ArrayList<Book>) bookList; List타입의 bookList를 다운캐스팅하여 대입
+		ArrayList<Book> selectList = new ArrayList<Book>();
+		selectList.addAll(bookList); // ArrayList 타입의 addAll() 메서드를 사용하여 전체복사
 		return selectList;
 	}
 

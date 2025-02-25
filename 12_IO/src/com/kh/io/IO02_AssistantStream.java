@@ -63,7 +63,7 @@ public class IO02_AssistantStream {
 		// FileOutputStream : 기반스트림. 1바이트 단위로 파일에 출력하는 스트림.
 		// ObjectOutputStream : 보조스트림. 객체 단위로 출력을 도와주는 스트림.
 		
-		// Serializable을 꼭 상속을 하고 있어야지 ObjectOutputStream이 가능하다.
+		// Serializable을 꼭 상속을 하고 있어야지 ObjectOutputStream이 가능하다. => 직렬화 때문!
 		try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("myProducts.txt"))) {
 			oos.writeObject(p1);
 			oos.writeObject(p2);
