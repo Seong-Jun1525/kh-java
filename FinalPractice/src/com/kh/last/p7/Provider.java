@@ -1,7 +1,5 @@
 package com.kh.last.p7;
 
-import com.kh.last.p6.Data;
-
 public class Provider extends Thread {
 	private Data data;
 

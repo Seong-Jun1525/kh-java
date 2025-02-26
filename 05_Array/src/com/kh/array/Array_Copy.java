@@ -3,7 +3,7 @@ package com.kh.array;
 public class Array_Copy {
 
 	public static void main(String[] args) {
-		lightCopy();
+//		lightCopy();
 		deepCopy();
 	}
 
@@ -18,7 +18,7 @@ public class Array_Copy {
 		
 		int[] copy = origin; // 얕은복사 : 주소값 복사
 
-		System.out.println("===복사본 배열 출력");
+		System.out.println("===복사본 배열 출력===");
 		for(int c : copy) System.out.print(c + " ");
 		System.out.println();
 		
@@ -29,8 +29,10 @@ public class Array_Copy {
 		
 		System.out.println();
 		
-		System.out.println("===복사본 배열 출력");
+		System.out.println("===복사본 배열 출력===");
 		for(int c : copy) System.out.print(c + " ");
+
+		System.out.println();
 	}
 
 	// 깊은 복사 : 새로운 배열을 할당하여 값을 복사
@@ -60,12 +62,12 @@ public class Array_Copy {
 		
 		System.out.println();
 
-		System.out.println("===복사본 배열 출력");
+		System.out.println("===복사본 배열 출력===");
 		for(int c : copy) System.out.print(c + " ");
 
 		System.out.println();
 		
-		System.out.println("===복사본 배열2 출력");
+		System.out.println("===복사본 배열2 출력===");
 		for(int c : copy2) System.out.print(c + " ");
 
 		System.out.println("\n=======================================");
@@ -78,7 +80,7 @@ public class Array_Copy {
 		
 		System.out.println();
 		
-		System.out.println("===복사본 배열 출력");
+		System.out.println("===복사본 배열 출력===");
 		for(int c : copy) System.out.print(c + " ");
 	}
 }

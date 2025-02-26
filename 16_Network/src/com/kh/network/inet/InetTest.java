@@ -31,7 +31,6 @@ public class InetTest {
 				System.out.println("=".repeat(10));
 			}
 			System.out.println("=".repeat(10));
-			System.out.println("=".repeat(10));
 			
 			// github
 			InetAddress[] github = InetAddress.getAllByName("github.com");

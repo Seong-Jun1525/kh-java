@@ -1,6 +1,4 @@
-package com.kh.last.p6;
-
-import com.kh.last.p7.EmptyException;
+package com.kh.last.p7;
 
 public class Data {
 	int value;

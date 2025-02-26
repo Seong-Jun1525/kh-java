@@ -1,7 +1,5 @@
 package com.kh.last.p7;
 
-import com.kh.last.p6.Data;
-
 public class MultiThreadTest {
 
 	public static void main(String[] args) {
