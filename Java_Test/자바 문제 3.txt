@@ -1,0 +1,58 @@
+원인1
+서버의 포트번호는 8500인데 Client 클래스에서 port를 9090으로 설정하였으므로 연결에 문제가 있다.
+
+원인2
+실행흐름 및 조건 중 5번에 문제가 있다. Client 클래스 코드에서 서버에 보낼 메세지를 입력받아 message 변수에 저장하고 있는데 이것을 전송하는 부분이 없이 flush()를 해주고 있다.
+그러므로 이 부분을 수정해줘야 한다.
+
+원인3
+실행흐름 및 조건 중 7번에 문제가 있다. 서버의 코드는 잘작성되었다는 가정이니 문제가 없지만 Client 클래스 에는 문제가 있다.
+바로 IO스트림, 소켓을 닫는 코드가 없다. 그러므로 이 부분을 추가해야한다.
+
+해결방안
+...
+int port = 8500;
+...
+실행흐름 및 조건 중 1번에서 서버의 포트 번호는 8500이라고 하였으므로 포트번호를 수정한다.
+포트번호는 일치해야한다.
+
+해결방안 
+...
+String message = sc.nextLine();
+pw.write(message + "");
+pw.flush();
+...
+PrintWriter의 write 메서드를 통해 서버에 전송한다.
+
+해결방안
+public class Client {
+	public static void main(String[] args) {
+		BufferedReader br = null;
+		PrintWriter pw = null;
+		Socket socket = null;
+		Scanner sc = new Scanner(System.in);
+		try {
+			int port = 8500;
+			String serverIP = InetAddress.getLocalHost().getLocalHostAddress();
+			socket = new Socket(serverIP, port);
+			if(socket != null) {
+				br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				pw = new PrintWriter(socket.getOutputStream());
+				System.out.println(br.readLine());
+				System.out.print("서버에 보낼 메세지 : ");
+				String message = sc.nextLine();
+				pw.write(message + "");
+				pw.flush();
+			}
+		} catch(UnknownHostException e) {
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(br != null) br.close();
+			if(pw != null) pw.close();
+			if(socket != null) socket = null;
+			sc.close();
+		}
+	}
+}

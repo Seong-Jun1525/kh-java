@@ -1,0 +1,57 @@
+원인1
+ 모든 클래스의 최상위 클래스인 Object 클래스의 toString() 메서드를 재정의 하고 있지만 코드를 보면 super.toString()으로 작성되어 있다. 이것은 Object의 toString을 반환하는 것이랑 같은데 이 부분을 수정해야지 의도한 출력결과를 얻을 수 있다.
+
+
+
+원인2
+
+Test 클래스의 8행을 보면 ArrayList<Student> list = null; 로되어 있다. ArrayList구조이고 제네릭은 Student로 설정한 변수는 선언했지만 여기에 null을 할당하고 있으므로 아직 ArrayList구조로 생성한 것이 아니므로 생성자를 호출하여 생성해야한다.
+
+
+
+원인3
+
+list.add() 명령을 수행할 때 new 생성자를 통해 Student객체를 생성하고 매개변수로 값을 전달하고 있다. 하지만 Student 클래스에는 기본 생성자만 존재할 뿐 매개변수가 있는 생성자는 존재하지 않으므로 이부분도 오류가 발생한다. 그렇기 때문에 Student 클래스 내에 매개변수가 있는 생성자를 만들어줘야 한다.
+
+
+
+원인 4
+
+Test 클래스에서 for문으로 리스트를 순환하고 있는데 for문의 조건식에 문제가 있다. 컬렉션 구조의 길이를 반환하는 메서드는 length()가 아니라 size()이다. 그러므로 바꿔줘야한다.​
+
+원인1에 대한 해결방안
+...
+@Override
+public String toString() {
+	String result = String.format("%s 학생의 점수 : %d점", this.name, this.score);
+	return result;
+}
+...
+몇 가지 방법이 있지만 그 중 String.format() 을 사용하여 해결할 수 있다. Object의 toString을 반환하는 것이 아닌 의도한 출력 결과에 맞게 코드를 수정해줘야한다. 오버라이딩은 부모클래스의 메서드를 물려받아 재정의 한는 것이 핵심이다.
+
+​원인2에 대한 ​해결방안
+...
+ArrayList<Student> list = new ArrayList<Student>();​
+list.add(new Student("강건강​", 84));
+...
+new 생성자; 로 ArrayList​구조를 생성해야한다. 그러므로 ArrayList<Student> list = new ArrayList<Student>();로 바꿔줘야한다.
+
+​원인3에 대한 ​해결방안
+...
+public Student​ () {}
+public Student(String name, int score) {
+	this.name = name;
+	this.score = score;
+}
+...
+Student 클래스에 매개변수가 존재하는 생성자를 만들어준다. 그리고 this 키워드를 사용하여 현재 자신의 멤버변수에 전달받은 값을 대입하여 초기화해준다.
+
+​원인4에 대한 ​해결방안
+...
+for(int i = 0; i < list.size(); i++) {
+	...
+}
+...
+
+컬렉션은 size로 컬렉션의 길이를 알 수 있으므로 size() 메서드로 변경해줘야한다. ​
+
