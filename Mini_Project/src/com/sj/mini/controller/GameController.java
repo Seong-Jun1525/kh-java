@@ -11,8 +11,10 @@ import com.sj.mini.model.vo.Developer.TestLevel;
 import com.sj.mini.model.vo.FrontendDeveloper;
 import com.sj.mini.model.vo.FullStackDeveloper;
 import com.sj.mini.model.vo.Skill;
+import com.sj.mini.service.GameService;
 
 public class GameController {
+	GameService gs = new GameService();
 	QuestionController qc = new QuestionController();
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -20,6 +22,8 @@ public class GameController {
 
 	// 개발자 생성
 	public Developer createDeveloper(int n) throws MyException {
+		Developer dev = null;
+		
 		String name = null;
 		try {
 			System.out.print("이름 : ");
@@ -30,13 +34,31 @@ public class GameController {
 
 		if(!(1 <= n && n <= 3)) throw new MyException("메뉴에 없는 번호입니다!");
 		
+//		switch(n) {
+//			case 1:
+//				return new FrontendDeveloper(name, "프론트엔드 개발자");
+//			case 2:
+//				return new BackendDeveloper(name, "백엔드 개발자");
+//			case 3:
+//				return new FullStackDeveloper(name, "풀스택 개발자");
+//		}
+		
 		switch(n) {
 			case 1:
-				return new FrontendDeveloper(name, "프론트엔드 개발자");
+				dev = new FrontendDeveloper(name, "프론트엔드 개발자");
 			case 2:
-				return new BackendDeveloper(name, "백엔드 개발자");
+				dev = new BackendDeveloper(name, "백엔드 개발자");
 			case 3:
-				return new FullStackDeveloper(name, "풀스택 개발자");
+				dev = new FullStackDeveloper(name, "풀스택 개발자");
+		}
+		
+		int result = gs.insertDeveloper(dev);
+		
+		if(result > 0) {
+			System.out.println("개발자 생성 성공!");
+			return dev;
+		} else {
+			System.out.println("개발자 생성 실패!");
 		}
 		
 		return null;

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+import com.sj.mini.common.JDBCTemplate;
 import com.sj.mini.controller.GameController;
 import com.sj.mini.exception.MyException;
 import com.sj.mini.model.vo.Developer;
@@ -16,7 +17,9 @@ public class GameMenu {
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	private boolean chargeFlag = false; // true가 되면 체력이 방전된 상태 휴식해야함
 	
-	public GameMenu() {}
+	public GameMenu() {
+		JDBCTemplate.jdbcSettings();
+	}
 	
 	// 메인 메뉴
 	public void mainMenu() {
